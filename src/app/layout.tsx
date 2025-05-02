@@ -3,13 +3,15 @@ import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { metadataConfig } from "@/data/website/metadata";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const { title, description } = metadataConfig;
+
 export const metadata: Metadata = {
-	title: "Culinary Jobs - Find Your Next Culinary Position",
-	description:
-		"Browse and apply for culinary and hospitality jobs. Find your dream job in the food industry.",
+	title,
+	description,
 };
 
 export default function RootLayout({
