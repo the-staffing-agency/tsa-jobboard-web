@@ -1,16 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import JobSearch from '@/components/JobSearch';
 import JobFilters from '@/components/JobFilters';
 import JobCard from '@/components/JobCard';
 import SortMenu, { SortOption } from '@/components/SortMenu';
 import { jobs } from '@/data/jobs';
-import { ChefHat } from 'lucide-react';
+import { ChefHat, Loader2 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 type JobType = 'full-time' | 'part-time' | 'contract' | 'internship' | 'remote';
-type Education = 'high-school' | 'bachelors' | 'masters' | 'phd' | 'none';
 
 export default function SearchPage() {
   const [filteredJobs, setFilteredJobs] = useState(jobs);
@@ -18,8 +18,13 @@ export default function SearchPage() {
   const [searchLocation, setSearchLocation] = useState('');
   const [selectedJobTypes, setSelectedJobTypes] = useState<JobType[]>([]);
   const [salaryRange, setSalaryRange] = useState({ min: 0, max: 0 });
-  const [education, setEducation] = useState<Education>('none');
   const [sortBy, setSortBy] = useState<SortOption>('relevance');
+  const [currentPage, setCurrentPage] = useState(1);
+  const jobsPerPage = 6;
+  const displayedJobs = filteredJobs.slice(0, currentPage * jobsPerPage);
+  const [infiniteScrollEnabled, setInfiniteScrollEnabled] = useState(false);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
   
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -49,6 +54,7 @@ export default function SearchPage() {
   }, [searchParams]);
 
   const handleSearch = (query: string, location: string, sort = sortBy) => {
+    setCurrentPage(1);
     setSearchQuery(query);
     setSearchLocation(location);
     setSortBy(sort);
@@ -140,14 +146,25 @@ export default function SearchPage() {
     // For demo purposes, we're not implementing full salary filtering
   };
 
-  const handleEducationChange = (edu: Education) => {
-    setEducation(edu);
-    // In a real app, we would filter by education here
-  };
-
   const handleSortChange = (sortOption: SortOption) => {
     handleSearch(searchQuery, searchLocation, sortOption);
   };
+
+  // Infinite scroll: load next page when sentinel visible
+  useEffect(() => {
+    if (!infiniteScrollEnabled) return;
+    const observer = new IntersectionObserver((entries) => {
+      if (!isLoadingMore && entries[0].isIntersecting && displayedJobs.length < filteredJobs.length) {
+        setIsLoadingMore(true);
+        setTimeout(() => {
+          setCurrentPage((prev) => prev + 1);
+          setIsLoadingMore(false);
+        }, 500);
+      }
+    }, { rootMargin: '0px 0px 200px 0px' });
+    if (loadMoreRef.current) observer.observe(loadMoreRef.current);
+    return () => observer.disconnect();
+  }, [infiniteScrollEnabled, displayedJobs.length, filteredJobs.length, isLoadingMore]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -179,7 +196,7 @@ export default function SearchPage() {
             <JobFilters 
               onJobTypeChange={handleJobTypeChange}
               onSalaryChange={handleSalaryChange}
-              onEducationChange={handleEducationChange}
+              onEducationChange={() => {}}
               selectedTypes={selectedJobTypes}
             />
           </div>
@@ -194,8 +211,8 @@ export default function SearchPage() {
             </div>
             
             <div className="space-y-4">
-              {filteredJobs.length > 0 ? (
-                filteredJobs.map((job) => (
+              {displayedJobs.length > 0 ? (
+                displayedJobs.map((job) => (
                   <JobCard key={job.id} job={job} />
                 ))
               ) : (
@@ -203,7 +220,32 @@ export default function SearchPage() {
                   <p className="text-muted-foreground">No jobs found matching your criteria</p>
                 </div>
               )}
+              {/* Sentinel for infinite scroll */}
+              <div ref={loadMoreRef} />
+              {isLoadingMore && (
+                <div className="flex justify-center py-4">
+                  <Loader2 className="animate-spin h-6 w-6 text-primary" />
+                </div>
+              )}
             </div>
+            {/* See More button triggers infinite scroll mode */}
+            {!infiniteScrollEnabled && displayedJobs.length < filteredJobs.length && (
+              <div className="flex justify-center mt-6">
+                <Button
+                  onClick={() => {
+                    setInfiniteScrollEnabled(true);
+                    setIsLoadingMore(true);
+                    setTimeout(() => {
+                      setCurrentPage((prev) => prev + 1);
+                      setIsLoadingMore(false);
+                    }, 500);
+                  }}
+                  disabled={isLoadingMore}
+                >
+                  See More
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </section>

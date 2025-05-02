@@ -69,6 +69,406 @@ export const jobs: JobData[] = [
     description: "We're looking for a skilled Bartender with knowledge of classic and creative cocktails. You'll provide excellent service while creating a welcoming atmosphere for guests.",
     postedDate: "1 week ago",
     jobType: "full-time"
+  },
+  {
+    id: "7",
+    title: "Prep Cook",
+    company: "Green Bistro",
+    location: "Portland, OR",
+    salary: "$30,000 - $35,000",
+    description: "Assist chefs with food preparation, chopping, and cooking prep tasks in a high-volume kitchen.",
+    postedDate: "3 days ago",
+    jobType: "part-time"
+  },
+  {
+    id: "8",
+    title: "Dishwasher",
+    company: "Seafood Shack",
+    location: "Seattle, WA",
+    salary: "$25,000 - $28,000",
+    description: "Responsible for washing dishes, maintaining kitchen cleanliness, and assisting kitchen staff as needed.",
+    postedDate: "5 days ago",
+    jobType: "part-time"
+  },
+  {
+    id: "9",
+    title: "Food Runner",
+    company: "Downtown Diner",
+    location: "Denver, CO",
+    salary: "$27,000 - $30,000",
+    description: "Deliver dishes from kitchen to tables, communicate guest orders, and support servers.",
+    postedDate: "2 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "10",
+    title: "Host/Hostess",
+    company: "Garden Cafe",
+    location: "Boston, MA",
+    salary: "$26,000 - $29,000",
+    description: "Greet guests, manage seating, and provide excellent guest service to start the dining experience.",
+    postedDate: "1 week ago",
+    jobType: "part-time"
+  },
+  {
+    id: "11",
+    title: "Restaurant Supervisor",
+    company: "Mountain Lodge",
+    location: "Aspen, CO",
+    salary: "$50,000 - $60,000",
+    description: "Oversee daily restaurant operations, staff coordination, and ensure guest satisfaction.",
+    postedDate: "4 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "12",
+    title: "Barista",
+    company: "Java House",
+    location: "Portland, OR",
+    salary: "$28,000 - $32,000",
+    description: "Prepare coffee beverages, maintain equipment, and deliver outstanding customer service.",
+    postedDate: "6 days ago",
+    jobType: "part-time"
+  },
+  {
+    id: "13",
+    title: "Concession Worker",
+    company: "Stadium Eats",
+    location: "Dallas, TX",
+    salary: "$24,000 - $26,000",
+    description: "Operate concession stands, handle cash transactions, and maintain food safety standards.",
+    postedDate: "3 days ago",
+    jobType: "part-time"
+  },
+  {
+    id: "14",
+    title: "Event Catering Assistant",
+    company: "Elite Events",
+    location: "Las Vegas, NV",
+    salary: "$32,000 - $38,000",
+    description: "Assist catering team in event setup, service, and breakdown, ensuring smooth event operations.",
+    postedDate: "2 days ago",
+    jobType: "contract"
+  },
+  {
+    id: "15",
+    title: "Hotel Room Service Attendant",
+    company: "Luxury Suites",
+    location: "New York, NY",
+    salary: "$30,000 - $35,000",
+    description: "Deliver food and beverages to guest rooms, maintain cleanliness, and ensure prompt service.",
+    postedDate: "5 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "16",
+    title: "Kitchen Porter",
+    company: "City Center Restaurant",
+    location: "Chicago, IL",
+    salary: "$26,000 - $29,000",
+    description: "Support kitchen team with cleaning, basic prep, and inventory management.",
+    postedDate: "1 day ago",
+    jobType: "full-time"
+  },
+  {
+    id: "17",
+    title: "Sous Vide Chef",
+    company: "Gourmet Haven",
+    location: "San Diego, CA",
+    salary: "$50,000 - $60,000",
+    description: "Prepare specialized sous vide dishes under guidance of Head Chef.",
+    postedDate: "2 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "18",
+    title: "Tapas Chef",
+    company: "Spanish Flavors",
+    location: "Miami, FL",
+    salary: "$48,000 - $55,000",
+    description: "Create authentic tapas dishes for our Spanish-style restaurant.",
+    postedDate: "3 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "19",
+    title: "Grill Cook",
+    company: "BBQ Barn",
+    location: "Austin, TX",
+    salary: "$38,000 - $45,000",
+    description: "Manage grill station and prepare meats and vegetables to order.",
+    postedDate: "5 days ago",
+    jobType: "part-time"
+  },
+  {
+    id: "20",
+    title: "Fishmonger",
+    company: "Fresh Catch Market",
+    location: "Seattle, WA",
+    salary: "$40,000 - $48,000",
+    description: "Select, prepare, and fillet fresh seafood for retail and restaurant clients.",
+    postedDate: "1 week ago",
+    jobType: "full-time"
+  },
+  {
+    id: "21",
+    title: "Banquet Cook",
+    company: "Grand Events",
+    location: "New Orleans, LA",
+    salary: "$35,000 - $42,000",
+    description: "Prepare large-scale banquet and catering menus for events and weddings.",
+    postedDate: "2 days ago",
+    jobType: "contract"
+  },
+  {
+    id: "22",
+    title: "Pastry Sous Chef",
+    company: "Sweet Artistry",
+    location: "Portland, OR",
+    salary: "$48,000 - $55,000",
+    description: "Assist head pastry chef in creating desserts and baked goods.",
+    postedDate: "4 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "23",
+    title: "Wine Steward",
+    company: "Vineyard Vista",
+    location: "Napa Valley, CA",
+    salary: "$45,000 - $52,000",
+    description: "Manage wine selection, pairings, and cellar organization for guests.",
+    postedDate: "1 week ago",
+    jobType: "full-time"
+  },
+  {
+    id: "24",
+    title: "Bar Manager",
+    company: "Skyline Lounge",
+    location: "Chicago, IL",
+    salary: "$55,000 - $65,000",
+    description: "Oversee bar operations, inventory, and staff training.",
+    postedDate: "3 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "25",
+    title: "Catering Manager",
+    company: "Elite Catering Co.",
+    location: "Dallas, TX",
+    salary: "$60,000 - $70,000",
+    description: "Coordinate catering events, menus, and client communications.",
+    postedDate: "5 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "26",
+    title: "Food Safety Officer",
+    company: "HealthFirst Foods",
+    location: "Los Angeles, CA",
+    salary: "$58,000 - $65,000",
+    description: "Ensure compliance with food safety regulations and conduct inspections.",
+    postedDate: "2 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "27",
+    title: "Executive Chef",
+    company: "The Royal Banquet",
+    location: "Boston, MA",
+    salary: "$80,000 - $95,000",
+    description: "Lead kitchen operations, menu development, and staff management.",
+    postedDate: "1 day ago",
+    jobType: "full-time"
+  },
+  {
+    id: "28",
+    title: "Restaurant Host",
+    company: "Parkside Grill",
+    location: "Denver, CO",
+    salary: "$27,000 - $30,000",
+    description: "Welcome guests, manage reservations, and coordinate seating.",
+    postedDate: "3 days ago",
+    jobType: "part-time"
+  },
+  {
+    id: "29",
+    title: "Busser",
+    company: "Downtown Bistro",
+    location: "Philadelphia, PA",
+    salary: "$24,000 - $26,000",
+    description: "Clear tables, reset linens, and assist servers to maintain flow.",
+    postedDate: "4 days ago",
+    jobType: "part-time"
+  },
+  {
+    id: "30",
+    title: "Barback",
+    company: "Night Owl Bar",
+    location: "Las Vegas, NV",
+    salary: "$26,000 - $29,000 + tips",
+    description: "Support bartenders by restocking supplies and maintaining bar area.",
+    postedDate: "1 week ago",
+    jobType: "full-time"
+  },
+  {
+    id: "31",
+    title: "Prep Supervisor",
+    company: "Urban Eats",
+    location: "Houston, TX",
+    salary: "$42,000 - $48,000",
+    description: "Oversee prep cook team and ensure timely ingredient preparation.",
+    postedDate: "2 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "32",
+    title: "Executive Sous Chef",
+    company: "Oceanview Restaurant",
+    location: "San Francisco, CA",
+    salary: "$65,000 - $75,000",
+    description: "Assist executive chef in menu creation and kitchen leadership.",
+    postedDate: "3 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "33",
+    title: "Regional Chef",
+    company: "Global Flavors",
+    location: "Multiple Locations",
+    salary: "$70,000 - $85,000",
+    description: "Manage culinary operations across multiple restaurant locations.",
+    postedDate: "5 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "34",
+    title: "Frequently Cook",
+    company: "Campus Kitchen",
+    location: "Austin, TX",
+    salary: "$28,000 - $32,000",
+    description: "Prepare daily campus dining menus and supervise culinary interns.",
+    postedDate: "1 day ago",
+    jobType: "full-time"
+  },
+  {
+    id: "35",
+    title: "Quick Service Cook",
+    company: "Fast Bite",
+    location: "Orlando, FL",
+    salary: "$25,000 - $28,000",
+    description: "Prepare menu items quickly in a fast-paced environment.",
+    postedDate: "6 days ago",
+    jobType: "part-time"
+  },
+  {
+    id: "36",
+    title: "Culinary Instructor",
+    company: "Culinary Arts School",
+    location: "New York, NY",
+    salary: "$55,000 - $65,000",
+    description: "Teach cooking techniques and culinary theory in a classroom setting.",
+    postedDate: "4 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "37",
+    title: "Cafeteria Manager",
+    company: "Health U.",
+    location: "Chicago, IL",
+    salary: "$50,000 - $58,000",
+    description: "Manage daily school cafeteria operations and food service staff.",
+    postedDate: "2 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "38",
+    title: "Food Writer",
+    company: "Taste Magazine",
+    location: "Remote",
+    salary: "$45,000 - $55,000",
+    description: "Write articles and reviews on food trends and restaurant openings.",
+    postedDate: "5 days ago",
+    jobType: "contract"
+  },
+  {
+    id: "39",
+    title: "Test Kitchen Chef",
+    company: "Recipe Lab",
+    location: "Seattle, WA",
+    salary: "$60,000 - $70,000",
+    description: "Develop and test new recipes for our recipe testing facility.",
+    postedDate: "3 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "40",
+    title: "Coffee Roaster",
+    company: "Bean Roasters",
+    location: "Portland, OR",
+    salary: "$48,000 - $56,000",
+    description: "Roast coffee beans to precise profiles for retail and wholesale.",
+    postedDate: "1 week ago",
+    jobType: "full-time"
+  },
+  {
+    id: "41",
+    title: "Tea Specialist",
+    company: "Leaf & Brew",
+    location: "San Francisco, CA",
+    salary: "$42,000 - $50,000",
+    description: "Curate tea selections and educate customers on tea varieties.",
+    postedDate: "2 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "42",
+    title: "Chocolate Tempering Specialist",
+    company: "Chocolate Haven",
+    location: "Boston, MA",
+    salary: "$50,000 - $58,000",
+    description: "Temper and mold chocolate products for artisanal desserts.",
+    postedDate: "4 days ago",
+    jobType: "part-time"
+  },
+  {
+    id: "43",
+    title: "Sommelier",
+    company: "Fine Dine Restaurant",
+    location: "New York, NY",
+    salary: "$60,000 - $75,000",
+    description: "Recommend wine pairings and manage wine cellar inventory.",
+    postedDate: "3 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "44",
+    title: "Mixologist",
+    company: "Craft Cocktail Club",
+    location: "Los Angeles, CA",
+    salary: "$45,000 - $55,000",
+    description: "Create signature cocktails and manage bar inventory.",
+    postedDate: "1 day ago",
+    jobType: "full-time"
+  },
+  {
+    id: "45",
+    title: "Beer Sommelier",
+    company: "Brew Experts",
+    location: "Portland, OR",
+    salary: "$48,000 - $58,000",
+    description: "Pair craft beers and educate guests on beer styles.",
+    postedDate: "5 days ago",
+    jobType: "full-time"
+  },
+  {
+    id: "46",
+    title: "Food Stylist",
+    company: "Visual Feast",
+    location: "Los Angeles, CA",
+    salary: "$50,000 - $60,000",
+    description: "Style food for photography and media productions.",
+    postedDate: "2 days ago",
+    jobType: "contract"
   }
 ];
 
