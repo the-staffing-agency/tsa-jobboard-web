@@ -1,4 +1,8 @@
 import { Header } from "@/components/header";
+import { MenuHamburger } from "@/components/menu-hamburger";
+import { NavBar } from "@/components/nav-bar";
+import { NavToggle } from "@/components/nav-toggle";
+import { NavToggleProvider } from "@/contexts/nav-toggle-context";
 
 export default function WebLayout({
 	children,
@@ -6,9 +10,15 @@ export default function WebLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<>
-			<Header />
+		<NavToggleProvider>
+			<Header>
+				<NavBar />
+				<MenuHamburger />
+			</Header>
+
+			<NavToggle />
+
 			{children}
-		</>
+		</NavToggleProvider>
 	);
 }

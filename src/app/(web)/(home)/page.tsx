@@ -1,7 +1,17 @@
 "use client";
 
+import {
+	Hero,
+	HeroContent,
+	HeroFooter,
+	HeroSubtitle,
+	HeroTitle,
+} from "@/components/blocks/hero";
+import { JobsCategories } from "@/components/jobs-categories";
+import { JobsFrom } from "@/components/jobs-form";
 import { Button } from "@/components/ui/button";
 import { jobs } from "@/data/jobs";
+import { mockHeroData } from "@/data/website/hero";
 import { ChefHat, Coffee, Hotel } from "lucide-react";
 import Link from "next/link";
 
@@ -11,7 +21,17 @@ export default function LandingPage() {
 
 	return (
 		<div className="min-h-screen bg-background">
-			{/* Hero Section */}
+			<Hero>
+				<HeroContent>
+					<HeroTitle>{mockHeroData.title}</HeroTitle>
+					<HeroSubtitle>{mockHeroData.subtitle}</HeroSubtitle>
+				</HeroContent>
+
+				<HeroFooter>
+					<JobsFrom />
+					<JobsCategories />
+				</HeroFooter>
+			</Hero>
 
 			{/* Featured Categories */}
 			<section className="py-16 bg-secondary/50">
