@@ -15,14 +15,6 @@ function JobCardTitle({ children, className, ...props }: ComponentProps<"h3">) {
 	);
 }
 
-function JobCardResume({ children, ...props }: ComponentProps<"p">) {
-	return (
-		<p className="text-base text-slate-800 font-normal grow" {...props}>
-			{children}
-		</p>
-	);
-}
-
 function JobCardInfos({ children }: { children: React.ReactNode }) {
 	return <div className="flex flex-col gap-1 mt-2">{children}</div>;
 }
@@ -68,7 +60,6 @@ export function JobCard({
 export {
 	JobCardTitle,
 	JobCardHeader,
-	JobCardResume,
 	JobCardInfos,
 	JobCardContent,
 	JobCardFooter,
