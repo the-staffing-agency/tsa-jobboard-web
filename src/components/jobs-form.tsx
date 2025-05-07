@@ -59,7 +59,7 @@ export function JobsFrom() {
 									/>
 								</div>
 							</FormControl>
-							<FormMessage className="" />
+							<FormMessage />
 						</FormItem>
 					)}
 				/>
@@ -96,7 +96,7 @@ export function JobsFrom() {
 						/>
 					</div>
 
-					<Button type="submit" size="lg">
+					<Button size="lg">
 						<Search className="h-6 w-6 lg:hidden" />
 						<span className="sr-only lg:inline-flex lg:not-sr-only">
 							Search
