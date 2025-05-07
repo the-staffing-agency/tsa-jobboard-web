@@ -1,3 +1,5 @@
+import { cn } from "@/utils/cn";
+
 export function Container({
 	children,
 	className,
@@ -5,7 +7,7 @@ export function Container({
 }: React.ComponentProps<"div">) {
 	return (
 		<div
-			className={`container mx-auto px-4 lg:px-12 2xl:px-0 ${className}`}
+			className={cn(`container mx-auto px-4 lg:px-12 2xl:px-0 ${className}`)}
 			{...props}
 		>
 			{children}

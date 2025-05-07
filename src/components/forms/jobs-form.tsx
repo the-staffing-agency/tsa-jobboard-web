@@ -4,9 +4,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Search } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "./ui/button";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
-import { Input } from "./ui/input";
+import { Button } from "../ui/button";
+import {
+	Form,
+	FormControl,
+	FormField,
+	FormItem,
+	FormMessage,
+} from "../ui/form";
+import { Input } from "../ui/input";
 import {
 	Select,
 	SelectContent,
@@ -14,7 +20,7 @@ import {
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from "./ui/select";
+} from "../ui/select";
 
 const formSchema = z.object({
 	query: z.string().min(2, {
@@ -96,7 +102,7 @@ export function JobsFrom() {
 						/>
 					</div>
 
-					<Button size="lg">
+					<Button type="submit" size="lg">
 						<Search className="h-6 w-6 lg:hidden" />
 						<span className="sr-only lg:inline-flex lg:not-sr-only">
 							Search

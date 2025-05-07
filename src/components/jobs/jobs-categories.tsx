@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type React from "react";
-import { Badge } from "./ui/badge";
+import { Badge } from "../ui/badge";
 
 export function JobsCategories() {
 	return (

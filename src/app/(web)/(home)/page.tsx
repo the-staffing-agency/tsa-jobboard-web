@@ -1,3 +1,4 @@
+import { FeaturedJobs } from "@/components/blocks/featured-jobs";
 import {
 	Hero,
 	HeroContent,
@@ -5,13 +6,13 @@ import {
 	HeroSubtitle,
 	HeroTitle,
 } from "@/components/blocks/hero";
-import { JobsCategories } from "@/components/jobs-categories";
-import { JobsFrom } from "@/components/jobs-form";
+import { JobsFrom } from "@/components/forms/jobs-form";
+import { JobsCategories } from "@/components/jobs/jobs-categories";
 import { mockHeroData } from "@/data/website/hero";
 
 export default async function HomePage() {
 	return (
-		<div className="min-h-screen bg-background">
+		<div className="min-h-screen">
 			<Hero>
 				<HeroContent>
 					<HeroTitle>{mockHeroData.title}</HeroTitle>
@@ -23,6 +24,8 @@ export default async function HomePage() {
 					<JobsCategories />
 				</HeroFooter>
 			</Hero>
+
+			<FeaturedJobs />
 		</div>
 	);
 }

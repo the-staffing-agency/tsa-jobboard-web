@@ -3,328 +3,428 @@
 		{
 			"id": 1,
 			"title": "Executive Chef",
+			"slug": "executive-chef",
 			"company": "Maple Grove Fine Dining",
 			"location": "Calgary, AB",
 			"type": "Contract",
-			"description": "Executive Chef needed at Maple Grove Fine Dining.",
+			"resume": "Executive Chef needed at Maple Grove Fine Dining.",
 			"requirements": [
 				"No prior experience required",
 				"Work permit",
 				"Ability to stand long hours"
 			],
 			"url_avatar": "https://example.com/logos/logo1.png",
-			"salary": "$50,000 - $60,000 / year",
+			"salary": {
+				"type": "year",
+				"start": 50000,
+				"end": 60000
+			},
 			"created_at": "2025-04-28T03:43:19Z",
 			"featured": true
 		},
 		{
 			"id": 2,
 			"title": "Line Cook",
+			"slug": "line-cook",
 			"company": "West Coast Bites",
 			"location": "Calgary, AB",
 			"type": "Contract",
-			"description": "Line Cook needed at West Coast Bites.",
+			"resume": "Line Cook needed at West Coast Bites.",
 			"requirements": [
 				"Experience with Italian cuisine",
 				"Fast-paced kitchen",
 				"Flexible hours"
 			],
 			"url_avatar": "https://example.com/logos/logo2.png",
-			"salary": "$72,000 - $85,000 / year",
+			"salary": {
+				"type": "year",
+				"start": 72000,
+				"end": 85000
+			},
 			"created_at": "2025-05-01T04:43:19Z",
 			"featured": true
 		},
 		{
 			"id": 3,
 			"title": "Kitchen Helper",
+			"slug": "kitchen-helper",
 			"company": "Prairie Roots Caf\u00e9",
 			"location": "Calgary, AB",
 			"type": "Full-time",
-			"description": "Kitchen Helper needed at Prairie Roots Caf\u00e9.",
+			"resume": "Kitchen Helper needed at Prairie Roots Caf\u00e9.",
 			"requirements": [
 				"1+ year of experience",
 				"Food Handler Certificate",
 				"Team player"
 			],
 			"url_avatar": "https://example.com/logos/logo3.png",
-			"salary": "$16 - $18 / hour",
+			"salary": {
+				"type": "hour",
+				"start": 16,
+				"end": 18
+			},
 			"created_at": "2025-04-29T06:43:19Z",
 			"featured": true
 		},
 		{
 			"id": 4,
 			"title": "Pastry Chef",
+			"slug": "pastry-chef",
 			"company": "Montreal Sweets Atelier",
 			"location": "Toronto, ON",
 			"type": "Evening Shift",
-			"description": "Pastry Chef needed at Montreal Sweets Atelier.",
+			"resume": "Pastry Chef needed at Montreal Sweets Atelier.",
 			"requirements": [
 				"1+ year of experience",
 				"Food Handler Certificate",
 				"Team player"
 			],
 			"url_avatar": "https://example.com/logos/logo4.png",
-			"salary": "$20 - $24 / hour",
+			"salary": {
+				"type": "hour",
+				"start": 20,
+				"end": 24
+			},
 			"created_at": "2025-05-06T04:43:19Z",
 			"featured": true
 		},
 		{
 			"id": 5,
 			"title": "Baker",
+			"slug": "baker",
 			"company": "Ottawa Sunrise Bakery",
 			"location": "Toronto, ON",
 			"type": "Evening Shift",
-			"description": "Baker needed at Ottawa Sunrise Bakery.",
+			"resume": "Baker needed at Ottawa Sunrise Bakery.",
 			"requirements": [
 				"Experience with Italian cuisine",
 				"Fast-paced kitchen",
 				"Flexible hours"
 			],
 			"url_avatar": "https://example.com/logos/logo5.png",
-			"salary": "$45,000 - $55,000 / year",
+			"salary": {
+				"type": "year",
+				"start": 45000,
+				"end": 55000
+			},
 			"created_at": "2025-05-02T16:43:19Z",
 			"featured": true
 		},
 		{
 			"id": 6,
 			"title": "Sous Chef",
+			"slug": "sous-chef",
 			"company": "Blue River Bistro",
 			"location": "Victoria, BC",
 			"type": "Full-time",
-			"description": "Sous Chef needed at Blue River Bistro.",
+			"resume": "Sous Chef needed at Blue River Bistro.",
 			"requirements": ["Knife skills", "Cleanliness", "Time management"],
 			"url_avatar": "https://example.com/logos/logo6.png",
-			"salary": "$18 - $22 / hour",
+			"salary": {
+				"type": "hour",
+				"start": 18,
+				"end": 22
+			},
 			"created_at": "2025-05-05T01:43:19Z",
 			"featured": true
 		},
 		{
 			"id": 7,
 			"title": "Prep Cook",
+			"slug": "prep-cook",
 			"company": "Golden Wheat Kitchen",
 			"location": "Montr\u00e9al, QC",
 			"type": "Morning Shift",
-			"description": "Prep Cook needed at Golden Wheat Kitchen.",
+			"resume": "Prep Cook needed at Golden Wheat Kitchen.",
 			"requirements": ["Knife skills", "Cleanliness", "Time management"],
 			"url_avatar": "https://example.com/logos/logo7.png",
-			"salary": "$20 - $24 / hour",
+			"salary": {
+				"type": "hour",
+				"start": 20,
+				"end": 24
+			},
 			"created_at": "2025-05-04T06:43:19Z",
 			"featured": true
 		},
 		{
 			"id": 8,
 			"title": "Grill Cook",
+			"slug": "grill-cook",
 			"company": "Urban Flame Grill",
 			"location": "Winnipeg, MB",
 			"type": "Part-time",
-			"description": "Grill Cook needed at Urban Flame Grill.",
+			"resume": "Grill Cook needed at Urban Flame Grill.",
 			"requirements": [
 				"Experience with Italian cuisine",
 				"Fast-paced kitchen",
 				"Flexible hours"
 			],
 			"url_avatar": "https://example.com/logos/logo8.png",
-			"salary": "$72,000 - $85,000 / year",
+			"salary": {
+				"type": "year",
+				"start": 72000,
+				"end": 85000
+			},
 			"created_at": "2025-04-26T06:43:19Z",
 			"featured": true
 		},
 		{
 			"id": 9,
 			"title": "Catering Chef",
+			"slug": "catering-chef",
 			"company": "Northern Lights Catering",
 			"location": "Quebec City, QC",
 			"type": "Contract",
-			"description": "Catering Chef needed at Northern Lights Catering.",
+			"resume": "Catering Chef needed at Northern Lights Catering.",
 			"requirements": [
 				"5+ years of experience",
 				"Culinary degree",
 				"Leadership skills"
 			],
 			"url_avatar": "https://example.com/logos/logo9.png",
-			"salary": "$16 - $18 / hour",
+			"salary": {
+				"type": "hour",
+				"start": 16,
+				"end": 18
+			},
 			"created_at": "2025-04-26T12:43:19Z",
 			"featured": true
 		},
 		{
 			"id": 10,
 			"title": "Private Chef",
+			"slug": "private-chef",
 			"company": "Lakeside Table",
 			"location": "Quebec City, QC",
 			"type": "Evening Shift",
-			"description": "Private Chef needed at Lakeside Table.",
+			"resume": "Private Chef needed at Lakeside Table.",
 			"requirements": [
 				"Experience with Italian cuisine",
 				"Fast-paced kitchen",
 				"Flexible hours"
 			],
 			"url_avatar": "https://example.com/logos/logo10.png",
-			"salary": "$20 - $24 / hour",
+			"salary": {
+				"type": "hour",
+				"start": 20,
+				"end": 24
+			},
 			"created_at": "2025-04-29T15:43:19Z",
 			"featured": true
 		},
 		{
 			"id": 11,
 			"title": "Food Stylist",
+			"slug": "food-stylist",
 			"company": "Crave & Co.",
 			"location": "Ottawa, ON",
 			"type": "Evening Shift",
-			"description": "Food Stylist needed at Crave & Co..",
+			"resume": "Food Stylist needed at Crave & Co..",
 			"requirements": [
 				"5+ years of experience",
 				"Culinary degree",
 				"Leadership skills"
 			],
 			"url_avatar": "https://example.com/logos/logo11.png",
-			"salary": "$20 - $24 / hour",
+			"salary": {
+				"type": "hour",
+				"start": 20,
+				"end": 24
+			},
 			"created_at": "2025-04-27T12:43:19Z",
 			"featured": true
 		},
 		{
 			"id": 12,
 			"title": "Chef de Partie",
+			"slug": "chef-de-partie",
 			"company": "Alberta Garden Cuisine",
 			"location": "Calgary, AB",
 			"type": "Evening Shift",
-			"description": "Chef de Partie needed at Alberta Garden Cuisine.",
+			"resume": "Chef de Partie needed at Alberta Garden Cuisine.",
 			"requirements": [
 				"No prior experience required",
 				"Work permit",
 				"Ability to stand long hours"
 			],
 			"url_avatar": "https://example.com/logos/logo12.png",
-			"salary": "$18 - $22 / hour",
+			"salary": {
+				"type": "hour",
+				"start": 18,
+				"end": 22
+			},
 			"created_at": "2025-04-26T01:43:19Z",
 			"featured": false
 		},
 		{
 			"id": 13,
 			"title": "Garde Manger",
+			"slug": "garde-manger",
 			"company": "QC Culinary Studio",
 			"location": "Ottawa, ON",
 			"type": "Part-time",
-			"description": "Garde Manger needed at QC Culinary Studio.",
+			"resume": "Garde Manger needed at QC Culinary Studio.",
 			"requirements": [
 				"No prior experience required",
 				"Work permit",
 				"Ability to stand long hours"
 			],
 			"url_avatar": "https://example.com/logos/logo13.png",
-			"salary": "$45,000 - $55,000 / year",
+			"salary": {
+				"type": "year",
+				"start": 45000,
+				"end": 55000
+			},
 			"created_at": "2025-05-06T05:43:19Z",
 			"featured": false
 		},
 		{
 			"id": 14,
 			"title": "Commis Chef",
+			"slug": "commis-chef",
 			"company": "Toronto Food Lab",
 			"location": "Ottawa, ON",
 			"type": "Contract",
-			"description": "Commis Chef needed at Toronto Food Lab.",
+			"resume": "Commis Chef needed at Toronto Food Lab.",
 			"requirements": [
 				"1+ year of experience",
 				"Food Handler Certificate",
 				"Team player"
 			],
 			"url_avatar": "https://example.com/logos/logo14.png",
-			"salary": "$45,000 - $55,000 / year",
+			"salary": {
+				"type": "year",
+				"start": 45000,
+				"end": 55000
+			},
 			"created_at": "2025-05-06T01:43:19Z",
 			"featured": false
 		},
 		{
 			"id": 15,
 			"title": "Butcher",
+			"slug": "butcher",
 			"company": "East Coast Eats",
 			"location": "Calgary, AB",
 			"type": "Full-time",
-			"description": "Butcher needed at East Coast Eats.",
+			"resume": "Butcher needed at East Coast Eats.",
 			"requirements": [
 				"No prior experience required",
 				"Work permit",
 				"Ability to stand long hours"
 			],
 			"url_avatar": "https://example.com/logos/logo15.png",
-			"salary": "$45,000 - $55,000 / year",
+			"salary": {
+				"type": "year",
+				"start": 45000,
+				"end": 55000
+			},
 			"created_at": "2025-04-28T14:43:19Z",
 			"featured": false
 		},
 		{
 			"id": 16,
 			"title": "Pasta Maker",
+			"slug": "pasta-maker",
 			"company": "Vancouver Pasta House",
 			"location": "Halifax, NS",
 			"type": "Evening Shift",
-			"description": "Pasta Maker needed at Vancouver Pasta House.",
+			"resume": "Pasta Maker needed at Vancouver Pasta House.",
 			"requirements": [
 				"No prior experience required",
 				"Work permit",
 				"Ability to stand long hours"
 			],
 			"url_avatar": "https://example.com/logos/logo16.png",
-			"salary": "$18 - $22 / hour",
+			"salary": {
+				"type": "hour",
+				"start": 18,
+				"end": 22
+			},
 			"created_at": "2025-05-04T00:43:19Z",
 			"featured": false
 		},
 		{
 			"id": 17,
 			"title": "Sushi Chef",
+			"slug": "sushi-chef",
 			"company": "Sakura Fusion",
 			"location": "Toronto, ON",
 			"type": "Full-time",
-			"description": "Sushi Chef needed at Sakura Fusion.",
+			"resume": "Sushi Chef needed at Sakura Fusion.",
 			"requirements": ["Knife skills", "Cleanliness", "Time management"],
 			"url_avatar": "https://example.com/logos/logo17.png",
-			"salary": "$72,000 - $85,000 / year",
+			"salary": {
+				"type": "year",
+				"start": 72000,
+				"end": 85000
+			},
 			"created_at": "2025-05-06T21:43:19Z",
 			"featured": false
 		},
 		{
 			"id": 18,
 			"title": "Breakfast Cook",
+			"slug": "breakfast-cook",
 			"company": "Morning Joy Caf\u00e9",
 			"location": "Edmonton, AB",
 			"type": "Full-time",
-			"description": "Breakfast Cook needed at Morning Joy Caf\u00e9.",
+			"resume": "Breakfast Cook needed at Morning Joy Caf\u00e9.",
 			"requirements": [
 				"No prior experience required",
 				"Work permit",
 				"Ability to stand long hours"
 			],
 			"url_avatar": "https://example.com/logos/logo18.png",
-			"salary": "$20 - $24 / hour",
+			"salary": {
+				"type": "hour",
+				"start": 20,
+				"end": 24
+			},
 			"created_at": "2025-04-29T22:43:19Z",
 			"featured": false
 		},
 		{
 			"id": 19,
 			"title": "Restaurant Manager",
+			"slug": "restaurant-manager",
 			"company": "Downtown Bistro",
 			"location": "Edmonton, AB",
 			"type": "Contract",
-			"description": "Restaurant Manager needed at Downtown Bistro.",
+			"resume": "Restaurant Manager needed at Downtown Bistro.",
 			"requirements": [
 				"Experience with Italian cuisine",
 				"Fast-paced kitchen",
 				"Flexible hours"
 			],
 			"url_avatar": "https://example.com/logos/logo19.png",
-			"salary": "$50,000 - $60,000 / year",
+			"salary": {
+				"type": "year",
+				"start": 50000,
+				"end": 60000
+			},
 			"created_at": "2025-04-30T20:43:19Z",
 			"featured": false
 		},
 		{
 			"id": 20,
 			"title": "Food Truck Cook",
+			"slug": "food-truck-cook",
 			"company": "Rolling Dish Truck",
 			"location": "Calgary, AB",
 			"type": "Contract",
-			"description": "Food Truck Cook needed at Rolling Dish Truck.",
+			"resume": "Food Truck Cook needed at Rolling Dish Truck.",
 			"requirements": [
 				"5+ years of experience",
 				"Culinary degree",
 				"Leadership skills"
 			],
 			"url_avatar": "https://example.com/logos/logo20.png",
-			"salary": "$50,000 - $60,000 / year",
+			"salary": {
+				"type": "year",
+				"start": 50000,
+				"end": 60000
+			},
 			"created_at": "2025-05-01T00:43:19Z",
 			"featured": false
 		}

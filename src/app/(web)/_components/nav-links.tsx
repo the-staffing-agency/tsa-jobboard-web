@@ -1,5 +1,5 @@
 import { mockNavLinks } from "@/data/website/nav-links";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/cn";
 import { NavLink } from "./nav-link";
 
 export function NavLinks({ className }: React.ComponentProps<"div">) {
