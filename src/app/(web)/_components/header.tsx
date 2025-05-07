@@ -1,4 +1,4 @@
-import { Container } from "./ui/container";
+import { Container } from "../../../components/ui/container";
 
 export function Header({ children, ...props }: React.ComponentProps<"header">) {
 	return (

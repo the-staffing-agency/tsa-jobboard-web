@@ -9,16 +9,32 @@ import {
 } from "@/components/blocks/hero";
 import { JobsCategories } from "@/components/jobs-categories";
 import { JobsFrom } from "@/components/jobs-form";
-import { Button } from "@/components/ui/button";
-import { jobs } from "@/data/jobs";
+import type { Job } from "@/data/types/job";
 import { mockHeroData } from "@/data/website/hero";
+import { api } from "@/lib/api";
 import { ChefHat, Coffee, Hotel } from "lucide-react";
 import Link from "next/link";
 
-export default function LandingPage() {
-	// Get a limited set of jobs for SEO links
-	const featuredJobs = jobs.slice(0, 6);
+const REVALIDATE_CACHE = 60 * 30; // 30min
 
+async function getFeaturedJobs(): Promise<Job[]> {
+	const response = await api("/jobs/featured", {
+		cache: "force-cache",
+		next: {
+			revalidate: REVALIDATE_CACHE,
+		},
+	});
+
+	const jobs = await response.json();
+
+	return jobs;
+}
+
+export default async function LandingPage() {
+	// Get a limited set of jobs for SEO links
+	const featuredJobs = await getFeaturedJobs();
+
+	console.log(featuredJobs);
 	return (
 		<div className="min-h-screen bg-background">
 			<Hero>
@@ -91,28 +107,20 @@ export default function LandingPage() {
 					</h2>
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 						{featuredJobs.map((job) => (
-							<Link
-								href={`/job/${job.id}`}
-								key={job.id}
-								className="block bg-card border border-border rounded-lg p-6 hover:border-primary/50 hover:shadow-md transition-all"
-							>
-								<h3 className="text-lg font-semibold text-primary mb-2">
-									{job.title}
-								</h3>
-								<p className="text-card-foreground mb-2">{job.company}</p>
-								<p className="text-muted-foreground mb-3">{job.location}</p>
-								<div className="text-sm text-muted-foreground flex items-center justify-between">
-									<span>{job.jobType}</span>
-									<span>{job.postedDate}</span>
-								</div>
-							</Link>
+							<div key={job.id}>
+								{job.title}
+								{job.location}
+								{job.company}
+								{job.description}
+							</div>
 						))}
 					</div>
-					<div className="text-center mt-10">
+
+					{/* <div className="text-center mt-10">
 						<Button onClick={() => router.push("/search")} size="lg">
 							View All Jobs
 						</Button>
-					</div>
+					</div> */}
 				</div>
 			</section>
 

@@ -3,7 +3,7 @@
 import { useNavToggle } from "@/contexts/nav-toggle-context";
 import { MenuIcon, X } from "lucide-react";
 import type React from "react";
-import { Button } from "./ui/button";
+import { Button } from "../../../components/ui/button";
 
 export function MenuHamburger() {
 	const { isOpen, handleToggle } = useNavToggle();
