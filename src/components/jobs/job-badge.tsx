@@ -13,5 +13,5 @@ interface JobJobBadgeProps {
 }
 
 export function JobBadge({ type }: JobJobBadgeProps) {
-	return <Badge variant="secondary"> {type}</Badge>
+	return <Badge variant="accent">{type}</Badge>
 }
