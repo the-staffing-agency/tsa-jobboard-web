@@ -9,7 +9,7 @@ export default function ContactPage() {
 				description="We’re here to help you with anything related to job applications, partnerships, or general inquiries."
 			/>
 
-			<Container className="flex justify-center lg:mt-24">
+			<Container className="flex justify-center lg:mt-10">
 				<main className="w-full max-w-[800px]">
 					<h2 className="mb-4 text-center font-bold text-2xl">
 						Have a question, feedback, or need support?

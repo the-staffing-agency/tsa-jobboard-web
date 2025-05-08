@@ -1,4 +1,5 @@
 import { FilterAsideJobForm } from '@/components/forms/filter-aside-job-form'
+import { SearchJobFrom } from '@/components/forms/search-job-form'
 import { JobBadge } from '@/components/jobs/job-badge'
 import {
 	JobList,
@@ -40,16 +41,17 @@ export default async function SearchPage({
 
 	return (
 		<>
-			<PageHeader
-				title={query}
-				description={pageHeaderContentMock.description}
-			/>
+			<PageHeader title={query} description={pageHeaderContentMock.description}>
+				<div className="-bottom-24 absolute mx-auto">
+					<SearchJobFrom />
+				</div>
+			</PageHeader>
 
-			<Container className="flex lg:mt-24 lg:gap-10">
+			<Container className="mt-10 flex flex-col justify-center gap-10 lg:mt-24 lg:flex-row">
 				<aside className="relative flex-1/4 lg:min-w-sm">
-					<div className="sticky top-96">
+					<div className="sticky top-10">
 						<Widget>
-							<span className="mb-4 block font-black text-2xl">Filter</span>
+							<span className="mb-4 block font-bold text-2xl">Filter</span>
 							<FilterAsideJobForm />
 						</Widget>
 					</div>

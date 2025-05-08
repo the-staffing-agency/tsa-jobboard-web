@@ -28,7 +28,7 @@ export function PageHeader({
 					</h1>
 
 					{description && (
-						<p className="max-w-md text-center text-accent-foreground text-lg">
+						<p className="max-w-md text-center text-accent-foreground text-base lg:text-lg">
 							{description}
 						</p>
 					)}

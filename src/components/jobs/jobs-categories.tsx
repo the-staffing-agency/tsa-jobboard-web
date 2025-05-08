@@ -7,7 +7,7 @@ export function JobsCategories() {
 		<div className="mt-2 flex flex-col items-center gap-1 lg:mt-4 lg:flex-row lg:gap-4">
 			<b className="font-semibold text-base text-slate-50">Jobs categories</b>
 
-			<div className="flex gap-2">
+			<div className="flex flex-wrap justify-center gap-2">
 				<Link href="/jobs/carrear/kitchen-assistant" prefetch>
 					<Badge>Kitchen Assistant</Badge>
 				</Link>

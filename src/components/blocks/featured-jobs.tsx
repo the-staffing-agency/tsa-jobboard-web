@@ -1,5 +1,3 @@
-import type { Job } from '@/data/types/job'
-import { api } from '@/lib/api'
 import { RiBuildingLine, RiMapPin2Line } from '@remixicon/react'
 
 import { getFeaturedJobs } from '@/data/jobs/get-featured-jobs'

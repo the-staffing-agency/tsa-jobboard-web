@@ -1,5 +1,6 @@
+import { FilterAsideJobForm } from '@/components/forms/filter-aside-job-form'
+import { SearchJobFrom } from '@/components/forms/search-job-form'
 import { JobBadge } from '@/components/jobs/job-badge'
-import { JobCardHeader, JobCardInfos } from '@/components/jobs/job-card'
 import {
 	JobList,
 	JobListAdditionalActions,
@@ -7,7 +8,6 @@ import {
 	JobListFooter,
 	JobListHeader,
 	JobListInfos,
-	JobListResume,
 	JobListTitle,
 } from '@/components/jobs/job-list'
 import { JobResumeText } from '@/components/jobs/job-resume-text'
@@ -15,6 +15,7 @@ import { JobSalary } from '@/components/jobs/job-salary'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
+import { Widget } from '@/components/widget'
 import { getManyJobs } from '@/data/jobs/get-many-jobs'
 import { pageHeaderContentMock } from '@/data/website/pages/page-header'
 import { RiBuildingLine, RiMapPin2Line } from '@remixicon/react'
@@ -31,8 +32,16 @@ export default async function SearchPage() {
 				description={pageHeaderContentMock.description}
 			/>
 
-			<Container className="flex justify-center lg:mt-24">
-				<main className="w-full max-w-[800px]">
+			<Container className="mt-10 flex flex-col justify-center gap-10 lg:flex-row">
+				<aside className="relative flex-1/4 lg:min-w-sm">
+					<div className="sticky top-10">
+						<Widget>
+							<span className="mb-4 block font-bold text-2xl">Filter</span>
+							<FilterAsideJobForm />
+						</Widget>
+					</div>
+				</aside>
+				<main className="w-full">
 					<h2 className="mb-4 font-bold text-2xl">Recent Jobs</h2>
 					<div className="flex flex-col gap-2">
 						{jobs.map((job) => (
