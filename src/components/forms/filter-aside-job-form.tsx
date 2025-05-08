@@ -18,7 +18,7 @@ import { experienceLevel } from '@/data/website/jobs/experience-level'
 import { jobsType } from '@/data/website/jobs/jobs-type'
 import { useSearchParams } from 'next/navigation'
 
-const FormSchema = z.object({
+const fromSchema = z.object({
 	jobsType: z.array(z.string()).refine((value) => value.some((item) => item), {
 		message: 'You have to select at least one item.',
 	}),
@@ -29,7 +29,7 @@ const FormSchema = z.object({
 		}),
 })
 
-type FilterAsideJobFormData = z.infer<typeof FormSchema>
+type FilterAsideJobFormData = z.infer<typeof fromSchema>
 
 export function FilterAsideJobForm() {
 	const searchParams = useSearchParams()
@@ -42,7 +42,7 @@ export function FilterAsideJobForm() {
 	)
 
 	const form = useForm<FilterAsideJobFormData>({
-		resolver: zodResolver(FormSchema),
+		resolver: zodResolver(fromSchema),
 		defaultValues: {
 			jobsType: findTypeValues
 				? [findTypeValues.value, findTypeValues.label]

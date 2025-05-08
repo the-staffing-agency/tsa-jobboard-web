@@ -117,4 +117,82 @@
 	body {
 		@apply bg-background text-foreground;
 	}
+
+	.prose {
+		h1 {
+			@apply text-3xl font-bold tracking-tight lg:text-4xl;
+		}
+
+		h2 {
+			@apply mt-10 pb-2 text-2xl lg:text-3xl font-bold tracking-tight transition-colors;
+
+			&:first-child {
+				@apply mt-0;
+			}
+		}
+
+		h3 {
+			@apply mt-8 text-xl lg:text-2xl font-bold tracking-tight;
+		}
+
+		p {
+			@apply leading-7;
+
+			&:not(:first-child) {
+				@apply mt-6;
+			}
+		}
+
+		a {
+			@apply font-medium text-primary underline underline-offset-4;
+		}
+
+		blockquote {
+			@apply mt-6 border-l-2 pl-6 italic;
+		}
+
+		ul {
+			@apply my-2 list-disc list-inside;
+
+			li {
+				@apply mt-2 first:mt-0;
+			}
+		}
+
+		table {
+			@apply w-full;
+		}
+
+		thead tr {
+			@apply m-0 border-t p-0 even:bg-muted;
+		}
+
+		th {
+			@apply border px-4 py-2 text-left font-bold;
+
+			&[align="center"] {
+				@apply text-center;
+			}
+
+			&[align="right"] {
+				@apply text-right;
+			}
+		}
+
+		td {
+			@apply border px-4 py-2 text-left;
+
+			&[align="center"] {
+				@apply text-center;
+			}
+
+			&[align="right"] {
+				@apply text-right;
+			}
+		}
+
+		.table-wrapper {
+			@apply my-6 w-full overflow-y-auto;
+		}
+	}
 }

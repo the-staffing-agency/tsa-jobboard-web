@@ -1,18 +1,26 @@
-import type { NextRequest } from 'next/server'
 import { z } from 'zod'
 import data from '../data.json'
 
-interface JobRequestParams {
-	params: {
-		slug: string
+import type { NextRequest } from 'next/server'
+
+export async function GET(
+	_: NextRequest,
+	{ params }: { params: Promise<{ slug: string }> },
+) {
+	const slug = z.string().parse((await params).slug)
+
+	const job = data.jobs.find((job) => job.slug === slug)
+
+	if (!job) {
+		return Response.json(
+			{
+				message: 'Job not found.',
+			},
+			{
+				status: 400,
+			},
+		)
 	}
-}
 
-export async function GET(_: NextRequest, { params }: JobRequestParams) {
-	await new Promise((resolve) => setTimeout(resolve, 1000))
-
-	const slug = z.string().parse(params.slug)
-
-	const featuredJobs = data.jobs.filter((job) => job.featured)
-	return Response.json(featuredJobs.slice(0, 6))
+	return Response.json(job)
 }
