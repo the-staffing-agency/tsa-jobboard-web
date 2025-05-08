@@ -1,14 +1,14 @@
-import { FeaturedJobs } from "@/components/blocks/featured-jobs";
+import { FeaturedJobs } from '@/components/blocks/featured-jobs'
 import {
 	Hero,
 	HeroContent,
 	HeroFooter,
 	HeroSubtitle,
 	HeroTitle,
-} from "@/components/blocks/hero";
-import { JobsFrom } from "@/components/forms/jobs-form";
-import { JobsCategories } from "@/components/jobs/jobs-categories";
-import { mockHeroData } from "@/data/website/hero";
+} from '@/components/blocks/hero'
+import { SearchJobFrom } from '@/components/forms/search-job-form'
+import { JobsCategories } from '@/components/jobs/jobs-categories'
+import { mockHeroData } from '@/data/website/hero'
 
 export default async function HomePage() {
 	return (
@@ -20,12 +20,12 @@ export default async function HomePage() {
 				</HeroContent>
 
 				<HeroFooter>
-					<JobsFrom />
+					<SearchJobFrom />
 					<JobsCategories />
 				</HeroFooter>
 			</Hero>
 
 			<FeaturedJobs />
 		</div>
-	);
+	)
 }

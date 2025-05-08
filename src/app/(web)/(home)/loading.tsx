@@ -4,19 +4,19 @@ import {
 	HeroFooter,
 	HeroSubtitle,
 	HeroTitle,
-} from "@/components/blocks/hero";
-import { JobsFrom } from "@/components/forms/jobs-form";
-import { JobsCategories } from "@/components/jobs/jobs-categories";
+} from '@/components/blocks/hero'
+import { SearchJobFrom } from '@/components/forms/search-job-form'
+import { JobsCategories } from '@/components/jobs/jobs-categories'
 import {
 	SectionBlock,
 	SectionBlockCallToAction,
 	SectionBlockHeader,
 	SectionBlockSubTitle,
 	SectionBlockTitle,
-} from "@/components/section-block";
-import { mockHeroData } from "@/data/website/hero";
-import { contentFeacturedJobs } from "@/data/website/sections/feactured-jobs";
-import Link from "next/link";
+} from '@/components/section-block'
+import { mockHeroData } from '@/data/website/hero'
+import { contentFeaturedJobs } from '@/data/website/sections/content-featured-jobs'
+import Link from 'next/link'
 
 export default function Loading() {
 	return (
@@ -28,28 +28,28 @@ export default function Loading() {
 				</HeroContent>
 
 				<HeroFooter>
-					<JobsFrom />
+					<SearchJobFrom />
 					<JobsCategories />
 				</HeroFooter>
 			</Hero>
 
 			<SectionBlock>
 				<SectionBlockHeader>
-					<SectionBlockTitle>{contentFeacturedJobs.title}</SectionBlockTitle>
+					<SectionBlockTitle>{contentFeaturedJobs.title}</SectionBlockTitle>
 					<SectionBlockSubTitle>
-						{contentFeacturedJobs.subtitle}
+						{contentFeaturedJobs.subtitle}
 					</SectionBlockSubTitle>
 
 					<SectionBlockCallToAction>
 						<Link
 							className="font-semibold text-accent underline underline-offset-1 hover:underline-offset-2"
-							href={contentFeacturedJobs.callToAction.target}
+							href={contentFeaturedJobs.callToAction.target}
 						>
-							{}
+							{contentFeaturedJobs.callToAction.text}
 						</Link>
 					</SectionBlockCallToAction>
 				</SectionBlockHeader>
 			</SectionBlock>
 		</>
-	);
+	)
 }
