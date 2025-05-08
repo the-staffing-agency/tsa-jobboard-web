@@ -1,5 +1,5 @@
-import { ChefHat } from "lucide-react";
-import Link from "next/link";
+import { ChefHat } from 'lucide-react'
+import Link from 'next/link'
 
 export function Logo() {
 	return (
@@ -7,5 +7,5 @@ export function Logo() {
 			<ChefHat className="h-6 w-6 text-white/90" />
 			<span className="font-bold text-xl">Culinary Jobs</span>
 		</Link>
-	);
+	)
 }

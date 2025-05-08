@@ -1,5 +1,5 @@
-import { Logo } from "./logo";
-import { NavLinks } from "./nav-links";
+import { Logo } from './logo'
+import { NavLinks } from './nav-links'
 
 export function NavBar() {
 	return (
@@ -7,5 +7,5 @@ export function NavBar() {
 			<Logo />
 			<NavLinks className="hidden lg:flex" />
 		</nav>
-	);
+	)
 }

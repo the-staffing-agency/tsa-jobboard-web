@@ -1,22 +1,22 @@
-"use client";
+'use client'
 
-import { useNavToggle } from "@/contexts/nav-toggle-context";
-import { mockNavLinks } from "@/data/website/nav-links";
-import { NavLink } from "./nav-link";
+import { useNavToggle } from '@/contexts/nav-toggle-context'
+import { mockNavLinks } from '@/data/website/nav-links'
+import { NavLink } from './nav-link'
 
 export function NavToggle() {
-	const { isOpen, handleCloseNav } = useNavToggle();
+	const { isOpen, handleCloseNav } = useNavToggle()
 
 	return (
 		<div
-			className="h-svh w-full fixed top-0 flex justify-center items-center bg-accent z-20 transition-all duration-300 ease-in-out data-[is-open=false]:-top-full data-[is-open=false]:pointer-events-none"
+			className="data-[is-open=false]:-top-full fixed top-0 z-20 flex h-svh w-full items-center justify-center bg-accent transition-all duration-300 ease-in-out data-[is-open=false]:pointer-events-none"
 			data-is-open={isOpen}
 		>
-			<div className="flex flex-col justify-center items-center text-center gap-4 text-2xl">
+			<div className="flex flex-col items-center justify-center gap-4 text-center text-2xl">
 				{mockNavLinks.map((link) => (
 					<NavLink
 						href={link.href}
-						key={link.title.replace(" ", "-")}
+						key={link.title.replace(' ', '-')}
 						onClick={handleCloseNav}
 					>
 						{link.title}
@@ -24,5 +24,5 @@ export function NavToggle() {
 				))}
 			</div>
 		</div>
-	);
+	)
 }

@@ -1,18 +1,18 @@
-"use client";
+'use client'
 
-import { useNavToggle } from "@/contexts/nav-toggle-context";
-import { MenuIcon, X } from "lucide-react";
-import type React from "react";
-import { Button } from "../../../components/ui/button";
+import { useNavToggle } from '@/contexts/nav-toggle-context'
+import { MenuIcon, X } from 'lucide-react'
+import type React from 'react'
+import { Button } from '../../../components/ui/button'
 
 export function MenuHamburger() {
-	const { isOpen, handleToggle } = useNavToggle();
+	const { isOpen, handleToggle } = useNavToggle()
 
 	return (
 		<Button
 			className="lg:hidden"
-			variant={"ghost"}
-			size={"icon"}
+			variant={'ghost'}
+			size={'icon'}
 			onClick={handleToggle}
 		>
 			{isOpen ? (
@@ -21,5 +21,5 @@ export function MenuHamburger() {
 				<MenuIcon className="size-7 text-slate-50" />
 			)}
 		</Button>
-	);
+	)
 }

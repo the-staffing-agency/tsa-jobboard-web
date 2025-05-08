@@ -1,18 +1,22 @@
 export const mockNavLinks = [
 	{
-		title: "Home",
-		href: "/",
+		title: 'Home',
+		href: '/',
 	},
 	{
-		title: "Browse Jobs",
-		href: "/search",
+		title: 'Jobs',
+		href: '/jobs',
 	},
 	{
-		title: "About",
-		href: "/about",
+		title: 'Carrear',
+		href: '/carrear',
 	},
 	{
-		title: "Contact",
-		href: "/contact",
+		title: 'About',
+		href: '/about',
 	},
-];
+	{
+		title: 'Contact',
+		href: '/contact',
+	},
+]
