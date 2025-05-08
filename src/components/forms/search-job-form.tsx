@@ -53,8 +53,8 @@ export function SearchJobFrom() {
 		router.push(`/search?q=${query}&type=${type}`)
 	}
 
-	const selectValuePlaceholder = (value: string) =>
-		jobsType.find((job) => job.value === value)
+	// const selectValuePlaceholder = (value: string) =>
+	// 	jobsType.find((job) => job.value === value)
 
 	return (
 		<Form {...form}>
@@ -66,7 +66,7 @@ export function SearchJobFrom() {
 					control={form.control}
 					name="query"
 					render={({ field }) => (
-						<FormItem className="flex-2/3">
+						<FormItem className="grow">
 							<FormControl>
 								<div className="relative flex h-12 items-center">
 									<Input
@@ -81,41 +81,7 @@ export function SearchJobFrom() {
 					)}
 				/>
 
-				<div className="h-12 items-center justify-end gap-2 lg:flex lg:flex-1/3">
-					<div className="hidden h-full w-full lg:flex">
-						<FormField
-							control={form.control}
-							name="type"
-							render={({ field }) => (
-								<FormItem className="h-full grow">
-									<FormControl>
-										<Select onValueChange={field.onChange}>
-											<SelectTrigger className="min-h-full w-full">
-												<SelectValue
-													className="block h-full w-full"
-													placeholder={
-														selectValuePlaceholder(field.value)?.label ??
-														field.value
-													}
-												/>
-											</SelectTrigger>
-
-											<SelectContent>
-												<SelectGroup>
-													{jobsType.map((job) => (
-														<SelectItem key={job.value} value={job.value}>
-															{job.label}
-														</SelectItem>
-													))}
-												</SelectGroup>
-											</SelectContent>
-										</Select>
-									</FormControl>
-								</FormItem>
-							)}
-						/>
-					</div>
-
+				<div className="h-12 items-center justify-end gap-2 lg:flex">
 					<Button type="submit" size="lg">
 						<Search className="h-6 w-6 lg:hidden" />
 						<span className="sr-only lg:not-sr-only lg:inline-flex">

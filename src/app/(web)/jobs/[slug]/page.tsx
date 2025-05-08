@@ -1,19 +1,8 @@
 import { JobApplyDialog } from '@/components/jobs/job-apply-dialog'
-import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
-import { DialogFooter, DialogHeader } from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
 import { Widget } from '@/components/widget'
 import { getJobBySlug } from '@/data/jobs/get-job-by-slug'
 import { salaryFormatter } from '@/utils/formatter'
-import {
-	Dialog,
-	DialogContent,
-	DialogDescription,
-	DialogTitle,
-	DialogTrigger,
-} from '@radix-ui/react-dialog'
-import { Label } from '@radix-ui/react-label'
 
 export default async function Page({
 	params,

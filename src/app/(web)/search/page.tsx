@@ -31,23 +31,22 @@ export default async function SearchPage({
 }: {
 	searchParams: SearchParams
 }) {
-	const { q: query, type } = await searchParams
+	const { q: query } = await searchParams
 
 	if (!query) {
 		redirect('/')
 	}
 
-	const jobs = await searchJobs({ query, type })
+	const jobs = await searchJobs({ query, type: 'all' })
 
 	return (
 		<>
-			<PageHeader title={query} description={pageHeaderContentMock.description}>
-				<div className="-bottom-24 absolute mx-auto">
-					<SearchJobFrom />
-				</div>
-			</PageHeader>
+			<PageHeader
+				title={query}
+				description={pageHeaderContentMock.description}
+			/>
 
-			<Container className="mt-10 flex flex-col justify-center gap-10 lg:mt-24 lg:flex-row">
+			<Container className="mt-10 flex flex-col justify-center gap-10 lg:flex-row">
 				<aside className="relative flex-1/4 lg:min-w-sm">
 					<div className="sticky top-10">
 						<Widget>
