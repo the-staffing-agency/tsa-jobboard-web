@@ -1,13 +1,18 @@
-import { SearchJobFrom } from '@/components/forms/search-job-form'
 import { Container } from '@/components/ui/container'
+import type { ComponentProps } from 'react'
 
-interface PageHeaderProps {
+interface PageHeaderProps extends ComponentProps<'header'> {
 	title: string
 	description?: string
 	lead?: string
 }
 
-export function PageHeader({ title, lead, description }: PageHeaderProps) {
+export function PageHeader({
+	title,
+	lead,
+	description,
+	children,
+}: PageHeaderProps) {
 	return (
 		<header className="flex w-full flex-col justify-center bg-accent lg:h-[240px] lg:pt-6 lg:pb-14">
 			<Container className="relative flex flex-col items-center justify-center">
@@ -29,9 +34,7 @@ export function PageHeader({ title, lead, description }: PageHeaderProps) {
 					)}
 				</div>
 
-				<div className="-bottom-24 absolute mx-auto">
-					<SearchJobFrom />
-				</div>
+				{children}
 			</Container>
 		</header>
 	)
