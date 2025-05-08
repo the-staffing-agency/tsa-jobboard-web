@@ -1,5 +1,7 @@
-import data from "./data.json";
+import data from './data.json'
 
 export async function GET() {
-	return Response.json(data.jobs);
+	await new Promise((resolve) => setTimeout(resolve, 1000))
+
+	return Response.json(data.jobs)
 }
