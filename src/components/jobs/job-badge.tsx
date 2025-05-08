@@ -1,17 +1,17 @@
-import { Badge } from "../ui/badge";
+import { Badge } from '../ui/badge'
 
 export enum JobType {
-	FULL_TIME = "Full-time",
-	PART_TIME = "Part-time",
-	CONTRACT = "Contract",
-	INTERNSHIP = "Internship",
-	REMOTE = "Remote",
+	FULL_TIME = 'Full-time',
+	PART_TIME = 'Part-time',
+	CONTRACT = 'Contract',
+	INTERNSHIP = 'Internship',
+	REMOTE = 'Remote',
 }
 
 interface JobJobBadgeProps {
-	type: JobType;
+	type: JobType
 }
 
 export function JobBadge({ type }: JobJobBadgeProps) {
-	return <Badge variant="secondary"> {type}</Badge>;
+	return <Badge variant="secondary"> {type}</Badge>
 }

@@ -1,60 +1,60 @@
-import { cn } from "@/utils/cn";
-import Link from "next/link";
-import type React from "react";
-import type { ComponentProps } from "react";
+import { cn } from '@/utils/cn'
+import Link from 'next/link'
+import type React from 'react'
+import type { ComponentProps } from 'react'
 
-function JobCardHeader({ children, ...props }: ComponentProps<"header">) {
-	return <header {...props}>{children}</header>;
+function JobCardHeader({ children, ...props }: ComponentProps<'header'>) {
+	return <header {...props}>{children}</header>
 }
 
-function JobCardTitle({ children, className, ...props }: ComponentProps<"h3">) {
+function JobCardTitle({ children, className, ...props }: ComponentProps<'h3'>) {
 	return (
 		<h3 className="font-semibold text-lg/tight text-slate-800" {...props}>
 			{children}
 		</h3>
-	);
+	)
 }
 
 function JobCardInfos({ children }: { children: React.ReactNode }) {
-	return <div className="flex flex-col gap-1 mt-2">{children}</div>;
+	return <div className="mt-2 flex flex-col gap-1">{children}</div>
 }
 
-function JobCardContent({ children, ...props }: ComponentProps<"p">) {
+function JobCardContent({ children, ...props }: ComponentProps<'p'>) {
 	return (
-		<main className="flex flex-col gap-4 min-h-full" {...props}>
+		<main className="flex min-h-full flex-col gap-4" {...props}>
 			{children}
 		</main>
-	);
+	)
 }
 
 function JobCardFooter({
 	children,
 	className,
 	...props
-}: ComponentProps<"footer">) {
+}: ComponentProps<'footer'>) {
 	return (
-		<footer className="flex gap-4 items-center" {...props}>
+		<footer className="flex items-center gap-4" {...props}>
 			{children}
 		</footer>
-	);
+	)
 }
 
-export function JobCard({
-	children,
-	className,
-	...props
-}: ComponentProps<"a">) {
+interface JobCardProps extends ComponentProps<'a'> {
+	link: string | URL
+}
+
+export function JobCard({ link, children, className, ...props }: JobCardProps) {
 	return (
 		<Link
-			href="/job/slug"
+			href={link}
 			className={cn(
-				`p-4 lg:p-6 bg-slate-50 hover:bg-accent/10 rounded-sm border border-accent/5 hover:border-accent/40 transition-colors duration-150 ease-in-out ${className}`,
+				`rounded-sm border border-accent/5 bg-slate-50 p-4 transition-colors duration-150 ease-in-out hover:border-accent/40 hover:bg-accent/10 lg:p-6 ${className}`,
 			)}
 			{...props}
 		>
 			{children}
 		</Link>
-	);
+	)
 }
 
 export {
@@ -63,4 +63,4 @@ export {
 	JobCardInfos,
 	JobCardContent,
 	JobCardFooter,
-};
+}

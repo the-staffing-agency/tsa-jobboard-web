@@ -1,11 +1,11 @@
-import Link from "next/link";
-import type React from "react";
-import { Badge } from "../ui/badge";
+import Link from 'next/link'
+import type React from 'react'
+import { Badge } from '../ui/badge'
 
 export function JobsCategories() {
 	return (
-		<div className="flex flex-col lg:flex-row gap-1 lg:gap-4 items-center mt-2 lg:mt-4">
-			<span className="text-sm text-slate-50 font-normal">Jobs categories</span>
+		<div className="mt-2 flex flex-col items-center gap-1 lg:mt-4 lg:flex-row lg:gap-4">
+			<span className="font-normal text-slate-50 text-sm">Jobs categories</span>
 
 			<div className="flex gap-2">
 				<Link href="/jobs/career/culinary" prefetch>
@@ -25,5 +25,5 @@ export function JobsCategories() {
 				</Link>
 			</div>
 		</div>
-	);
+	)
 }
