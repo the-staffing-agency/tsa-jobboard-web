@@ -1,17 +1,17 @@
-import { Button } from "@/components/ui/button";
-import type { JobData } from "@/data/jobs";
-import Link from "next/link";
+import { Button } from '@/components/ui/button'
+import type { JobData } from '@/data/jobs'
+import Link from 'next/link'
 
 interface JobCardProps {
-	job: JobData;
+	job: JobData
 }
 
 export default function JobCard({ job }: JobCardProps) {
 	return (
-		<div className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 hover:shadow-md transition-all">
+		<div className="rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-md">
 			<div className="flex flex-col space-y-4">
 				<div>
-					<h3 className="text-lg font-semibold text-primary">{job.title}</h3>
+					<h3 className="font-semibold text-lg text-primary">{job.title}</h3>
 					<p className="text-card-foreground">{job.company}</p>
 				</div>
 
@@ -20,11 +20,11 @@ export default function JobCard({ job }: JobCardProps) {
 					<p className="text-muted-foreground">{job.salary}</p>
 				</div>
 
-				<p className="text-sm text-muted-foreground line-clamp-2">
+				<p className="line-clamp-2 text-muted-foreground text-sm">
 					{job.description}
 				</p>
 
-				<div className="flex items-center justify-between text-sm text-muted-foreground">
+				<div className="flex items-center justify-between text-muted-foreground text-sm">
 					<span className="capitalize">{job.jobType}</span>
 					<span>{job.postedDate}</span>
 				</div>
@@ -38,5 +38,5 @@ export default function JobCard({ job }: JobCardProps) {
 				</div>
 			</div>
 		</div>
-	);
+	)
 }
