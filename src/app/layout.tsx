@@ -5,10 +5,13 @@ import { metadataConfig } from '@/data/website/metadata'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const { title, description } = metadataConfig
+const { description } = metadataConfig
 
 export const metadata: Metadata = {
-	title,
+	title: {
+		template: '%s | Culinary Jobs',
+		default: 'Culinary Jobs',
+	},
 	description,
 }
 

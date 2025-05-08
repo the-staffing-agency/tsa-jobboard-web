@@ -4,6 +4,20 @@ import { Widget } from '@/components/widget'
 import { getJobBySlug } from '@/data/jobs/get-job-by-slug'
 import { salaryFormatter } from '@/utils/formatter'
 
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ slug: string }>
+}) {
+	const slug = (await params).slug
+
+	const job = await getJobBySlug(slug)
+
+	return {
+		title: job.title,
+	}
+}
+
 export default async function Page({
 	params,
 }: {
