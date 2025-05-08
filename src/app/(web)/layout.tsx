@@ -13,11 +13,7 @@ export default function WebLayout({
 		<NavToggleProvider>
 			<Header>
 				<NavBar />
-				<MenuHamburger />
 			</Header>
-
-			<NavToggle />
-
 			<section>{children}</section>
 		</NavToggleProvider>
 	)
