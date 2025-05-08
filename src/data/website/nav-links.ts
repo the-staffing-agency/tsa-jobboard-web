@@ -8,6 +8,10 @@ export const mockNavLinks = [
 		href: '/jobs',
 	},
 	{
+		title: 'Carrear',
+		href: '/jobs/carrear',
+	},
+	{
 		title: 'About',
 		href: '/about',
 	},

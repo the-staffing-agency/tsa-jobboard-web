@@ -17,6 +17,7 @@ import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { Widget } from '@/components/widget'
 import { searchJobs } from '@/data/jobs/search-jobs'
+import { pageHeaderContentMock } from '@/data/website/pages/page-header'
 import { RiBuildingLine, RiMapPin2Line } from '@remixicon/react'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
@@ -39,7 +40,10 @@ export default async function SearchPage({
 
 	return (
 		<>
-			<PageHeader title={query} />
+			<PageHeader
+				title={query}
+				description={pageHeaderContentMock.description}
+			/>
 
 			<Container className="flex lg:mt-24 lg:gap-10">
 				<aside className="relative flex-1/4 lg:min-w-sm">

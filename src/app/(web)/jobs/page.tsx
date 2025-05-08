@@ -16,6 +16,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { getManyJobs } from '@/data/jobs/get-many-jobs'
+import { pageHeaderContentMock } from '@/data/website/pages/page-header'
 import { RiBuildingLine, RiMapPin2Line } from '@remixicon/react'
 import Link from 'next/link'
 import { PageHeader } from '../_components/page-header'
@@ -25,7 +26,10 @@ export default async function SearchPage() {
 
 	return (
 		<>
-			<PageHeader title="Jobs" />
+			<PageHeader
+				title="Jobs"
+				description={pageHeaderContentMock.description}
+			/>
 
 			<Container className="flex justify-center lg:mt-24">
 				<main className="w-full max-w-[800px]">
