@@ -50,7 +50,7 @@ export function SearchJobFrom() {
 			return
 		}
 
-		router.push(`/search?q=${query}&type=${type}`)
+		router.push(`/search/jobs?q=${query}&type=${type}`)
 	}
 
 	// const selectValuePlaceholder = (value: string) =>

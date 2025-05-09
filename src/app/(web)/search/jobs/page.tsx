@@ -17,12 +17,12 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { Widget } from '@/components/widget'
+import { getManyJobs } from '@/data/jobs/get-many-jobs'
 import { searchJobs } from '@/data/jobs/search-jobs'
 import { pageHeaderContentMock } from '@/data/website/pages/page-header'
 import { RiBuildingLine, RiMapPin2Line } from '@remixicon/react'
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
-import { PageHeader } from '../_components/page-header'
+import { PageHeader } from '../../_components/page-header'
 
 type SearchParams = Promise<{ q: string; type: string }>
 
@@ -31,17 +31,13 @@ export default async function SearchPage({
 }: {
 	searchParams: SearchParams
 }) {
-	const { q: query } = await searchParams
+	const { q: query, type } = await searchParams
 
-	if (!query) {
-		redirect('/')
-	}
-
-	const jobs = await searchJobs({ query, type: 'all' })
+	const jobs = await searchJobs({ query, type })
 
 	return (
 		<>
-			<PageHeader title={query} description={pageHeaderContentMock.description}>
+			<PageHeader title="Jobs" description={pageHeaderContentMock.description}>
 				<SearchJobFrom />
 			</PageHeader>
 
@@ -54,8 +50,7 @@ export default async function SearchPage({
 						</Widget>
 					</div>
 				</aside>
-
-				<main className="flex-3/4">
+				<main className="w-full">
 					<div className="flex flex-col gap-1 lg:mb-6">
 						<h2 className="mb-0 font-bold text-2xl leading-none">
 							Filtered results
@@ -65,7 +60,6 @@ export default async function SearchPage({
 							{jobs.length > 1 ? 'results' : 'result'} for "<b>{query}</b>"
 						</span>
 					</div>
-
 					<div className="flex flex-col gap-2">
 						{jobs.length > 0 ? (
 							jobs.map((job) => (

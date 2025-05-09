@@ -16,9 +16,10 @@ import {
 } from '@/components/ui/form'
 import { jobsType } from '@/data/website/jobs/jobs-type'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { useCallback } from 'react'
 
 const fromSchema = z.object({
-	jobsType: z.array(z.string(), {
+	jobsType: z.array(z.string()).refine((value) => value.some((item) => item), {
 		message: 'You have to select at least one item.',
 	}),
 })
@@ -27,25 +28,36 @@ type FilterAsideJobFormData = z.infer<typeof fromSchema>
 
 export function FilterAsideJobForm() {
 	const searchParams = useSearchParams()
+	const router = useRouter()
 
-	// const query = searchParams.get("q");
+	// const query = searchParams.get('q')
 	const type = searchParams.get('type')
 
-	const findTypeValues = jobsType.find(
-		(job) => job.value.toLocaleLowerCase() === type?.toLocaleLowerCase(),
-	)
+	// const findTypeValues = jobsType.find(
+	// 	(job) => job.value.toLocaleLowerCase() === type?.toLocaleLowerCase(),
+	// )
 
 	const form = useForm<FilterAsideJobFormData>({
 		resolver: zodResolver(fromSchema),
 		defaultValues: {
-			jobsType: findTypeValues
-				? [findTypeValues.value, findTypeValues.label]
-				: ['', ''],
+			jobsType: ['all'],
 		},
 	})
 
+	const createQueryString = useCallback(
+		(name: string, value: string) => {
+			const params = new URLSearchParams(searchParams.toString())
+			params.set(name, value)
+
+			return params.toString()
+		},
+		[searchParams],
+	)
+
 	function onSubmit(data: FilterAsideJobFormData) {
-		console.log(data)
+		router.push(
+			`/search/jobs?${createQueryString('type', data.jobsType.toString()).replace(/%2C/g, ',')}`,
+		)
 	}
 
 	return (
@@ -98,7 +110,7 @@ export function FilterAsideJobForm() {
 				/>
 
 				<div className="flex gap-2">
-					<Button type="submit">Submit</Button>
+					<Button type="submit">Filter</Button>
 					<Button type="reset" variant={'ghost'}>
 						<span className="text-red-500">Reset</span>
 					</Button>
