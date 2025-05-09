@@ -11,7 +11,7 @@ interface NavToggleContextProps {
 const NavToggleContext = createContext({} as NavToggleContextProps)
 
 export function NavToggleProvider({ children }: { children: React.ReactNode }) {
-	const [isOpen, setIsOpen] = useState(false)
+	const [isOpen, setIsOpen] = useState<boolean>(false)
 
 	function handleToggle() {
 		setIsOpen((state) => !state)
