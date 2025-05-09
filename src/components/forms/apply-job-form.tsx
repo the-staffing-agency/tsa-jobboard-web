@@ -62,7 +62,7 @@ export function ApplyJobForm({ jobId }: { jobId: number }) {
 					className="w-full"
 					disabled={hasAlreadyApplied && true}
 				>
-					Apply for this position
+					{hasAlreadyApplied ? 'Applied Job' : 'Apply for this position'}
 				</Button>
 			</DialogTrigger>
 			<DialogContent>
