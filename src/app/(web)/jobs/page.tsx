@@ -27,11 +27,9 @@ export default async function SearchPage() {
 
 	return (
 		<>
-			<PageHeader
-				title="Jobs"
-				description={pageHeaderContentMock.description}
-			/>
-
+			<PageHeader title="Jobs" description={pageHeaderContentMock.description}>
+				<SearchJobFrom />
+			</PageHeader>
 			<Container className="mt-10 flex flex-col justify-center gap-10 lg:flex-row">
 				<aside className="relative flex-1/4 lg:min-w-sm">
 					<div className="sticky top-10">
