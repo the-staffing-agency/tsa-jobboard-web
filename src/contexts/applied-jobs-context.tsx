@@ -31,9 +31,12 @@ export function AppliedJobsProvider({
 
 	useEffect(() => {
 		const stored = localStorage.getItem(env.NEXT_PUBLIC_LOCAL_STORAGE_NAME)
-		if (stored) {
-			setJobItems(JSON.parse(stored))
+
+		if (!stored) {
+			return
 		}
+
+		setJobItems(JSON.parse(stored))
 	}, [])
 
 	useEffect(() => {
