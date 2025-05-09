@@ -57,12 +57,8 @@ export function ApplyJobForm({ jobId }: { jobId: number }) {
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
-				<Button
-					size={'lg'}
-					className="w-full"
-					disabled={hasAlreadyApplied && true}
-				>
-					{hasAlreadyApplied ? 'Applied Job' : 'Apply for this position'}
+				<Button size={'lg'} disabled={hasAlreadyApplied && true}>
+					{hasAlreadyApplied ? 'Applied Job' : 'Apply Now'}
 				</Button>
 			</DialogTrigger>
 			<DialogContent>
