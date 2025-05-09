@@ -24,9 +24,7 @@ export function JobApplyDialog() {
 					<DialogTitle>Forms</DialogTitle>
 					<DialogDescription>Form</DialogDescription>
 
-					<DialogContent>
-						<ApplyJobForm />
-					</DialogContent>
+					<DialogContent>{/* <ApplyJobForm /> */}</DialogContent>
 				</DialogHeader>
 			</DialogContent>
 		</Dialog>

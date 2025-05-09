@@ -1,3 +1,4 @@
+import { ApplyJobForm } from '@/components/forms/apply-job-form'
 import { JobApplyDialog } from '@/components/jobs/job-apply-dialog'
 import { Container } from '@/components/ui/container'
 import { Widget } from '@/components/widget'
@@ -166,7 +167,8 @@ export default async function Page({
 									Grove Fine Dining
 								</p>
 							</div>
-							<JobApplyDialog />
+
+							<ApplyJobForm jobId={job.id} />
 						</div>
 					</Widget>
 				</div>
