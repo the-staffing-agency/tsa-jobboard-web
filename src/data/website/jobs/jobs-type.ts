@@ -1,9 +1,5 @@
 export const jobsType = [
 	{
-		value: 'all',
-		label: 'All',
-	},
-	{
 		value: 'full-time',
 		label: 'Full-time',
 	},

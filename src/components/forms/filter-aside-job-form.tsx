@@ -30,17 +30,15 @@ export function FilterAsideJobForm() {
 	const searchParams = useSearchParams()
 	const router = useRouter()
 
-	// const query = searchParams.get('q')
-	const type = searchParams.get('type')
+	const type = searchParams.getAll('type')
+	const isSearchParamsByTypeAll = searchParams.has('type', 'all')
 
-	// const findTypeValues = jobsType.find(
-	// 	(job) => job.value.toLocaleLowerCase() === type?.toLocaleLowerCase(),
-	// )
+	console.log(isSearchParamsByTypeAll)
 
 	const form = useForm<FilterAsideJobFormData>({
 		resolver: zodResolver(fromSchema),
 		defaultValues: {
-			jobsType: ['all'],
+			jobsType: isSearchParamsByTypeAll ? [] : [...type],
 		},
 	})
 
