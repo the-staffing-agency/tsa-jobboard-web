@@ -1,4 +1,4 @@
-import { salaryFormatter } from '@/utils/formatter'
+import { moneyFormatter } from '@/utils/formatter'
 
 export interface JobSalaryProps {
 	type?: string
@@ -9,8 +9,8 @@ export interface JobSalaryProps {
 export function JobSalary({ type, start, end }: JobSalaryProps) {
 	return (
 		<div className="flex gap-1 font-semibold text-slate-800 text-sm">
-			<span>{salaryFormatter.format(start)}</span> -{' '}
-			<span>{salaryFormatter.format(end)}</span>{' '}
+			<span>{moneyFormatter.format(start)}</span> -{' '}
+			<span>{moneyFormatter.format(end)}</span>{' '}
 			{type ?? `<span> ${type} </span>`}
 		</div>
 	)

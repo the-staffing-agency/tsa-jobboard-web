@@ -3,7 +3,7 @@ import { JobApplyDialog } from '@/components/jobs/job-apply-dialog'
 import { Container } from '@/components/ui/container'
 import { Widget } from '@/components/widget'
 import { getJobBySlug } from '@/data/jobs/get-job-by-slug'
-import { salaryFormatter } from '@/utils/formatter'
+import { moneyFormatter } from '@/utils/formatter'
 
 export async function generateMetadata({
 	params,
@@ -39,8 +39,8 @@ export default async function Page({
 
 					<div className="mb-6 space-y-2 py-4 lg:mb-10">
 						<div>
-							<b>Salary</b>: {salaryFormatter.format(job.salary.start)} –{' '}
-							{salaryFormatter.format(job.salary.end)} per {job.salary.type}
+							<b>Salary</b>: {moneyFormatter.format(job.salary.start)} –{' '}
+							{moneyFormatter.format(job.salary.end)} per {job.salary.type}
 						</div>
 						<div>
 							<b>Job Type</b>: {job.type}{' '}
