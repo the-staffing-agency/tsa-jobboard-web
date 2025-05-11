@@ -40,7 +40,7 @@ export async function generateMetadata({
 	if (!isParamsId) {
 		const [slug] = (await params).params
 
-		pageTitle = getPageTitle(slug)
+		pageTitle = getPageTitle(slug.replace(/^chef-/, ''))
 
 		return {
 			title: slug.replaceAll('-', ' ').toUpperCase(),
@@ -75,7 +75,7 @@ export default async function Page({
 
 		const searchTerm = slug.replace(/^chef-/, '').replace(/-/g, ' ')
 
-		pageTitle = getPageTitle(slug)
+		pageTitle = getPageTitle(slug.replace(/^chef-/, ''))
 
 		jobs = await searchJobs({
 			query: searchTerm,
