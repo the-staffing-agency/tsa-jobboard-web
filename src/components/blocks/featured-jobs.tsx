@@ -49,7 +49,7 @@ export async function FeaturedJobs() {
 				{
 					<div className="grid gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
 						{featuredJobs.map((job) => (
-							<JobCard link={`/jobs/${job.slug}`} key={job.id}>
+							<JobCard link={`/jobs/${job.id}`} key={job.id}>
 								<JobCardContent>
 									<JobCardHeader>
 										<JobCardTitle>{job.title}</JobCardTitle>
