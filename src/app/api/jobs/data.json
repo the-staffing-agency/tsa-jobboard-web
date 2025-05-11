@@ -5,7 +5,7 @@
 			"title": "Executive Chef",
 			"slug": "executive-chef",
 			"company": "Maple Grove Fine Dining",
-			"location": "Calgary, AB",
+			"location": "New York City",
 			"type": "Contract",
 			"resume": "Executive Chef needed at Maple Grove Fine Dining.",
 			"requirements": [
@@ -27,7 +27,7 @@
 			"title": "Line Cook",
 			"slug": "line-cook",
 			"company": "West Coast Bites",
-			"location": "Calgary, AB",
+			"location": "New York City",
 			"type": "Contract",
 			"resume": "Line Cook needed at West Coast Bites.",
 			"requirements": [
@@ -49,7 +49,7 @@
 			"title": "Kitchen Helper",
 			"slug": "kitchen-helper",
 			"company": "Prairie Roots Caf\u00e9",
-			"location": "Calgary, AB",
+			"location": "New York City",
 			"type": "Full-time",
 			"resume": "Kitchen Helper needed at Prairie Roots Caf\u00e9.",
 			"requirements": [
@@ -71,7 +71,7 @@
 			"title": "Pastry Chef",
 			"slug": "pastry-chef",
 			"company": "Montreal Sweets Atelier",
-			"location": "Toronto, ON",
+			"location": "New York City",
 			"type": "Evening Shift",
 			"resume": "Pastry Chef needed at Montreal Sweets Atelier.",
 			"requirements": [
@@ -93,7 +93,7 @@
 			"title": "Baker",
 			"slug": "baker",
 			"company": "Ottawa Sunrise Bakery",
-			"location": "Toronto, ON",
+			"location": "New York City",
 			"type": "Evening Shift",
 			"resume": "Baker needed at Ottawa Sunrise Bakery.",
 			"requirements": [
@@ -115,7 +115,7 @@
 			"title": "Sous Chef",
 			"slug": "sous-chef",
 			"company": "Blue River Bistro",
-			"location": "Victoria, BC",
+			"location": "New Jersey",
 			"type": "Full-time",
 			"resume": "Sous Chef needed at Blue River Bistro.",
 			"requirements": ["Knife skills", "Cleanliness", "Time management"],
@@ -133,7 +133,7 @@
 			"title": "Prep Cook",
 			"slug": "prep-cook",
 			"company": "Golden Wheat Kitchen",
-			"location": "Montr\u00e9al, QC",
+			"location": "New York City",
 			"type": "Morning Shift",
 			"resume": "Prep Cook needed at Golden Wheat Kitchen.",
 			"requirements": ["Knife skills", "Cleanliness", "Time management"],
@@ -151,7 +151,7 @@
 			"title": "Grill Cook",
 			"slug": "grill-cook",
 			"company": "Urban Flame Grill",
-			"location": "Winnipeg, MB",
+			"location": "New Jersey",
 			"type": "Part-time",
 			"resume": "Grill Cook needed at Urban Flame Grill.",
 			"requirements": [
@@ -173,7 +173,7 @@
 			"title": "Catering Chef",
 			"slug": "catering-chef",
 			"company": "Northern Lights Catering",
-			"location": "Quebec City, QC",
+			"location": "Manhattan",
 			"type": "Contract",
 			"resume": "Catering Chef needed at Northern Lights Catering.",
 			"requirements": [
@@ -195,7 +195,7 @@
 			"title": "Private Chef",
 			"slug": "private-chef",
 			"company": "Lakeside Table",
-			"location": "Quebec City, QC",
+			"location": "Manhattan",
 			"type": "Evening Shift",
 			"resume": "Private Chef needed at Lakeside Table.",
 			"requirements": [
@@ -217,7 +217,7 @@
 			"title": "Food Stylist",
 			"slug": "food-stylist",
 			"company": "Crave & Co.",
-			"location": "Ottawa, ON",
+			"location": "New York City",
 			"type": "Evening Shift",
 			"resume": "Food Stylist needed at Crave & Co..",
 			"requirements": [
@@ -239,7 +239,7 @@
 			"title": "Chef de Partie",
 			"slug": "chef-de-partie",
 			"company": "Alberta Garden Cuisine",
-			"location": "Calgary, AB",
+			"location": "New York City",
 			"type": "Evening Shift",
 			"resume": "Chef de Partie needed at Alberta Garden Cuisine.",
 			"requirements": [
@@ -261,7 +261,7 @@
 			"title": "Garde Manger",
 			"slug": "garde-manger",
 			"company": "QC Culinary Studio",
-			"location": "Ottawa, ON",
+			"location": "New York City",
 			"type": "Part-time",
 			"resume": "Garde Manger needed at QC Culinary Studio.",
 			"requirements": [
@@ -283,7 +283,7 @@
 			"title": "Commis Chef",
 			"slug": "commis-chef",
 			"company": "Toronto Food Lab",
-			"location": "Ottawa, ON",
+			"location": "New York City",
 			"type": "Contract",
 			"resume": "Commis Chef needed at Toronto Food Lab.",
 			"requirements": [
@@ -305,7 +305,7 @@
 			"title": "Butcher",
 			"slug": "butcher",
 			"company": "East Coast Eats",
-			"location": "Calgary, AB",
+			"location": "New York City",
 			"type": "Full-time",
 			"resume": "Butcher needed at East Coast Eats.",
 			"requirements": [
@@ -327,7 +327,7 @@
 			"title": "Pasta Maker",
 			"slug": "pasta-maker",
 			"company": "Vancouver Pasta House",
-			"location": "Halifax, NS",
+			"location": "New Jersey",
 			"type": "Evening Shift",
 			"resume": "Pasta Maker needed at Vancouver Pasta House.",
 			"requirements": [
@@ -349,7 +349,7 @@
 			"title": "Sushi Chef",
 			"slug": "sushi-chef",
 			"company": "Sakura Fusion",
-			"location": "Toronto, ON",
+			"location": "New York City",
 			"type": "Full-time",
 			"resume": "Sushi Chef needed at Sakura Fusion.",
 			"requirements": ["Knife skills", "Cleanliness", "Time management"],
@@ -367,7 +367,7 @@
 			"title": "Breakfast Cook",
 			"slug": "breakfast-cook",
 			"company": "Morning Joy Caf\u00e9",
-			"location": "Edmonton, AB",
+			"location": "Manhattan",
 			"type": "Full-time",
 			"resume": "Breakfast Cook needed at Morning Joy Caf\u00e9.",
 			"requirements": [
@@ -389,7 +389,7 @@
 			"title": "Restaurant Manager",
 			"slug": "restaurant-manager",
 			"company": "Downtown Bistro",
-			"location": "Edmonton, AB",
+			"location": "Manhattan",
 			"type": "Contract",
 			"resume": "Restaurant Manager needed at Downtown Bistro.",
 			"requirements": [
@@ -411,7 +411,7 @@
 			"title": "Food Truck Cook",
 			"slug": "food-truck-cook",
 			"company": "Rolling Dish Truck",
-			"location": "Calgary, AB",
+			"location": "New Jersey",
 			"type": "Contract",
 			"resume": "Food Truck Cook needed at Rolling Dish Truck.",
 			"requirements": [
