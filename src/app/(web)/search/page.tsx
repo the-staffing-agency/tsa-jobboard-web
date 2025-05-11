@@ -69,7 +69,7 @@ export default async function SearchPage({
 					<div className="flex flex-col gap-2">
 						{jobs.length > 0 ? (
 							jobs.map((job) => (
-								<JobList key={job.id} link={`/jobs/${job.slug}`}>
+								<JobList key={job.id} link={`/jobs/${job.id}`}>
 									<JobListContent>
 										<JobListHeader>
 											<JobListTitle>{job.title}</JobListTitle>
@@ -99,7 +99,7 @@ export default async function SearchPage({
 
 											<JobListAdditionalActions>
 												<Link
-													href={`/jobs/${job.slug}`}
+													href={`/jobs/${job.id}`}
 													className="font-semibold text-accent underline underline-offset-1 hover:underline-offset-2"
 												>
 													View Job
