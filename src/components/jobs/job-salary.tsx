@@ -11,7 +11,7 @@ export function JobSalary({ type, start, end }: JobSalaryProps) {
 		<div className="flex gap-1 font-semibold text-slate-800 text-sm">
 			<span>{moneyFormatter.format(start)}</span> -{' '}
 			<span>{moneyFormatter.format(end)}</span>{' '}
-			{type ?? `<span> ${type} </span>`}
+			{type && <span> per {type} </span>}
 		</div>
 	)
 }
