@@ -12,12 +12,15 @@ export async function searchJobs({
 	query,
 	type,
 }: SearchJobsInput): Promise<Job[]> {
-	const response = await api(`/jobs/search?q=${query}&type=${type}`, {
-		cache: 'force-cache',
-		next: {
-			revalidate: REVALIDATE_CACHE,
+	const response = await api(
+		`/jobs/search?q=${encodeURIComponent(query)}&type=${type}`,
+		{
+			cache: 'force-cache',
+			next: {
+				revalidate: REVALIDATE_CACHE,
+			},
 		},
-	})
+	)
 
 	const jobs = await response.json()
 
