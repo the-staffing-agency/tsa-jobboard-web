@@ -33,8 +33,6 @@ export function FilterAsideJobForm() {
 	const type = searchParams.getAll('type')
 	const isSearchParamsByTypeAll = searchParams.has('type', 'all')
 
-	console.log(isSearchParamsByTypeAll)
-
 	const form = useForm<FilterAsideJobFormData>({
 		resolver: zodResolver(fromSchema),
 		defaultValues: {

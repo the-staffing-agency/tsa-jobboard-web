@@ -41,8 +41,6 @@ export async function GET(request: NextRequest) {
 	const jobsByType = jobs.filter((job) => {
 		const typeTerms = normalizeTerm(types).split(',').filter(Boolean)
 
-		console.log(typeTerms)
-
 		const jobType = normalizeTerm(job.type)
 		return typeTerms.some((type) => jobType.includes(type))
 	})
