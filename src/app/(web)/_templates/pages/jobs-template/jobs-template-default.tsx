@@ -1,4 +1,5 @@
 import { PageHeader } from '@/app/(web)/_components/page-header'
+import { ApplyJobForm } from '@/components/forms/apply-job-form'
 import { FilterAsideJobForm } from '@/components/forms/filter-aside-job-form'
 import { SearchJobFrom } from '@/components/forms/search-job-form'
 import { JobBadge } from '@/components/jobs/job-badge'
@@ -15,7 +16,6 @@ import { JobResumeText } from '@/components/jobs/job-resume-text'
 import { JobSalary } from '@/components/jobs/job-salary'
 import { SearchNotFound } from '@/components/search-not-found'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { Widget } from '@/components/widget'
 import type { Job } from '@/data/types/job'
@@ -94,7 +94,7 @@ export function JobsTemplateDefault({ title, jobs }: JobTemplateProps) {
 													View Job
 												</Link>
 
-												<Button>Apply Now</Button>
+												<ApplyJobForm jobId={job.id} />
 											</JobListAdditionalActions>
 										</JobListFooter>
 									</JobListContent>

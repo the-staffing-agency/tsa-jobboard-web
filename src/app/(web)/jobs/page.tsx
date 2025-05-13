@@ -1,3 +1,4 @@
+import { ApplyJobForm } from '@/components/forms/apply-job-form'
 import { FilterAsideJobForm } from '@/components/forms/filter-aside-job-form'
 import { SearchJobFrom } from '@/components/forms/search-job-form'
 import { JobBadge } from '@/components/jobs/job-badge'
@@ -13,7 +14,6 @@ import {
 import { JobResumeText } from '@/components/jobs/job-resume-text'
 import { JobSalary } from '@/components/jobs/job-salary'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { Widget } from '@/components/widget'
 import { getManyJobs } from '@/data/jobs/get-many-jobs'
@@ -79,7 +79,7 @@ export default async function SearchPage() {
 												View Job
 											</Link>
 
-											<Button>Apply Now</Button>
+											<ApplyJobForm jobId={job.id} />
 										</JobListAdditionalActions>
 									</JobListFooter>
 								</JobListContent>
