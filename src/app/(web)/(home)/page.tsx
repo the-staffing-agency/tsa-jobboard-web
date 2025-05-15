@@ -7,7 +7,7 @@ import {
 	HeroTitle,
 } from '@/components/blocks/hero'
 import { SearchJobFrom } from '@/components/forms/search-job-form'
-import { JobsCategories } from '@/components/jobs/jobs-categories'
+import { JobCategories } from '@/components/ui/job/job-categories'
 import { mockHeroData } from '@/data/website/hero'
 
 export default async function HomePage() {
@@ -21,7 +21,7 @@ export default async function HomePage() {
 
 				<HeroFooter>
 					<SearchJobFrom />
-					<JobsCategories />
+					<JobCategories />
 				</HeroFooter>
 			</Hero>
 

@@ -6,7 +6,6 @@ import {
 	HeroTitle,
 } from '@/components/blocks/hero'
 import { SearchJobFrom } from '@/components/forms/search-job-form'
-import { JobsCategories } from '@/components/jobs/jobs-categories'
 import {
 	SectionBlock,
 	SectionBlockCallToAction,
@@ -14,6 +13,7 @@ import {
 	SectionBlockSubTitle,
 	SectionBlockTitle,
 } from '@/components/section-block'
+import { JobCategories } from '@/components/ui/job/job-categories'
 import { mockHeroData } from '@/data/website/hero'
 import { contentFeaturedJobs } from '@/data/website/sections/content-featured-jobs'
 import Link from 'next/link'
@@ -29,7 +29,7 @@ export default function Loading() {
 
 				<HeroFooter>
 					<SearchJobFrom />
-					<JobsCategories />
+					<JobCategories />
 				</HeroFooter>
 			</Hero>
 

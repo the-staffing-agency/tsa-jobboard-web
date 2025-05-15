@@ -1,7 +1,10 @@
 import { ApplyJobForm } from '@/components/forms/apply-job-form'
 import { FilterAsideJobForm } from '@/components/forms/filter-aside-job-form'
 import { SearchJobFrom } from '@/components/forms/search-job-form'
-import { JobBadge } from '@/components/jobs/job-badge'
+import { SearchNotFound } from '@/components/search-not-found'
+import { Badge } from '@/components/ui/badge'
+import { Container } from '@/components/ui/container'
+import { JobBadge } from '@/components/ui/job/job-badge'
 import {
 	JobList,
 	JobListAdditionalActions,
@@ -10,12 +13,9 @@ import {
 	JobListHeader,
 	JobListInfos,
 	JobListTitle,
-} from '@/components/jobs/job-list'
-import { JobResumeText } from '@/components/jobs/job-resume-text'
-import { JobSalary } from '@/components/jobs/job-salary'
-import { SearchNotFound } from '@/components/search-not-found'
-import { Badge } from '@/components/ui/badge'
-import { Container } from '@/components/ui/container'
+} from '@/components/ui/job/job-list'
+import { JobResumeText } from '@/components/ui/job/job-resume-text'
+import { JobSalary } from '@/components/ui/job/job-salary'
 import { Widget } from '@/components/widget'
 import { searchJobs } from '@/data/jobs/search-jobs'
 import { pageHeaderContentMock } from '@/data/website/pages/page-header'

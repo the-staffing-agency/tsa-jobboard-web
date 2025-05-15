@@ -7,8 +7,8 @@ import {
 	DialogTrigger,
 } from '@/components/ui/dialog'
 import { Form } from 'react-hook-form'
-import { ApplyJobForm } from '../forms/apply-job-form'
-import { Button } from '../ui/button'
+import { ApplyJobForm } from '../../forms/apply-job-form'
+import { Button } from '../button'
 
 export function JobApplyDialog() {
 	return (

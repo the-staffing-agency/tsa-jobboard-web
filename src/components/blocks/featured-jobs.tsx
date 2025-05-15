@@ -3,17 +3,6 @@ import { RiBuildingLine, RiMapPin2Line } from '@remixicon/react'
 import { getFeaturedJobs } from '@/data/jobs/get-featured-jobs'
 import { contentFeaturedJobs } from '@/data/website/sections/content-featured-jobs'
 import Link from 'next/link'
-import { JobBadge } from '../jobs/job-badge'
-import {
-	JobCard,
-	JobCardContent,
-	JobCardFooter,
-	JobCardHeader,
-	JobCardInfos,
-	JobCardTitle,
-} from '../jobs/job-card'
-import { JobResumeText } from '../jobs/job-resume-text'
-import { JobSalary } from '../jobs/job-salary'
 import {
 	SectionBlock,
 	SectionBlockCallToAction,
@@ -23,6 +12,17 @@ import {
 	SectionBlockTitle,
 } from '../section-block'
 import { Badge } from '../ui/badge'
+import { JobBadge } from '../ui/job/job-badge'
+import {
+	JobCard,
+	JobCardContent,
+	JobCardFooter,
+	JobCardHeader,
+	JobCardInfos,
+	JobCardTitle,
+} from '../ui/job/job-card'
+import { JobResumeText } from '../ui/job/job-resume-text'
+import { JobSalary } from '../ui/job/job-salary'
 
 export async function FeaturedJobs() {
 	const featuredJobs = await getFeaturedJobs()
