@@ -3,6 +3,7 @@ import { FilterAsideJobForm } from '@/components/forms/filter-aside-job-form'
 import { SearchJobFrom } from '@/components/forms/search-job-form'
 import { Badge } from '@/components/ui/badge'
 import { Container } from '@/components/ui/container'
+import { GridView } from '@/components/ui/grid-view'
 import {
 	JobBadge,
 	JobList,
@@ -15,6 +16,7 @@ import {
 	JobResumeText,
 	JobSalary,
 } from '@/components/ui/job'
+import { ListView } from '@/components/ui/list-view'
 import { Widget } from '@/components/widget'
 import { getManyJobs } from '@/data/jobs/get-many-jobs'
 import { pageHeaderContentMock } from '@/data/website/pages/page-header'
@@ -41,7 +43,7 @@ export default async function SearchPage() {
 				</aside>
 				<main className="w-full">
 					<h2 className="mb-4 font-bold text-2xl">Recent Jobs</h2>
-					<div className="flex flex-col gap-2">
+					<ListView>
 						{jobs.map((job) => (
 							<JobList key={job.id} link={`/jobs/${job.id}`}>
 								<JobListContent>
@@ -85,7 +87,7 @@ export default async function SearchPage() {
 								</JobListContent>
 							</JobList>
 						))}
-					</div>
+					</ListView>
 				</main>
 			</Container>
 		</>

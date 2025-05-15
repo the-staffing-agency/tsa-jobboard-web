@@ -9,9 +9,9 @@ function JobCardHeader({ children, ...props }: ComponentProps<'header'>) {
 
 function JobCardTitle({ children, className, ...props }: ComponentProps<'h3'>) {
 	return (
-		<h3 className="font-semibold text-lg/tight text-slate-800" {...props}>
+		<b className="font-semibold text-lg/tight text-slate-800" {...props}>
 			{children}
-		</h3>
+		</b>
 	)
 }
 

@@ -12,6 +12,7 @@ import {
 	SectionBlockTitle,
 } from '../section-block'
 import { Badge } from '../ui/badge'
+import { GridView } from '../ui/grid-view'
 import { JobBadge } from '../ui/job/job-badge'
 import {
 	JobCard,
@@ -46,40 +47,38 @@ export async function FeaturedJobs() {
 			</SectionBlockHeader>
 
 			<SectionBlockContent>
-				{
-					<div className="grid gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-						{featuredJobs.map((job) => (
-							<JobCard link={`/jobs/${job.id}`} key={job.id}>
-								<JobCardContent>
-									<JobCardHeader>
-										<JobCardTitle>{job.title}</JobCardTitle>
-										<JobCardInfos>
-											<Badge className="p-0" variant={'ghost'}>
-												<RiBuildingLine className="text-accent" />
-												{job.company}
-											</Badge>
-											<Badge className="p-0" variant={'ghost'}>
-												<RiMapPin2Line className="text-accent" />
-												{job.location}
-											</Badge>
-										</JobCardInfos>
-									</JobCardHeader>
+				<GridView>
+					{featuredJobs.map((job) => (
+						<JobCard link={`/jobs/${job.id}`} key={job.id}>
+							<JobCardContent>
+								<JobCardHeader>
+									<JobCardTitle>{job.title}</JobCardTitle>
+									<JobCardInfos>
+										<Badge className="p-0" variant={'ghost'}>
+											<RiBuildingLine className="text-accent" />
+											{job.company}
+										</Badge>
+										<Badge className="p-0" variant={'ghost'}>
+											<RiMapPin2Line className="text-accent" />
+											{job.location}
+										</Badge>
+									</JobCardInfos>
+								</JobCardHeader>
 
-									<JobResumeText>{job.resume}</JobResumeText>
+								<JobResumeText>{job.resume}</JobResumeText>
 
-									<JobCardFooter>
-										<JobBadge type={job.type} />
-										<JobSalary
-											start={job.salary.start}
-											end={job.salary.end}
-											type={job.salary.type}
-										/>
-									</JobCardFooter>
-								</JobCardContent>
-							</JobCard>
-						))}
-					</div>
-				}
+								<JobCardFooter>
+									<JobBadge type={job.type} />
+									<JobSalary
+										start={job.salary.start}
+										end={job.salary.end}
+										type={job.salary.type}
+									/>
+								</JobCardFooter>
+							</JobCardContent>
+						</JobCard>
+					))}
+				</GridView>
 			</SectionBlockContent>
 		</SectionBlock>
 	)

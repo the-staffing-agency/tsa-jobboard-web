@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/job/job-list'
 import { JobResumeText } from '@/components/ui/job/job-resume-text'
 import { JobSalary } from '@/components/ui/job/job-salary'
+import { ListView } from '@/components/ui/list-view'
 import { Widget } from '@/components/widget'
 import { searchJobs } from '@/data/jobs/search-jobs'
 import { pageHeaderContentMock } from '@/data/website/pages/page-header'
@@ -66,7 +67,7 @@ export default async function SearchPage({
 						</span>
 					</div>
 
-					<div className="flex flex-col gap-2">
+					<ListView>
 						{jobs.length > 0 ? (
 							jobs.map((job) => (
 								<JobList key={job.id} link={`/jobs/${job.id}`}>
@@ -114,7 +115,7 @@ export default async function SearchPage({
 						) : (
 							<SearchNotFound />
 						)}
-					</div>
+					</ListView>
 				</main>
 			</Container>
 		</>
