@@ -17,7 +17,7 @@ export default function Footer() {
 							2024.
 						</p>
 						<div className="flex space-x-4">
-							<a href="#" className="text-muted-foreground hover:text-primary">
+							{/* <a href="#" className="text-muted-foreground hover:text-primary">
 								<Facebook className="h-5 w-5" />
 							</a>
 							<a href="#" className="text-muted-foreground hover:text-primary">
@@ -28,7 +28,7 @@ export default function Footer() {
 							</a>
 							<a href="#" className="text-muted-foreground hover:text-primary">
 								<Linkedin className="h-5 w-5" />
-							</a>
+							</a> */}
 						</div>
 					</div>
 

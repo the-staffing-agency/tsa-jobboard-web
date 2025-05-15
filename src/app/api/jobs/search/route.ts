@@ -7,6 +7,7 @@ const normalizeTerm = (term: string) =>
 	term
 		.toLocaleLowerCase()
 		.normalize('NFD')
+		// biome-ignore lint/suspicious/noMisleadingCharacterClass: <explanation>
 		.replace(/[\u0300-\u036f]/g, '')
 
 export async function GET(request: NextRequest) {
