@@ -2,8 +2,10 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-@custom-variant luxury (&:is([data-theme="luxury"] *));
 @custom-variant chefs (&:is([data-theme="chefs"] *));
+@custom-variant luxury (&:is([data-theme="luxury"] *));
+@custom-variant chefs (&:is([data-theme="resume"] *));
+@custom-variant chefs (&:is([data-theme="supermarket"] *));
 
 @theme inline {
 	--color-accent: var(--accent);
@@ -48,8 +50,10 @@
 :root {
 	--radius: 0.625rem;
 	--accent: oklch(0.56 0.2164 273.45);
-	--accent-luxury: oklch(0.523 0.129 277.6);
 	--accent-chefs: oklch(0.471 0.11 137.5);
+	--accent-luxury: oklch(0.523 0.129 277.6);
+	--accent-resume: oklch(0.435 0.045 137.5);
+	--accent-supermarket: oklch(0.462 0.144 148.7);
 	--background: var(--color-slate-100);
 	--foreground: var(--color-slate-800);
 	--card: oklch(1 0 0);
@@ -82,6 +86,10 @@
 }
 
 .dark {
+	--accent-chefs: oklch(0.471 0.11 137.5);
+	--accent-luxury: oklch(0.523 0.129 277.6);
+	--accent-resume: oklch(0.435 0.045 137.5);
+	--accent-supermarket: oklch(0.462 0.144 148.7);
 	--background: oklch(0.129 0.042 264.695);
 	--foreground: oklch(0.984 0.003 247.858);
 	--card: oklch(0.208 0.042 265.755);
@@ -95,8 +103,6 @@
 	--muted: oklch(0.279 0.041 260.031);
 	--muted-foreground: oklch(0.704 0.04 256.788);
 	--accent: oklch(0.56 0.2164 273.45);
-	--accent-luxury: oklch(0.523 0.129 277.6);
-	--accent-chefs: oklch(0.471 0.11 137.5);
 	--accent-foreground: oklch(0.984 0.003 247.858);
 	--destructive: oklch(0.704 0.191 22.216);
 	--border: oklch(1 0 0 / 10%);
@@ -117,11 +123,17 @@
 	--sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+[data-theme="chefs"] {
+	--accent: var(--accent-chefs);
+}
 [data-theme="luxury"] {
 	--accent: var(--accent-luxury);
 }
-[data-theme="chefs"] {
-	--accent: var(--accent-chefs);
+[data-theme="resume"] {
+	--accent: var(--accent-resume);
+}
+[data-theme="supermarket"] {
+	--accent: var(--accent-supermarket);
 }
 
 @layer base {
