@@ -23,12 +23,12 @@ export function PageHeader({
 						</div>
 					)}
 
-					<h1 className="text-center font-extrabold text-2xl text-accent-foreground leading-none lg:text-4xl">
+					<h1 className="text-center font-extrabold text-2xl text-white leading-none lg:text-4xl">
 						{title}
 					</h1>
 
 					{description && (
-						<p className="max-w-md text-center text-accent-foreground text-base lg:text-lg">
+						<p className="max-w-md text-center text-base text-white lg:text-lg">
 							{description}
 						</p>
 					)}
