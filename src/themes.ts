@@ -1,20 +1,22 @@
 /**
- * An array of available theme identifiers for the application.
+ * Enum-like object for available theme identifiers in the application.
  *
  * @remarks
  * The themes are represented as string literals and are used to configure
  * different visual or functional modes within the application.
  *
  * @example
- * THEMES.includes('chefs'); // true
+ * THEMES.CHEFS // 'chefs'
+ * THEMES.LUXURY // 'luxury'
  *
  * @readonly
  */
 
-import { z } from 'zod'
+export const THEMES = Object.freeze({
+	CHEFS: 'chefs',
+	LUXURY: 'luxury',
+	RESUME: 'resume',
+	SUPERMARKET: 'supermarket',
+} as const)
 
-export const THEMES = ['chefs', 'luxury', 'resume', 'supermarket'] as const
-
-export const themeSchema = z.enum(THEMES)
-
-export type ThemeType = z.infer<typeof themeSchema>
+export type ThemeType = (typeof THEMES)[keyof typeof THEMES]

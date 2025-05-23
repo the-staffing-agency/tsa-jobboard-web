@@ -41,7 +41,7 @@ export default async function RootLayout({
 				<ThemeProvider
 					defaultTheme={theme ?? 'default'}
 					enableSystem={false}
-					themes={[...THEMES]}
+					themes={Object.values(THEMES)}
 				>
 					{children}
 				</ThemeProvider>

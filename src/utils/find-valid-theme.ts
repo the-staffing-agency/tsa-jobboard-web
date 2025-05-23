@@ -1,9 +1,11 @@
 import { THEMES } from '@/themes'
 
 export function findValidTheme(hostParts: string[]): string | null {
-	const validTheme = hostParts.find((value) =>
-		THEMES.includes(value as (typeof THEMES)[number]),
-	)
+	const themes = Object.values(THEMES) as string[]
+
+	const validTheme = hostParts.find((value) => {
+		return themes.includes(value)
+	})
 
 	if (!validTheme) {
 		return null
