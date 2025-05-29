@@ -17,6 +17,7 @@ import { JobCategories } from '@/components/ui/job/job-categories'
 import { mockHeroData } from '@/data/website/hero'
 import { contentFeaturedJobs } from '@/data/website/sections/content-featured-jobs'
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 export default function Loading() {
 	return (
@@ -28,7 +29,9 @@ export default function Loading() {
 				</HeroContent>
 
 				<HeroFooter>
-					<SearchJobFrom />
+					<Suspense>
+						<SearchJobFrom />
+					</Suspense>
 					<JobCategories />
 				</HeroFooter>
 			</Hero>

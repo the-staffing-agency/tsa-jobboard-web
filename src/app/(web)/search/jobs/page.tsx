@@ -21,6 +21,7 @@ import { searchJobs } from '@/data/jobs/search-jobs'
 import { pageHeaderContentMock } from '@/data/website/pages/page-header'
 import { RiBuildingLine, RiMapPin2Line } from '@remixicon/react'
 import Link from 'next/link'
+import { Suspense } from 'react'
 import { PageHeader } from '../../_components/page-header'
 
 type SearchParams = Promise<{ q: string; type: string }>
@@ -37,7 +38,9 @@ export default async function SearchPage({
 	return (
 		<>
 			<PageHeader title="Jobs" description={pageHeaderContentMock.description}>
-				<SearchJobFrom />
+				<Suspense>
+					<SearchJobFrom />
+				</Suspense>
 			</PageHeader>
 
 			<Container className="mt-10 flex flex-col justify-center gap-10 lg:flex-row">
