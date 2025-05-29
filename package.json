@@ -7,8 +7,8 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "biome check",
-		"lint:fix": "biome check . --write",
-		"lint:staged": "biome check . --staged --write",
+		"lint:fix": "biome check --write",
+		"lint:staged": "biome check --staged --write",
 		"lint:ci": "biome ci",
 		"check:updates": "npm-check-updates -i --color",
 		"prepare": "husky"
@@ -48,5 +48,16 @@
 		"tailwindcss": "^4",
 		"tw-animate-css": "^1.2.9",
 		"typescript": "^5"
-	}
+	},
+	"packageManager": "pnpm@10.10.0",
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "@biomejs/biome",
+      "sharp"
+    ],
+    "onlyBuiltDependencies": [
+      "@biomejs/biome",
+      "@scarf/scarf"
+    ]
+  }
 }
