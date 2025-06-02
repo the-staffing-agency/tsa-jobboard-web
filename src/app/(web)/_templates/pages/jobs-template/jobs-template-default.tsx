@@ -22,6 +22,7 @@ import type { Job } from '@/data/types/job'
 import { pageHeaderContentMock } from '@/data/website/pages/page-header'
 import { RiBuildingLine, RiMapPin2Line } from '@remixicon/react'
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 interface JobTemplateProps {
 	title: string
@@ -31,7 +32,9 @@ export function JobsTemplateDefault({ title, jobs }: JobTemplateProps) {
 	return (
 		<>
 			<PageHeader title={title} description={pageHeaderContentMock.description}>
-				<SearchJobFrom />
+				<Suspense>
+					<SearchJobFrom />
+				</Suspense>
 			</PageHeader>
 
 			<Container className="mt-10 flex flex-col justify-center gap-10 lg:flex-row">

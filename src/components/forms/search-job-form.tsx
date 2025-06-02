@@ -1,6 +1,5 @@
 'use client'
 
-import { jobsType } from '@/data/website/jobs/jobs-type'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Search } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
@@ -9,14 +8,6 @@ import { z } from 'zod'
 import { Button } from '../ui/button'
 import { Form, FormControl, FormField, FormItem, FormMessage } from '../ui/form'
 import { Input } from '../ui/input'
-import {
-	Select,
-	SelectContent,
-	SelectGroup,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from '../ui/select'
 
 const formSchema = z.object({
 	query: z.string().min(2, {
@@ -52,9 +43,6 @@ export function SearchJobFrom() {
 
 		router.push(`/search/jobs?q=${query}&type=${type}`)
 	}
-
-	// const selectValuePlaceholder = (value: string) =>
-	// 	jobsType.find((job) => job.value === value)
 
 	return (
 		<Form {...form}>
