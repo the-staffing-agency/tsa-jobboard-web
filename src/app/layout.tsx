@@ -1,7 +1,13 @@
+import '@/styles/globals.css'
+
+import { ThemeProvider } from '@/contexts/theme-provider'
+import { metadataConfig } from '@/data/website/metadata'
+import { THEMES, type ThemeType } from '@/themes'
+import { findValidTheme } from '@/utils/find-valid-theme'
+import { splitHostname } from '@/utils/split-hostname'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import '@/styles/globals.css'
-import { metadataConfig } from '@/data/website/metadata'
+import { headers } from 'next/headers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,14 +21,31 @@ export const metadata: Metadata = {
 	description,
 }
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: {
 	children: React.ReactNode
 }) {
+	const host = (await headers()).get('host')
+	const hostnameParts = splitHostname(host)
+
+	let theme: ThemeType | null | undefined
+
+	if (hostnameParts) {
+		theme = findValidTheme(hostnameParts) as ThemeType | null | undefined
+	}
+
 	return (
-		<html lang="en">
-			<body className={inter.className}>{children}</body>
+		<html lang="en" suppressHydrationWarning>
+			<body className={inter.className}>
+				<ThemeProvider
+					defaultTheme={theme ?? 'default'}
+					enableSystem={false}
+					themes={Object.values(THEMES)}
+				>
+					{children}
+				</ThemeProvider>
+			</body>
 		</html>
 	)
 }
