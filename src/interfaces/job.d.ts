@@ -3,7 +3,7 @@ import type { LocationInterface } from './location'
 import type { SalaryInterface } from './salary'
 import type { WorkplaceAddressInterface } from './workplace-address'
 
-export interface JobInterface {
+export interface IJob {
 	id: number
 	external_id: number
 	title: string
