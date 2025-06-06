@@ -8,10 +8,10 @@ export enum JobType {
 	REMOTE = 'Remote',
 }
 
-interface JobJobBadgeProps {
-	type: JobType
+interface JobBageTypeProps {
+	type: string
 }
 
-export function JobBadge({ type }: JobJobBadgeProps) {
+export function JobBadgeType({ type }: JobBageTypeProps) {
 	return <Badge variant="accent">{type}</Badge>
 }

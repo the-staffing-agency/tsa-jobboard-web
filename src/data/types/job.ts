@@ -1,4 +1,4 @@
-import type { JobType } from '@/components/ui/job/job-badge'
+import type { JobType } from '@/components/ui/job/job-badge-type'
 import type { JobSalaryProps } from '@/components/ui/job/job-salary'
 
 export interface Job {
