@@ -25,6 +25,8 @@
 		"@radix-ui/react-slot": "^1.2.2",
 		"@remixicon/react": "^4.6.0",
 		"@t3-oss/env-nextjs": "^0.13.4",
+		"@tanstack/react-query": "^5.80.5",
+		"@tanstack/react-query-devtools": "^5.80.5",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"lucide-react": "^0.507.0",
@@ -51,14 +53,14 @@
 		"typescript": "^5"
 	},
 	"packageManager": "pnpm@10.10.0",
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "@biomejs/biome",
-      "sharp"
-    ],
-    "onlyBuiltDependencies": [
-      "@biomejs/biome",
-      "@scarf/scarf"
-    ]
-  }
+	"pnpm": {
+		"ignoredBuiltDependencies": [
+			"@biomejs/biome",
+			"sharp"
+		],
+		"onlyBuiltDependencies": [
+			"@biomejs/biome",
+			"@scarf/scarf"
+		]
+	}
 }

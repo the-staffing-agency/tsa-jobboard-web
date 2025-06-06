@@ -41,6 +41,12 @@ importers:
       '@t3-oss/env-nextjs':
         specifier: ^0.13.4
         version: 0.13.4(arktype@2.1.20)(typescript@5.8.3)(zod@3.24.4)
+      '@tanstack/react-query':
+        specifier: ^5.80.5
+        version: 5.80.5(react@19.1.0)
+      '@tanstack/react-query-devtools':
+        specifier: ^5.80.5
+        version: 5.80.5(@tanstack/react-query@5.80.5(react@19.1.0))(react@19.1.0)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -934,6 +940,23 @@ packages:
 
   '@tailwindcss/postcss@4.1.5':
     resolution: {integrity: sha512-5lAC2/pzuyfhsFgk6I58HcNy6vPK3dV/PoPxSDuOTVbDvCddYHzHiJZZInGIY0venvzzfrTEUAXJFULAfFmObg==}
+
+  '@tanstack/query-core@5.80.5':
+    resolution: {integrity: sha512-kFWXdQOUcjL/Ugk3GrI9eMuG3DsKBGaLIgyOLekR2UOrRrJgkLgPUNzZ10i8FCkfi4SgLABhOtQhx1HjoB9EZQ==}
+
+  '@tanstack/query-devtools@5.80.0':
+    resolution: {integrity: sha512-D6gH4asyjaoXrCOt5vG5Og/YSj0D/TxwNQgtLJIgWbhbWCC/emu2E92EFoVHh4ppVWg1qT2gKHvKyQBEFZhCuA==}
+
+  '@tanstack/react-query-devtools@5.80.5':
+    resolution: {integrity: sha512-+amzmlESL7e02Le28mEE8W5oiK5j/N/lBWu/dO3IbrD24SlP8cnfvYMMWTxLVkqZ9DJWEB3BqML8snAovl03uw==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.80.5
+      react: ^18 || ^19
+
+  '@tanstack/react-query@5.80.5':
+    resolution: {integrity: sha512-C0d+pvIahk6fJK5bXxyf36r9Ft6R9O0mwl781CjBrYGRJc76XRJcKhkVpxIo68cjMy3i47gd4O1EGooAke/OCQ==}
+    peerDependencies:
+      react: ^18 || ^19
 
   '@types/conventional-commits-parser@5.0.1':
     resolution: {integrity: sha512-7uz5EHdzz2TqoMfV7ee61Egf5y6NkcO4FB/1iCCQnbeiI1F3xzv3vK5dBCXUCLQgGYS+mUeigK1iKQzvED+QnQ==}
@@ -2290,6 +2313,21 @@ snapshots:
       '@tailwindcss/oxide': 4.1.5
       postcss: 8.5.3
       tailwindcss: 4.1.5
+
+  '@tanstack/query-core@5.80.5': {}
+
+  '@tanstack/query-devtools@5.80.0': {}
+
+  '@tanstack/react-query-devtools@5.80.5(@tanstack/react-query@5.80.5(react@19.1.0))(react@19.1.0)':
+    dependencies:
+      '@tanstack/query-devtools': 5.80.0
+      '@tanstack/react-query': 5.80.5(react@19.1.0)
+      react: 19.1.0
+
+  '@tanstack/react-query@5.80.5(react@19.1.0)':
+    dependencies:
+      '@tanstack/query-core': 5.80.5
+      react: 19.1.0
 
   '@types/conventional-commits-parser@5.0.1':
     dependencies:

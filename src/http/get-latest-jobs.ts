@@ -1,17 +1,27 @@
-import type { JobInterface } from '@/interfaces/job'
+import type { IJob } from '@/interfaces/job'
 import { api } from '@/services/api'
 
 interface GetJobsResquest {
 	key: string
 }
 
-interface GetJobsResponse {
-	data: JobInterface[]
+interface IMeta {
+	current_page: number
+	from: number
+	last_page: number
+	per_page: number
+	to: number
+	total: number
+}
+
+interface IJobsResponse {
+	data: IJob[]
+	meta?: IMeta
 }
 
 export async function getLatestJobs({
 	key,
-}: GetJobsResquest): Promise<GetJobsResponse> {
+}: GetJobsResquest): Promise<IJobsResponse> {
 	const headers = new Headers({
 		'Content-type': 'application/json',
 		'x-api-key': key,
@@ -26,7 +36,7 @@ export async function getLatestJobs({
 	// 	throw new Error(`Erro na API: ${response.status} - ${text}`)
 	// }
 
-	const data = await response.json()
+	const data = (await response.json()) as IJobsResponse
 
 	return data
 }
