@@ -1,7 +1,6 @@
 import { ApplyJobForm } from '@/components/forms/apply-job-form'
 import { Container } from '@/components/ui/container'
 import { Widget } from '@/components/widget'
-import { SidebarDefault } from '../sidebar/sidebar-default'
 
 interface SingePageProps {
 	content: {
@@ -156,7 +155,7 @@ export function SinglePageDefault({ content }: SingePageProps) {
 				</article>
 			</main>
 
-			<SidebarDefault>
+			{/* <PageSidebarDefault>
 				<Widget>
 					<div className="flex flex-col gap-4">
 						<div>
@@ -173,7 +172,7 @@ export function SinglePageDefault({ content }: SingePageProps) {
 						<ApplyJobForm jobId={id} />
 					</div>
 				</Widget>
-			</SidebarDefault>
+			</SidebarDefault> */}
 		</Container>
 	)
 }

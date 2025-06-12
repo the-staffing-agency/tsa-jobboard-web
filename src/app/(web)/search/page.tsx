@@ -1,6 +1,6 @@
 import { SearchJobFilters } from '@/components/blocks/search-job-filters'
 import { redirect } from 'next/navigation'
-import { JobsTemplateDefault } from '../_templates/pages/jobs-template'
+import { JobsTemplateDefault } from '../_templates/pages'
 
 interface SearchParams {
 	q?: string
