@@ -13,7 +13,6 @@ const formSchema = z.object({
 	query: z.string().min(2, {
 		message: 'Please enter a job title or keyword',
 	}),
-	type: z.string().min(2),
 })
 
 type SearchJobProps = z.infer<typeof formSchema>
@@ -23,25 +22,23 @@ export function SearchJobFrom() {
 	const searchParams = useSearchParams()
 
 	const query = searchParams.get('q')
-	const type = searchParams.get('type')
 
 	const form = useForm<SearchJobProps>({
 		resolver: zodResolver(formSchema),
 
 		defaultValues: {
 			query: query ?? '',
-			type: type ?? 'all',
 		},
 	})
 
 	function onSubmit(data: SearchJobProps) {
-		const { query, type } = data
+		const { query } = data
 
 		if (!query) {
 			return
 		}
 
-		router.push(`/search/jobs?q=${query}&type=${type}`)
+		router.push(`/search/jobs?q=${query}`)
 	}
 
 	return (
