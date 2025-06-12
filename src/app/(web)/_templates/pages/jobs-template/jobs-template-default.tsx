@@ -23,6 +23,8 @@ export function JobsTemplateDefault({ title, children }: JobTemplateProps) {
 				<PageSidebarDefault />
 				<PageMainDefault>{children}</PageMainDefault>
 			</Container>
+
+			<footer className="mt-20" />
 		</>
 	)
 }
