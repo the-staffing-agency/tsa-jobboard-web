@@ -23,7 +23,7 @@ export function Pagination({
 	return (
 		<div className="flex items-center justify-between">
 			<span className="text-muted-foreground text-sm">
-				Total de {totalCount} item(s)
+				Total of {totalCount} item(s)
 			</span>
 			<div className="flex items-center gap-6 lg:gap-8">
 				<div className="font-medium text-sm">
@@ -39,7 +39,7 @@ export function Pagination({
 					disabled={pageIndex === 0}
 				>
 					<ChevronsLeft className="h-4 w-4" />
-					<span className="sr-only">Primeira Página</span>
+					<span className="sr-only">First Page</span>
 				</Button>
 				<Button
 					variant="outline"
@@ -48,7 +48,7 @@ export function Pagination({
 					disabled={pageIndex === 0}
 				>
 					<ChevronLeft className="h-4 w-4" />
-					<span className="sr-only">Primeira pagina anterior</span>
+					<span className="sr-only">Previous Page</span>
 				</Button>
 				<Button
 					variant="outline"
@@ -57,7 +57,7 @@ export function Pagination({
 					disabled={pages <= pageIndex + 1}
 				>
 					<ChevronRight className="h-4 w-4" />
-					<span className="sr-only">Próxima página</span>
+					<span className="sr-only">Next Page</span>
 				</Button>
 				<Button
 					variant="outline"
@@ -66,7 +66,7 @@ export function Pagination({
 					disabled={pages <= pageIndex + 1}
 				>
 					<ChevronsRight className="h-4 w-4" />
-					<span className="sr-only">Última página</span>
+					<span className="sr-only">Last Page</span>
 				</Button>
 			</div>
 		</div>
