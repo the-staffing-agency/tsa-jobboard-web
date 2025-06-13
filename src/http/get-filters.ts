@@ -1,26 +1,35 @@
 import { api } from '@/services/api'
 
-interface IFilter {
-	id: string
-	name: string
-	type: string
-	options?: Array<{
-		id: string
-		name: string
-	}>
+export interface IFilterOption {
+	value: string
+	label: string
 }
 
-interface GetFiltersRequest {
+export interface ISalaryRange {
+	min: number
+	max: number
+}
+
+export interface IFiltersData {
+	job_types: IFilterOption[]
+	workplaces: IFilterOption[]
+	categories: IFilterOption[]
+	work_types: IFilterOption[]
+	salary_range: ISalaryRange
+	companies: IFilterOption[]
+}
+
+export interface IFiltersResponse {
+	data: IFiltersData
+}
+
+export interface IFiltersRequest {
 	key: string
-}
-
-interface IFiltersResponse {
-	data: IFilter[]
 }
 
 export async function getFilters({
 	key,
-}: GetFiltersRequest): Promise<IFiltersResponse> {
+}: IFiltersRequest): Promise<IFiltersResponse> {
 	const headers = new Headers({
 		'Content-type': 'application/json',
 		'x-api-key': key,
@@ -29,6 +38,11 @@ export async function getFilters({
 	const response = await api('/portals/filters', {
 		headers,
 	})
+
+	if (!response.ok) {
+		const errorText = await response.text()
+		throw new Error(`Erro na API: ${response.status} - ${errorText}`)
+	}
 
 	const data = (await response.json()) as IFiltersResponse
 	return data

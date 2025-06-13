@@ -10,11 +10,11 @@ export interface ISearchJobsInput {
 		filters?: {
 			title?: string
 			location?: string
-			locationId?: string
+			location_id?: string
 			company?: string
-			companyId?: string
+			company_id?: string
 			category?: string
-			categoryId?: string
+			category_id?: string
 			job_type?: string
 			salary?: string
 		}
