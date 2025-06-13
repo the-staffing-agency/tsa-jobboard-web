@@ -1,5 +1,5 @@
 import type { IJob } from '@/interfaces/job'
-import { api } from '@/services/api'
+import { api } from '@/lib/api'
 
 interface GetJobsResquest {
 	key: string
