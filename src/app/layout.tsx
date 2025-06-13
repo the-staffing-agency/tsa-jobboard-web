@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 
+import { Providers } from '@/config/provides'
 import { ThemeProvider } from '@/contexts/theme-provider'
 import { metadataConfig } from '@/data/website/metadata'
 import { THEMES, type ThemeType } from '@/themes'
@@ -38,13 +39,15 @@ export default async function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body className={inter.className}>
-				<ThemeProvider
-					defaultTheme={theme ?? 'default'}
-					enableSystem={false}
-					themes={Object.values(THEMES)}
-				>
-					{children}
-				</ThemeProvider>
+				<Providers>
+					<ThemeProvider
+						defaultTheme={theme ?? 'default'}
+						enableSystem={false}
+						themes={Object.values(THEMES)}
+					>
+						{children}
+					</ThemeProvider>
+				</Providers>
 			</body>
 		</html>
 	)

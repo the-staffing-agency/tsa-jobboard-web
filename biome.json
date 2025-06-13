@@ -12,7 +12,8 @@
 			"dist",
 			"node_modules",
 			"generated",
-			"public"
+			"public",
+			"*.env"
 		]
 	},
 	"formatter": {

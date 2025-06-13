@@ -3,8 +3,8 @@ import { searchJobs } from '@/data/jobs/search-jobs'
 import type { Job } from '@/data/types/job'
 import { capitalizeWords } from '@/utils/capitalize-words'
 import { isNumeric } from '@/utils/is-numeric'
-import { JobsTemplateDefault } from '../../_templates/pages/jobs-template'
-import { SinglePageDefault } from '../../_templates/single-page'
+import { JobsTemplateDefault } from '../../_templates/pages'
+import { SinglePageDefault } from '../../_templates/pages/singles'
 
 let jobContent: JobContentOutput
 let jobs: Job[]
