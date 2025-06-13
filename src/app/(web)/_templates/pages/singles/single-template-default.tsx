@@ -1,6 +1,4 @@
-import { ApplyJobForm } from '@/components/forms/apply-job-form'
 import { Container } from '@/components/ui/container'
-import { Widget } from '@/components/widget'
 
 interface SingePageProps {
 	content: {
@@ -18,9 +16,9 @@ export function SinglePageDefault({ content }: SingePageProps) {
 			<main className="flex-3/4 lg:order-1">
 				<article className="max-w-[800px]">
 					<header className="flex flex-col gap-1 lg:mb-6">
-						<h1 className="font-bold text-2xl lg:text-4xl">{title}</h1>
+						<h1 className="font-bold text-2xl lg:text-4xl">Title</h1>
 						{resume && (
-							<p className="mt-0 font-normal text-lg lg:text-xl">{resume}</p>
+							<p className="mt-0 font-normal text-lg lg:text-xl">Resume</p>
 						)}
 					</header>
 
