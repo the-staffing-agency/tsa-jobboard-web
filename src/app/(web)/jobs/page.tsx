@@ -1,5 +1,5 @@
 import { LastestJobs } from '@/components/blocks/latest-jobs'
-import { FilterAsideJobForm } from '@/components/forms/filter-aside-job-form'
+import { PortalFilters } from '@/components/blocks/portal-filters'
 import { SearchJobFrom } from '@/components/forms/search-job-form'
 import { Container } from '@/components/ui/container'
 import { ListView } from '@/components/ui/list-view'
