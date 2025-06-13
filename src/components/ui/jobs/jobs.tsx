@@ -27,7 +27,7 @@ export function Jobs({ jobs }: JobsProps) {
 	return (
 		<ListView>
 			{jobs.map((job) => (
-				<JobWrapperLink key={job.id} link={`/jobs/${job.external_id}`}>
+				<JobWrapperLink key={job.id}>
 					<header>
 						<JobTitle>{job.title}</JobTitle>
 
@@ -52,7 +52,7 @@ export function Jobs({ jobs }: JobsProps) {
 							/>
 						)}
 
-						<JobActions>
+						{/* <JobActions>
 							<Link
 								href={`/jobs/${job.external_id}`}
 								className="font-semibold text-accent underline underline-offset-1 hover:underline-offset-2"
@@ -61,7 +61,7 @@ export function Jobs({ jobs }: JobsProps) {
 							</Link>
 
 							<ApplyJobForm jobId={job.external_id} />
-						</JobActions>
+						</JobActions> */}
 					</JobFooter>
 				</JobWrapperLink>
 			))}
