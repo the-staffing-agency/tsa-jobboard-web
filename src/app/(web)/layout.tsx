@@ -1,5 +1,5 @@
-import { Header } from '@/app/(web)/_components/header'
-import { NavBar } from '@/app/(web)/_components/nav-bar'
+import { NavBar } from '@/components/nav-bar'
+import { Header } from '@/components/templates/header'
 import { AppliedJobsProvider } from '@/contexts/applied-jobs-context'
 import { NavToggleProvider } from '@/contexts/nav-toggle-context'
 

@@ -4,7 +4,7 @@ import { Container } from '@/components/ui/container'
 import { ListView } from '@/components/ui/list-view'
 import { pageHeaderContentMock } from '@/data/website/pages/page-header'
 import { Suspense } from 'react'
-import { PageHeader } from '../_components/page-header'
+import { PageHeader } from '../../../components/templates/page-header'
 
 export default async function SearchPage() {
 	return (

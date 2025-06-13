@@ -1,5 +1,4 @@
 import { SearchJobFilters } from '@/components/blocks/search-job-filters'
-import { JobsTemplateDefault } from '../../_templates/pages'
 
 interface SearchParams {
 	q?: string
@@ -12,9 +11,5 @@ export default async function SearchPage({
 }) {
 	const params = await searchParams
 
-	return (
-		<JobsTemplateDefault title="Jobs">
-			<SearchJobFilters params={params} />
-		</JobsTemplateDefault>
-	)
+	return <SearchJobFilters params={params} />
 }

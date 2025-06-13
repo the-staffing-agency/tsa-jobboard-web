@@ -1,6 +1,5 @@
 import { SearchJobFilters } from '@/components/blocks/search-job-filters'
 import { redirect } from 'next/navigation'
-import { JobsTemplateDefault } from '../_templates/pages'
 
 interface SearchParams {
 	q?: string
@@ -19,9 +18,5 @@ export default async function SearchPage({
 		redirect('/')
 	}
 
-	return (
-		<JobsTemplateDefault title="Search">
-			<SearchJobFilters params={params} />
-		</JobsTemplateDefault>
-	)
+	return <SearchJobFilters params={params} />
 }

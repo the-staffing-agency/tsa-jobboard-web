@@ -1,5 +1,5 @@
 import { Container } from '@/components/ui/container'
-import { PageHeader } from '../_components/page-header'
+import { PageHeader } from '../../../components/templates/page-header'
 
 export default function AboutPage() {
 	return (
