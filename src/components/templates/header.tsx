@@ -1,6 +1,7 @@
-import { Container } from '../../../components/ui/container'
+import type { ComponentProps } from 'react'
+import { Container } from '../ui/container'
 
-export function Header({ children, ...props }: React.ComponentProps<'header'>) {
+export function Header({ children, ...props }: ComponentProps<'header'>) {
 	return (
 		<header
 			className="relative z-50 border-white/10 border-b bg-accent"
