@@ -13,6 +13,7 @@ import {
 import { MultiSelect } from '@/components/ui/multi-select'
 import type { IFiltersData } from '@/http/get-filters'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Controller, useForm } from 'react-hook-form'
 import type { z } from 'zod'
 import { formSchema } from './schema'
@@ -24,19 +25,42 @@ interface PortalFiltersFormProps {
 type FormData = z.infer<typeof formSchema>
 
 export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
+	const router = useRouter()
+	const searchParams = useSearchParams()
+
 	const form = useForm<FormData>({
 		resolver: zodResolver(formSchema),
-
 		defaultValues: {
 			categories: [],
-			companies: [],
 			jobTypes: [],
+			companies: [],
 			workplaces: [],
 		},
 	})
 
 	function onSubmit(data: FormData) {
-		console.log(data)
+		const params = new URLSearchParams(searchParams.toString())
+
+		const updateParam = (key: string, values: string[]) => {
+			if (values.length > 0) {
+				if (params.has(key)) {
+					params.set(key, values.join(','))
+				} else {
+					params.append(key, values.join(','))
+				}
+			} else {
+				params.delete(key)
+			}
+		}
+
+		updateParam('category_id', data.categories)
+		updateParam('job_type', data.jobTypes.map(String))
+		updateParam('company_id', data.companies.map(String))
+		updateParam('location', data.workplaces.map(String))
+
+		params.set('page', '1')
+
+		router.push(`?${params.toString()}`)
 	}
 
 	function handleReset() {

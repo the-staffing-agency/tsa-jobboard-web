@@ -43,7 +43,7 @@ export function SearchJobFilters({ title, params }: SearchJobFiltersProps) {
 				{meta && (
 					<span className="text-base">
 						Found <b>{meta.total}</b> {meta.total > 1 ? 'results' : 'result'}{' '}
-						for "<b>{title}</b>"
+						{/* for "<b>{title}</b>" */}
 					</span>
 				)}
 			</header>
