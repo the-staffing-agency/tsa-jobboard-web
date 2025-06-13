@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Staffing Agency
+The staff agency operates 4 companies under the same umbrella: 
+1. [The Chef Agency](https://www.thechefagency.com/): Staffing for the hospitality industry.
+2. [The Estate Agency](https://theestateagency.com/): Private staffing and recruitment agency, specializing in placing highly qualified household and executive staff.
+3. [The Supermarket Agency](https://thesupermarketagency.com/)
+4. [The Resume Agency](https://www.theresumeagency.com/)
 
-## Getting Started
+## Installation
+Install and configure The Staffing Agency project with:
 
-First, run the development server:
+## Usage
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Install dependencies
+```shell
+pnpm install 
+
+npm install
 ```
+## Tech Stacks
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Requirements
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. Display a pop-up when applying to a job
+- [ ] When the user clicks the **"Apply for this job"** button, a pop-up must be displayed immediately.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Open job details in a new page
+- [ ] When the user clicks on a job listing, the system must open a **new page** with the job details to follow **SEO best practices**.
 
-## Learn More
+### 3. Collect basic candidate information
+- [ ] The application pop-up must include **required input fields** for:
+  - Name
+  - Email
+  - Phone number
 
-To learn more about Next.js, take a look at the following resources:
+### 4. Store candidate information locally
+- [ ] The candidate's information must be saved in the **browser's `localStorage`**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 5. Auto-fill saved data in future applications
+- [ ] When applying to another job, the application pop-up must **automatically populate** the fields with previously stored data from `localStorage`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 6. Use React Context API for state management
+- [ ] Shared data such as candidate information must be properly **managed using React’s Context API** to ensure consistency across components.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

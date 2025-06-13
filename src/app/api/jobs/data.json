@@ -1,0 +1,432 @@
+{
+	"jobs": [
+		{
+			"id": 1,
+			"title": "Executive Chef",
+			"slug": "executive-chef",
+			"company": "Maple Grove Fine Dining",
+			"location": "New York City",
+			"type": "Contract",
+			"resume": "Executive Chef needed at Maple Grove Fine Dining.",
+			"requirements": [
+				"No prior experience required",
+				"Work permit",
+				"Ability to stand long hours"
+			],
+			"url_avatar": "https://example.com/logos/logo1.png",
+			"salary": {
+				"type": "year",
+				"start": 50000,
+				"end": 60000
+			},
+			"created_at": "2025-04-28T03:43:19Z",
+			"featured": true
+		},
+		{
+			"id": 2,
+			"title": "Line Cook",
+			"slug": "line-cook",
+			"company": "West Coast Bites",
+			"location": "New York City",
+			"type": "Contract",
+			"resume": "Line Cook needed at West Coast Bites.",
+			"requirements": [
+				"Experience with Italian cuisine",
+				"Fast-paced kitchen",
+				"Flexible hours"
+			],
+			"url_avatar": "https://example.com/logos/logo2.png",
+			"salary": {
+				"type": "year",
+				"start": 72000,
+				"end": 85000
+			},
+			"created_at": "2025-05-01T04:43:19Z",
+			"featured": true
+		},
+		{
+			"id": 3,
+			"title": "Kitchen Helper",
+			"slug": "kitchen-helper",
+			"company": "Prairie Roots Caf\u00e9",
+			"location": "New York City",
+			"type": "Full-time",
+			"resume": "Kitchen Helper needed at Prairie Roots Caf\u00e9.",
+			"requirements": [
+				"1+ year of experience",
+				"Food Handler Certificate",
+				"Team player"
+			],
+			"url_avatar": "https://example.com/logos/logo3.png",
+			"salary": {
+				"type": "hour",
+				"start": 16,
+				"end": 18
+			},
+			"created_at": "2025-04-29T06:43:19Z",
+			"featured": true
+		},
+		{
+			"id": 4,
+			"title": "Pastry Chef",
+			"slug": "pastry-chef",
+			"company": "Montreal Sweets Atelier",
+			"location": "New York City",
+			"type": "Evening Shift",
+			"resume": "Pastry Chef needed at Montreal Sweets Atelier.",
+			"requirements": [
+				"1+ year of experience",
+				"Food Handler Certificate",
+				"Team player"
+			],
+			"url_avatar": "https://example.com/logos/logo4.png",
+			"salary": {
+				"type": "hour",
+				"start": 20,
+				"end": 24
+			},
+			"created_at": "2025-05-06T04:43:19Z",
+			"featured": true
+		},
+		{
+			"id": 5,
+			"title": "Baker",
+			"slug": "baker",
+			"company": "Ottawa Sunrise Bakery",
+			"location": "New York City",
+			"type": "Evening Shift",
+			"resume": "Baker needed at Ottawa Sunrise Bakery.",
+			"requirements": [
+				"Experience with Italian cuisine",
+				"Fast-paced kitchen",
+				"Flexible hours"
+			],
+			"url_avatar": "https://example.com/logos/logo5.png",
+			"salary": {
+				"type": "year",
+				"start": 45000,
+				"end": 55000
+			},
+			"created_at": "2025-05-02T16:43:19Z",
+			"featured": true
+		},
+		{
+			"id": 6,
+			"title": "Sous Chef",
+			"slug": "sous-chef",
+			"company": "Blue River Bistro",
+			"location": "New Jersey",
+			"type": "Full-time",
+			"resume": "Sous Chef needed at Blue River Bistro.",
+			"requirements": ["Knife skills", "Cleanliness", "Time management"],
+			"url_avatar": "https://example.com/logos/logo6.png",
+			"salary": {
+				"type": "hour",
+				"start": 18,
+				"end": 22
+			},
+			"created_at": "2025-05-05T01:43:19Z",
+			"featured": true
+		},
+		{
+			"id": 7,
+			"title": "Prep Cook",
+			"slug": "prep-cook",
+			"company": "Golden Wheat Kitchen",
+			"location": "New York City",
+			"type": "Morning Shift",
+			"resume": "Prep Cook needed at Golden Wheat Kitchen.",
+			"requirements": ["Knife skills", "Cleanliness", "Time management"],
+			"url_avatar": "https://example.com/logos/logo7.png",
+			"salary": {
+				"type": "hour",
+				"start": 20,
+				"end": 24
+			},
+			"created_at": "2025-05-04T06:43:19Z",
+			"featured": true
+		},
+		{
+			"id": 8,
+			"title": "Grill Cook",
+			"slug": "grill-cook",
+			"company": "Urban Flame Grill",
+			"location": "New Jersey",
+			"type": "Part-time",
+			"resume": "Grill Cook needed at Urban Flame Grill.",
+			"requirements": [
+				"Experience with Italian cuisine",
+				"Fast-paced kitchen",
+				"Flexible hours"
+			],
+			"url_avatar": "https://example.com/logos/logo8.png",
+			"salary": {
+				"type": "year",
+				"start": 72000,
+				"end": 85000
+			},
+			"created_at": "2025-04-26T06:43:19Z",
+			"featured": true
+		},
+		{
+			"id": 9,
+			"title": "Catering Chef",
+			"slug": "catering-chef",
+			"company": "Northern Lights Catering",
+			"location": "Manhattan",
+			"type": "Contract",
+			"resume": "Catering Chef needed at Northern Lights Catering.",
+			"requirements": [
+				"5+ years of experience",
+				"Culinary degree",
+				"Leadership skills"
+			],
+			"url_avatar": "https://example.com/logos/logo9.png",
+			"salary": {
+				"type": "hour",
+				"start": 16,
+				"end": 18
+			},
+			"created_at": "2025-04-26T12:43:19Z",
+			"featured": true
+		},
+		{
+			"id": 10,
+			"title": "Private Chef",
+			"slug": "private-chef",
+			"company": "Lakeside Table",
+			"location": "Manhattan",
+			"type": "Evening Shift",
+			"resume": "Private Chef needed at Lakeside Table.",
+			"requirements": [
+				"Experience with Italian cuisine",
+				"Fast-paced kitchen",
+				"Flexible hours"
+			],
+			"url_avatar": "https://example.com/logos/logo10.png",
+			"salary": {
+				"type": "hour",
+				"start": 20,
+				"end": 24
+			},
+			"created_at": "2025-04-29T15:43:19Z",
+			"featured": true
+		},
+		{
+			"id": 11,
+			"title": "Food Stylist",
+			"slug": "food-stylist",
+			"company": "Crave & Co.",
+			"location": "New York City",
+			"type": "Evening Shift",
+			"resume": "Food Stylist needed at Crave & Co..",
+			"requirements": [
+				"5+ years of experience",
+				"Culinary degree",
+				"Leadership skills"
+			],
+			"url_avatar": "https://example.com/logos/logo11.png",
+			"salary": {
+				"type": "hour",
+				"start": 20,
+				"end": 24
+			},
+			"created_at": "2025-04-27T12:43:19Z",
+			"featured": true
+		},
+		{
+			"id": 12,
+			"title": "Chef de Partie",
+			"slug": "chef-de-partie",
+			"company": "Alberta Garden Cuisine",
+			"location": "New York City",
+			"type": "Evening Shift",
+			"resume": "Chef de Partie needed at Alberta Garden Cuisine.",
+			"requirements": [
+				"No prior experience required",
+				"Work permit",
+				"Ability to stand long hours"
+			],
+			"url_avatar": "https://example.com/logos/logo12.png",
+			"salary": {
+				"type": "hour",
+				"start": 18,
+				"end": 22
+			},
+			"created_at": "2025-04-26T01:43:19Z",
+			"featured": false
+		},
+		{
+			"id": 13,
+			"title": "Garde Manger",
+			"slug": "garde-manger",
+			"company": "QC Culinary Studio",
+			"location": "New York City",
+			"type": "Part-time",
+			"resume": "Garde Manger needed at QC Culinary Studio.",
+			"requirements": [
+				"No prior experience required",
+				"Work permit",
+				"Ability to stand long hours"
+			],
+			"url_avatar": "https://example.com/logos/logo13.png",
+			"salary": {
+				"type": "year",
+				"start": 45000,
+				"end": 55000
+			},
+			"created_at": "2025-05-06T05:43:19Z",
+			"featured": false
+		},
+		{
+			"id": 14,
+			"title": "Commis Chef",
+			"slug": "commis-chef",
+			"company": "Toronto Food Lab",
+			"location": "New York City",
+			"type": "Contract",
+			"resume": "Commis Chef needed at Toronto Food Lab.",
+			"requirements": [
+				"1+ year of experience",
+				"Food Handler Certificate",
+				"Team player"
+			],
+			"url_avatar": "https://example.com/logos/logo14.png",
+			"salary": {
+				"type": "year",
+				"start": 45000,
+				"end": 55000
+			},
+			"created_at": "2025-05-06T01:43:19Z",
+			"featured": false
+		},
+		{
+			"id": 15,
+			"title": "Butcher",
+			"slug": "butcher",
+			"company": "East Coast Eats",
+			"location": "New York City",
+			"type": "Full-time",
+			"resume": "Butcher needed at East Coast Eats.",
+			"requirements": [
+				"No prior experience required",
+				"Work permit",
+				"Ability to stand long hours"
+			],
+			"url_avatar": "https://example.com/logos/logo15.png",
+			"salary": {
+				"type": "year",
+				"start": 45000,
+				"end": 55000
+			},
+			"created_at": "2025-04-28T14:43:19Z",
+			"featured": false
+		},
+		{
+			"id": 16,
+			"title": "Pasta Maker",
+			"slug": "pasta-maker",
+			"company": "Vancouver Pasta House",
+			"location": "New Jersey",
+			"type": "Evening Shift",
+			"resume": "Pasta Maker needed at Vancouver Pasta House.",
+			"requirements": [
+				"No prior experience required",
+				"Work permit",
+				"Ability to stand long hours"
+			],
+			"url_avatar": "https://example.com/logos/logo16.png",
+			"salary": {
+				"type": "hour",
+				"start": 18,
+				"end": 22
+			},
+			"created_at": "2025-05-04T00:43:19Z",
+			"featured": false
+		},
+		{
+			"id": 17,
+			"title": "Sushi Chef",
+			"slug": "sushi-chef",
+			"company": "Sakura Fusion",
+			"location": "New York City",
+			"type": "Full-time",
+			"resume": "Sushi Chef needed at Sakura Fusion.",
+			"requirements": ["Knife skills", "Cleanliness", "Time management"],
+			"url_avatar": "https://example.com/logos/logo17.png",
+			"salary": {
+				"type": "year",
+				"start": 72000,
+				"end": 85000
+			},
+			"created_at": "2025-05-06T21:43:19Z",
+			"featured": false
+		},
+		{
+			"id": 18,
+			"title": "Breakfast Cook",
+			"slug": "breakfast-cook",
+			"company": "Morning Joy Caf\u00e9",
+			"location": "Manhattan",
+			"type": "Full-time",
+			"resume": "Breakfast Cook needed at Morning Joy Caf\u00e9.",
+			"requirements": [
+				"No prior experience required",
+				"Work permit",
+				"Ability to stand long hours"
+			],
+			"url_avatar": "https://example.com/logos/logo18.png",
+			"salary": {
+				"type": "hour",
+				"start": 20,
+				"end": 24
+			},
+			"created_at": "2025-04-29T22:43:19Z",
+			"featured": false
+		},
+		{
+			"id": 19,
+			"title": "Restaurant Manager",
+			"slug": "restaurant-manager",
+			"company": "Downtown Bistro",
+			"location": "Manhattan",
+			"type": "Contract",
+			"resume": "Restaurant Manager needed at Downtown Bistro.",
+			"requirements": [
+				"Experience with Italian cuisine",
+				"Fast-paced kitchen",
+				"Flexible hours"
+			],
+			"url_avatar": "https://example.com/logos/logo19.png",
+			"salary": {
+				"type": "year",
+				"start": 50000,
+				"end": 60000
+			},
+			"created_at": "2025-04-30T20:43:19Z",
+			"featured": false
+		},
+		{
+			"id": 20,
+			"title": "Food Truck Cook",
+			"slug": "food-truck-cook",
+			"company": "Rolling Dish Truck",
+			"location": "New Jersey",
+			"type": "Contract",
+			"resume": "Food Truck Cook needed at Rolling Dish Truck.",
+			"requirements": [
+				"5+ years of experience",
+				"Culinary degree",
+				"Leadership skills"
+			],
+			"url_avatar": "https://example.com/logos/logo20.png",
+			"salary": {
+				"type": "year",
+				"start": 50000,
+				"end": 60000
+			},
+			"created_at": "2025-05-01T00:43:19Z",
+			"featured": false
+		}
+	]
+}
