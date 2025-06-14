@@ -23,7 +23,7 @@ interface ISearchJobsRequest {
 	}
 }
 
-interface IMeta {
+export interface IMeta {
 	current_page: number
 	from: number
 	last_page: number
@@ -34,8 +34,10 @@ interface IMeta {
 
 interface IJobsResponse {
 	data: IJob[]
-	meta?: IMeta
+	meta: IMeta
 }
+
+const REVALIDATE_CACHE = 60 * 60 // 30min
 
 export async function searchJobs({
 	key,
@@ -54,7 +56,7 @@ export async function searchJobs({
 	}
 
 	if (q) {
-		searchParams.append('q', q)
+		searchParams.append('search', q)
 	}
 
 	if (filters) {
@@ -79,6 +81,10 @@ export async function searchJobs({
 
 	const response = await api(url, {
 		headers,
+		cache: 'force-cache',
+		next: {
+			revalidate: REVALIDATE_CACHE,
+		},
 	})
 
 	const data = (await response.json()) as IJobsResponse
