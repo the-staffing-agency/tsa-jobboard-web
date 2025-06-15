@@ -1,10 +1,6 @@
-import type { ComponentProps } from 'react'
-
-interface SearchPageTemplateProps extends ComponentProps<'section'> {}
-
 export default function SearchPageTemplate({
 	children,
-}: SearchPageTemplateProps) {
+}: { children: React.ReactNode }) {
 	return (
 		<section>
 			{children}
