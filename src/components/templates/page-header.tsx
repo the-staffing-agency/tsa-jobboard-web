@@ -1,41 +1,40 @@
 import { Container } from '@/components/ui/container'
-import type { ComponentProps } from 'react'
+import type React from 'react'
 
-interface PageHeaderProps extends ComponentProps<'header'> {
-	title: string
-	description?: string
-	lead?: string
+function PageHeaderTitle({ children }: { children: React.ReactNode }) {
+	return (
+		<h1 className="text-center font-extrabold text-2xl text-white leading-none lg:text-4xl">
+			{children}
+		</h1>
+	)
 }
 
-export function PageHeader({
-	title,
-	lead,
-	description,
-	children,
-}: PageHeaderProps) {
+function PageHeaderLead({ children }: { children: React.ReactNode }) {
+	return (
+		<div className="mb-2 font-bold text-base text-white uppercase">
+			{children}
+		</div>
+	)
+}
+
+function PageHeaderResume({ children }: { children: React.ReactNode }) {
+	return (
+		<h2 className="max-w-md text-center text-base text-white lg:text-lg">
+			{children}
+		</h2>
+	)
+}
+
+function PageHeader({ children }: { children: React.ReactNode }) {
 	return (
 		<header className="flex w-full flex-col justify-center bg-accent lg:h-[340px] lg:pt-6 lg:pb-14">
 			<Container className="relative flex flex-col items-center justify-center">
 				<div className="flex h-40 flex-col items-center gap-2 pt-4">
-					{lead && (
-						<div className="mb-2 font-bold text-base text-white uppercase">
-							{lead}
-						</div>
-					)}
-
-					<h1 className="text-center font-extrabold text-2xl text-white leading-none lg:text-4xl">
-						{title}
-					</h1>
-
-					{description && (
-						<p className="max-w-md text-center text-base text-white lg:text-lg">
-							{description}
-						</p>
-					)}
+					{children}
 				</div>
-
-				{children}
 			</Container>
 		</header>
 	)
 }
+
+export { PageHeader, PageHeaderTitle, PageHeaderLead, PageHeaderResume }
