@@ -1,15 +1,15 @@
 import { Skeleton } from '@/components/skaleton'
-
 import {
 	JobActions,
 	JobContent,
 	JobFooter,
 	JobInfos,
 	JobWrapperLink,
-} from '../job'
-import { ListView } from '../list-view'
+} from '@/components/ui/job'
 
-export function JobsSkeleton() {
+import { ListView } from '@/components/ui/list-view'
+
+export function JobsResultsSkeleton() {
 	return (
 		<ListView>
 			{Array.from({ length: 10 }).map(() => (
