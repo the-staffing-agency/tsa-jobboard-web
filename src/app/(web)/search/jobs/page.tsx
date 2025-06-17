@@ -1,7 +1,16 @@
-import { SearchJobFilters } from '@/components/blocks/search-job-filters'
+import type { Metadata } from 'next'
+
+import { JobResults } from '@/components/blocks/job-results'
+import { SearchPageTemplate } from '@/templates/search'
+
+const TITLE = 'Jobs'
+
+export const metadata: Metadata = {
+	title: TITLE,
+}
 
 interface SearchParams {
-	q?: string
+	q: string
 }
 
 export default async function SearchPage({
@@ -11,5 +20,9 @@ export default async function SearchPage({
 }) {
 	const params = await searchParams
 
-	return <SearchJobFilters params={params} />
+	return (
+		<SearchPageTemplate title={TITLE}>
+			<JobResults params={params} />
+		</SearchPageTemplate>
+	)
 }

@@ -4,11 +4,6 @@ import { PageHeader } from '../../../components/templates/page-header'
 export default function AboutPage() {
 	return (
 		<>
-			<PageHeader
-				title="About"
-				description="We're on a mission to help chefs to aspiring kitchen assistants, we connect passionate food experts with the right opportunities to grow their careers."
-			/>
-
 			<Container className="mt-10 flex flex-col justify-center gap-10 lg:flex-row">
 				<main className="w-full max-w-[800px]">
 					<h2 className="mb-4 font-bold text-2xl">About Us</h2>

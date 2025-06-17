@@ -6,10 +6,8 @@ import {
 	HeroTitle,
 } from '@/components/blocks/hero'
 import { LastestJobs } from '@/components/blocks/latest-jobs'
-import { SearchJobFrom } from '@/components/forms/search-job-form'
+import { SearchFrom } from '@/components/forms/search'
 import { Container } from '@/components/ui/container'
-import { JobCategories } from '@/components/ui/job/job-categories'
-import { ListView } from '@/components/ui/list-view'
 import { mockHeroData } from '@/data/website/hero'
 import { Suspense } from 'react'
 
@@ -24,7 +22,7 @@ export default async function HomePage() {
 
 				<HeroFooter>
 					<Suspense>
-						<SearchJobFrom />
+						<SearchFrom />
 					</Suspense>
 				</HeroFooter>
 			</Hero>

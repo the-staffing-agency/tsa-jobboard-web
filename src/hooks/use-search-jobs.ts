@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query'
 export interface ISearchJobsInput {
 	key: string
 	params: {
-		q?: string
+		q: string
 		filters?: {
 			title?: string
 			location?: string
@@ -32,7 +32,7 @@ export function useSearchJobs({ key, params }: ISearchJobsInput) {
 
 	return {
 		jobs: data ? data.data : [],
-		meta: data ? data.meta : undefined,
+		meta: data ? data.meta : null,
 		isLoading,
 	}
 }

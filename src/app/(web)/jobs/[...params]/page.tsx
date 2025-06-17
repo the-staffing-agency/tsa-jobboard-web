@@ -3,7 +3,6 @@ import { searchJobs } from '@/data/jobs/search-jobs'
 import type { Job } from '@/data/types/job'
 import { capitalizeWords } from '@/utils/capitalize-words'
 import { isNumeric } from '@/utils/is-numeric'
-import { SinglePageDefault } from '../../_templates/pages'
 
 let jobContent: JobContentOutput
 let jobs: Job[]
@@ -82,5 +81,5 @@ export default async function Page({
 		})
 	}
 
-	return <SinglePageDefault content={jobContent} />
+	return <h1>Content</h1>
 }
