@@ -14,6 +14,7 @@ import { MultiSelect } from '@/components/ui/multi-select'
 import type { IFiltersData } from '@/http/get-filters'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { useTransition } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import type { z } from 'zod'
 import { formSchema } from './schema'
@@ -24,9 +25,15 @@ interface PortalFiltersFormProps {
 
 type FormData = z.infer<typeof formSchema>
 
+const CATEGORY_PARAMS_NAME = 'category_id'
+const COMPANY_PARAMS_NAME = 'company_id'
+const JOB_TYPE_PARAMS_NAME = 'job_type'
+const LOCATION_PARAMS_NAME = 'location'
+
 export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 	const router = useRouter()
 	const searchParams = useSearchParams()
+	const [isPending, startTransition] = useTransition()
 
 	const form = useForm<FormData>({
 		resolver: zodResolver(formSchema),
@@ -38,32 +45,47 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 		},
 	})
 
-	function onSubmit(data: FormData) {
-		const params = new URLSearchParams(searchParams.toString())
+	const params = new URLSearchParams(searchParams)
 
-		const updateParam = (key: string, values: string[]) => {
-			if (values.length > 0) {
-				if (params.has(key)) {
-					params.set(key, values.join(','))
-				} else {
-					params.append(key, values.join(','))
-				}
-			} else {
-				params.delete(key)
-			}
+	const updateParams = (name: string, values: string[]) => {
+		if (values.length > 0) {
+			params.has(name)
+				? params.set(name, values.join(','))
+				: params.append(name, values.join(','))
+		} else {
+			params.delete(name)
 		}
+	}
 
-		updateParam('category_id', data.categories)
-		updateParam('job_type', data.jobTypes.map(String))
-		updateParam('company_id', data.companies.map(String))
-		updateParam('location', data.workplaces.map(String))
+	function onSubmit(data: FormData) {
+		updateParams(CATEGORY_PARAMS_NAME, data.categories)
+		updateParams(COMPANY_PARAMS_NAME, data.companies.map(String))
+		updateParams(JOB_TYPE_PARAMS_NAME, data.jobTypes.map(String))
+		updateParams(LOCATION_PARAMS_NAME, data.workplaces.map(String))
 
-		params.set('page', '1')
+		const job_type = searchParams.getAll(CATEGORY_PARAMS_NAME)
+		const location = searchParams.getAll(CATEGORY_PARAMS_NAME)
+		const categories = searchParams.getAll(CATEGORY_PARAMS_NAME)
+		const companies = searchParams.getAll(COMPANY_PARAMS_NAME)
 
-		router.push(`?${params.toString()}`)
+		params.delete('page')
+		params.append('page', '1')
+
+		startTransition(() => {
+			router.push(`??${params.toString()}`, {
+				scroll: false,
+			})
+		})
+
+		console.log(companies, categories, job_type, location)
 	}
 
 	function handleReset() {
+		updateParams(CATEGORY_PARAMS_NAME, [])
+		updateParams(COMPANY_PARAMS_NAME, [])
+		updateParams(JOB_TYPE_PARAMS_NAME, [])
+		updateParams(LOCATION_PARAMS_NAME, [])
+
 		form.reset()
 	}
 
