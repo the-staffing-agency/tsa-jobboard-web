@@ -16,8 +16,14 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useTransition } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import type { z } from 'zod'
-import { formSchema } from './schema'
+import { z } from 'zod'
+
+export const formSchema = z.object({
+	categories: z.array(z.string()),
+	companies: z.array(z.string()),
+	jobTypes: z.array(z.string()),
+	workplaces: z.array(z.string()),
+})
 
 interface PortalFiltersFormProps {
 	filters: IFiltersData
@@ -35,17 +41,25 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 	const searchParams = useSearchParams()
 	const [isPending, startTransition] = useTransition()
 
+	const params = new URLSearchParams(searchParams)
+
 	const form = useForm<FormData>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			categories: [],
-			jobTypes: [],
-			companies: [],
-			workplaces: [],
+			categories: params.has(CATEGORY_PARAMS_NAME)
+				? params.get(CATEGORY_PARAMS_NAME)?.split(',')
+				: [],
+			jobTypes: params.has(JOB_TYPE_PARAMS_NAME)
+				? params.get(JOB_TYPE_PARAMS_NAME)?.split(',')
+				: [],
+			companies: params.has(COMPANY_PARAMS_NAME)
+				? params.get(COMPANY_PARAMS_NAME)?.split(',')
+				: [],
+			workplaces: params.has(LOCATION_PARAMS_NAME)
+				? params.get(LOCATION_PARAMS_NAME)?.split(',')
+				: [],
 		},
 	})
-
-	const params = new URLSearchParams(searchParams)
 
 	const updateParams = (name: string, values: string[]) => {
 		if (values.length > 0) {
@@ -54,6 +68,12 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 				: params.append(name, values.join(','))
 		} else {
 			params.delete(name)
+
+			startTransition(() => {
+				router.push(`?${params.toString()}`, {
+					scroll: false,
+				})
+			})
 		}
 	}
 
@@ -63,21 +83,14 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 		updateParams(JOB_TYPE_PARAMS_NAME, data.jobTypes.map(String))
 		updateParams(LOCATION_PARAMS_NAME, data.workplaces.map(String))
 
-		const job_type = searchParams.getAll(CATEGORY_PARAMS_NAME)
-		const location = searchParams.getAll(CATEGORY_PARAMS_NAME)
-		const categories = searchParams.getAll(CATEGORY_PARAMS_NAME)
-		const companies = searchParams.getAll(COMPANY_PARAMS_NAME)
-
 		params.delete('page')
 		params.append('page', '1')
 
 		startTransition(() => {
-			router.push(`??${params.toString()}`, {
+			router.push(`?${params.toString()}`, {
 				scroll: false,
 			})
 		})
-
-		console.log(companies, categories, job_type, location)
 	}
 
 	function handleReset() {
@@ -250,12 +263,15 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 					)}
 				/>
 				<div>
-					<Button type="submit">Filter</Button>
+					<Button type="submit" disabled={isPending}>
+						Filter
+					</Button>
 					<Button
 						className="text-red-500 transition-colors duration-150 ease-linear hover:text-red-700"
 						variant="ghost"
 						type="reset"
 						onClick={handleReset}
+						disabled={isPending}
 					>
 						Reset
 					</Button>
