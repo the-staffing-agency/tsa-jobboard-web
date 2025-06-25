@@ -9,20 +9,25 @@ export const metadata: Metadata = {
 	title: TITLE,
 }
 
-interface SearchParams {
-	q: string
-}
-
 export default async function SearchPage({
 	searchParams,
 }: {
-	searchParams: Promise<SearchParams>
+	searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
 	const params = await searchParams
 
+	const search = {
+		q: (params.q as string) || '',
+		filters: {
+			category_id: (params?.category_id as string) || '',
+			location_id: (params?.location_id as string) || '',
+			company_id: (params?.company_id as string) || '',
+		},
+	}
+
 	return (
 		<SearchPageTemplate title={TITLE}>
-			<JobResults params={params} />
+			<JobResults search={search} />
 		</SearchPageTemplate>
 	)
 }

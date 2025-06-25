@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 	title: TITLE,
 }
 
-interface SearchParams {
-	q: string
+type SearchParams = {
+	q?: string
 }
 
 export default async function SearchPage({
@@ -25,9 +25,13 @@ export default async function SearchPage({
 		redirect('/search/jobs')
 	}
 
+	const search = {
+		q: params.q || '',
+	}
+
 	return (
 		<SearchPageTemplate title={TITLE}>
-			<JobResults params={params} />
+			<JobResults search={search} />
 		</SearchPageTemplate>
 	)
 }
