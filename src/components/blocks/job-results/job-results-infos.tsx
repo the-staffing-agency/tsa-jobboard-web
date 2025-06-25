@@ -5,7 +5,7 @@ import type { IMeta } from '@/http/search-jobs'
 
 interface JobResultsInfosProps {
 	meta: IMeta
-	term: string
+	term?: string
 }
 
 export function JobResultsInfos({ meta, term }: JobResultsInfosProps) {
