@@ -18,23 +18,26 @@ import { useTransition } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-export const formSchema = z.object({
-	categories: z.array(z.string()),
-	companies: z.array(z.string()),
-	jobTypes: z.array(z.string()),
-	workplaces: z.array(z.string()),
-})
+interface IUpdateParamsInput {
+	name: string
+	values: string | string[]
+}
 
 interface PortalFiltersFormProps {
 	filters: IFiltersData
 }
 
+export const formSchema = z.object({
+	categories: z.array(z.string()),
+	companies: z.array(z.string()),
+	workplaces: z.array(z.string()),
+})
+
 type FormData = z.infer<typeof formSchema>
 
-const CATEGORY_PARAMS_NAME = 'category_id'
-const COMPANY_PARAMS_NAME = 'company_id'
-const JOB_TYPE_PARAMS_NAME = 'job_type'
-const LOCATION_PARAMS_NAME = 'location'
+const CATEGORY_PARAM_NAME = 'category_id'
+const COMPANY_PARAM_NAME = 'company_id'
+const LOCATION_PARAM_NAME = 'location_id'
 
 export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 	const router = useRouter()
@@ -46,42 +49,37 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 	const form = useForm<FormData>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			categories: params.has(CATEGORY_PARAMS_NAME)
-				? params.get(CATEGORY_PARAMS_NAME)?.split(',')
+			categories: params.has(CATEGORY_PARAM_NAME)
+				? params.get(CATEGORY_PARAM_NAME)?.split(',')
 				: [],
-			jobTypes: params.has(JOB_TYPE_PARAMS_NAME)
-				? params.get(JOB_TYPE_PARAMS_NAME)?.split(',')
+			companies: params.has(COMPANY_PARAM_NAME)
+				? params.get(COMPANY_PARAM_NAME)?.split(',')
 				: [],
-			companies: params.has(COMPANY_PARAMS_NAME)
-				? params.get(COMPANY_PARAMS_NAME)?.split(',')
-				: [],
-			workplaces: params.has(LOCATION_PARAMS_NAME)
-				? params.get(LOCATION_PARAMS_NAME)?.split(',')
+			workplaces: params.has(LOCATION_PARAM_NAME)
+				? params.get(LOCATION_PARAM_NAME)?.split(',')
 				: [],
 		},
 	})
 
-	const updateParams = (name: string, values: string[]) => {
-		if (values.length > 0) {
-			params.has(name)
-				? params.set(name, values.join(','))
-				: params.append(name, values.join(','))
-		} else {
-			params.delete(name)
+	const updateParams = ({ name, values }: IUpdateParamsInput) => {
+		const valueArray = Array.isArray(values) ? values : [values]
+		const filteredValues = valueArray.filter(Boolean)
 
-			startTransition(() => {
-				router.push(`?${params.toString()}`, {
-					scroll: false,
-				})
-			})
+		if (filteredValues.length === 0) {
+			params.delete(name)
+			return
 		}
+
+		const paramValue = Array.isArray(values)
+			? filteredValues.join(',')
+			: filteredValues[0]
+		params.set(name, paramValue)
 	}
 
 	function onSubmit(data: FormData) {
-		updateParams(CATEGORY_PARAMS_NAME, data.categories)
-		updateParams(COMPANY_PARAMS_NAME, data.companies.map(String))
-		updateParams(JOB_TYPE_PARAMS_NAME, data.jobTypes.map(String))
-		updateParams(LOCATION_PARAMS_NAME, data.workplaces.map(String))
+		updateParams({ name: CATEGORY_PARAM_NAME, values: data.categories })
+		updateParams({ name: COMPANY_PARAM_NAME, values: data.companies })
+		updateParams({ name: LOCATION_PARAM_NAME, values: data.workplaces })
 
 		params.delete('page')
 		params.append('page', '1')
@@ -94,66 +92,26 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 	}
 
 	function handleReset() {
-		updateParams(CATEGORY_PARAMS_NAME, [])
-		updateParams(COMPANY_PARAMS_NAME, [])
-		updateParams(JOB_TYPE_PARAMS_NAME, [])
-		updateParams(LOCATION_PARAMS_NAME, [])
+		form.reset({
+			categories: [],
+			companies: [],
+			workplaces: [],
+		})
 
-		form.reset()
+		params.delete(CATEGORY_PARAM_NAME)
+		params.delete(COMPANY_PARAM_NAME)
+		params.delete(LOCATION_PARAM_NAME)
+
+		startTransition(() => {
+			router.push(`?${params.toString()}`, {
+				scroll: false,
+			})
+		})
 	}
 
 	return (
 		<Form {...form}>
 			<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-				<FormField
-					control={form.control}
-					name="jobTypes"
-					render={() => (
-						<FormItem>
-							<div className="mb-2">
-								<FormLabel className="text-base">Job Types</FormLabel>
-							</div>
-
-							{filters.job_types.map((item) => (
-								<FormField
-									key={item.value}
-									control={form.control}
-									name="jobTypes"
-									render={({ field }) => {
-										return (
-											<FormItem
-												key={item.value}
-												className="flex flex-row items-center gap-2"
-											>
-												<FormControl>
-													<Checkbox
-														checked={field.value?.includes(item.value)}
-														onCheckedChange={(checked) => {
-															return checked
-																? field.onChange([
-																		...(field.value ?? []),
-																		item.value,
-																	])
-																: field.onChange(
-																		field.value?.filter(
-																			(value) => value !== item.value,
-																		),
-																	)
-														}}
-													/>
-												</FormControl>
-												<FormLabel className="font-normal text-sm">
-													{item.label}
-												</FormLabel>
-											</FormItem>
-										)
-									}}
-								/>
-							))}
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
 				<FormField
 					control={form.control}
 					name="categories"
@@ -225,8 +183,8 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 										options={filters.companies}
 										selected={(field.value ?? []).map(String)}
 										onChange={field.onChange}
-										placeholder="Select Workplaces..."
-										emptyText="No Workplaces found."
+										placeholder="Select Companies..."
+										emptyText="No Companies found."
 									/>
 								)}
 							/>
@@ -264,7 +222,7 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 				/>
 				<div>
 					<Button type="submit" disabled={isPending}>
-						Filter
+						{isPending ? 'Loading...' : 'Filter'}
 					</Button>
 					<Button
 						className="text-red-500 transition-colors duration-150 ease-linear hover:text-red-700"
