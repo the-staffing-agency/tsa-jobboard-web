@@ -79,7 +79,7 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 		params.append('page', '1')
 
 		startTransition(() => {
-			router.push(`?${params.toString().replace(/%2C/g, '+')}`, {
+			router.push(`?${params.toString()}`, {
 				scroll: false,
 			})
 		})
