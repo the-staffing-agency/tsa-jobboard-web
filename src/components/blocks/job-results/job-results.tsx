@@ -16,16 +16,14 @@ export async function JobResults({ search }: JobResultsParams) {
 		search,
 	})
 
-	const hasPagination = meta ? meta.total > meta.per_page : false
+	const totalResults = meta ? meta.total : 0
+
+	const hasPagination = meta ? totalResults > meta.per_page : false
 
 	return (
 		<section className="space-y-2 lg:space-y-4 xl:space-y-6">
-			<header>
-				<h2 className="mb-0 font-bold text-2xl leading-none">
-					Filtered results
-				</h2>
-
-				<JobResultsInfos meta={meta} />
+			<header className="mb-2">
+				<JobResultsInfos query={search.q} found={totalResults} />
 			</header>
 
 			<main>
