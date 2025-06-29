@@ -11,7 +11,7 @@ import {
 	FormMessage,
 } from '@/components/ui/form'
 import { MultiSelect } from '@/components/ui/multi-select'
-import type { IFiltersData } from '@/http/get-filters'
+import type { IFiltersResponse } from '@/http/get-portal-filters'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useTransition } from 'react'
@@ -24,19 +24,17 @@ interface IUpdateParamsInput {
 }
 
 interface PortalFiltersFormProps {
-	filters: IFiltersData
+	filters: IFiltersResponse
 }
 
 export const formSchema = z.object({
 	categories: z.array(z.string()),
-	companies: z.array(z.string()),
-	workplaces: z.array(z.string()),
+	locations: z.array(z.string()),
 })
 
 type FormData = z.infer<typeof formSchema>
 
 const CATEGORY_PARAM_NAME = 'category_id'
-const COMPANY_PARAM_NAME = 'company_id'
 const LOCATION_PARAM_NAME = 'location_id'
 
 export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
@@ -52,10 +50,7 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 			categories: params.has(CATEGORY_PARAM_NAME)
 				? params.get(CATEGORY_PARAM_NAME)?.split(',')
 				: [],
-			companies: params.has(COMPANY_PARAM_NAME)
-				? params.get(COMPANY_PARAM_NAME)?.split(',')
-				: [],
-			workplaces: params.has(LOCATION_PARAM_NAME)
+			locations: params.has(LOCATION_PARAM_NAME)
 				? params.get(LOCATION_PARAM_NAME)?.split(',')
 				: [],
 		},
@@ -78,14 +73,13 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 
 	function onSubmit(data: FormData) {
 		updateParams({ name: CATEGORY_PARAM_NAME, values: data.categories })
-		updateParams({ name: COMPANY_PARAM_NAME, values: data.companies })
-		updateParams({ name: LOCATION_PARAM_NAME, values: data.workplaces })
+		updateParams({ name: LOCATION_PARAM_NAME, values: data.locations })
 
 		params.delete('page')
 		params.append('page', '1')
 
 		startTransition(() => {
-			router.push(`?${params.toString()}`, {
+			router.push(`?${params.toString().replace(/%2C/g, '+')}`, {
 				scroll: false,
 			})
 		})
@@ -94,16 +88,14 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 	function handleReset() {
 		form.reset({
 			categories: [],
-			companies: [],
-			workplaces: [],
+			locations: [],
 		})
 
 		params.delete(CATEGORY_PARAM_NAME)
-		params.delete(COMPANY_PARAM_NAME)
 		params.delete(LOCATION_PARAM_NAME)
 
 		startTransition(() => {
-			router.push(`?${params.toString()}`, {
+			router.push(`?${params.toString().replace(/%2C/g, '+')}`, {
 				scroll: false,
 			})
 		})
@@ -167,52 +159,27 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 
 				<FormField
 					control={form.control}
-					name="companies"
+					name="locations"
 					render={() => (
 						<FormItem>
 							<div className="mb-2">
-								<FormLabel className="text-base">Companies</FormLabel>
+								<FormLabel className="text-base">Locations</FormLabel>
 							</div>
 
 							<Controller
-								name="companies"
+								name="locations"
 								control={form.control}
 								defaultValue={[]}
 								render={({ field }) => (
 									<MultiSelect
-										options={filters.companies}
-										selected={(field.value ?? []).map(String)}
-										onChange={field.onChange}
-										placeholder="Select Companies..."
-										emptyText="No Companies found."
-									/>
-								)}
-							/>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-
-				<FormField
-					control={form.control}
-					name="workplaces"
-					render={() => (
-						<FormItem>
-							<div className="mb-2">
-								<FormLabel className="text-base">Workplaces</FormLabel>
-							</div>
-
-							<Controller
-								name="workplaces"
-								control={form.control}
-								defaultValue={[]}
-								render={({ field }) => (
-									<MultiSelect
-										options={filters.workplaces}
+										options={filters.locations.map((option) => ({
+											...option,
+											value: option.value.toString(),
+										}))}
 										selected={field.value}
 										onChange={field.onChange}
-										placeholder="Select Workplaces..."
-										emptyText="No Workplaces found."
+										placeholder="Which location(s) do you prefer?"
+										emptyText="No location found."
 									/>
 								)}
 							/>
@@ -220,9 +187,10 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 						</FormItem>
 					)}
 				/>
+
 				<div>
 					<Button type="submit" disabled={isPending}>
-						{isPending ? 'Loading...' : 'Filter'}
+						Filter
 					</Button>
 					<Button
 						className="text-red-500 transition-colors duration-150 ease-linear hover:text-red-700"

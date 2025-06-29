@@ -12,8 +12,6 @@ interface JobResultsParams {
 }
 
 export async function JobResults({ search }: JobResultsParams) {
-	console.log('JobResults', search)
-
 	const { data, meta } = await searchJobs({
 		search,
 	})
