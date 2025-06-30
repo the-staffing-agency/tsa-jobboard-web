@@ -5,9 +5,10 @@ import type { Metadata } from 'next'
 export async function generateMetadata({
 	params,
 }: {
-	params: { id: string }
+	params: Promise<{ id: string }>
 }): Promise<Metadata> {
-	const { data } = await getJobById({ id: params.id })
+	const { id } = await params
+	const { data } = await getJobById({ id })
 	return {
 		title: data.title,
 	}
