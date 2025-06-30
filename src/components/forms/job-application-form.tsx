@@ -104,9 +104,9 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 									name="first_name"
 									render={({ field }) => (
 										<FormItem className="w-full">
-											<FormLabel>First Name</FormLabel>
+											<FormLabel aria-required>First Name</FormLabel>
 											<FormControl>
-												<Input placeholder="Enter your first name" {...field} />
+												<Input required {...field} />
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -117,9 +117,9 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 									name="last_name"
 									render={({ field }) => (
 										<FormItem className="w-full">
-											<FormLabel>Last Name</FormLabel>
+											<FormLabel aria-required>Last Name</FormLabel>
 											<FormControl>
-												<Input placeholder="Enter your last name" {...field} />
+												<Input {...field} />
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -132,10 +132,7 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 										<FormItem className="w-full">
 											<FormLabel>Email</FormLabel>
 											<FormControl>
-												<Input
-													placeholder="Enter your email address"
-													{...field}
-												/>
+												<Input {...field} />
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -148,10 +145,7 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 										<FormItem className="w-full">
 											<FormLabel>Phone (Optional)</FormLabel>
 											<FormControl>
-												<Input
-													placeholder="Enter your phone number"
-													{...field}
-												/>
+												<Input {...field} />
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -162,12 +156,9 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 									name="mobile"
 									render={({ field }) => (
 										<FormItem className="w-full">
-											<FormLabel>Mobile (Optional)</FormLabel>
+											<FormLabel>Mobile</FormLabel>
 											<FormControl>
-												<Input
-													placeholder="Enter your mobile number"
-													{...field}
-												/>
+												<Input {...field} />
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -178,7 +169,7 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 									name="resume"
 									render={({ field }) => (
 										<FormItem className="w-full">
-											<FormLabel>Resume (Optional)</FormLabel>
+											<FormLabel aria-required>Resume</FormLabel>
 											<FormControl>
 												<Input
 													type="file"
