@@ -8,7 +8,10 @@ interface SanitizedHtmlProps {
 
 export function SanitizedHtml({ html, className }: SanitizedHtmlProps) {
 	const cleanHtml = sanitizeHtml(
-		html.replace(/<p>&nbsp;<\/p>/g, ''),
+		html
+			.replace(/<p[^>]*?>(&nbsp;|\s)*<\/p>/gi, '')
+			.replace(/&nbsp;/gi, ' ')
+			.replace(/\s{2,}/g, ' '),
 		sanitizeOptions,
 	)
 
