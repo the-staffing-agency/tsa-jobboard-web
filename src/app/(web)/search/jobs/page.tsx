@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 import { JobResults } from '@/components/blocks/job-results'
-import { SearchPageTemplate } from '@/templates/search'
+import { SearchPageTemplate } from '@/templates/pages'
 
 const TITLE = 'Jobs'
 
