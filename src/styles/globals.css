@@ -182,7 +182,7 @@
 				@apply mt-2 first:mt-0;
 
 				p {
-					@apply inline-block;
+					@apply inline;
 				}
 			}
 		}
