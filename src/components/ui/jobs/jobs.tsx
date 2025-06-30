@@ -27,12 +27,11 @@ export function Jobs({ jobs }: JobsProps) {
 	return (
 		<ListView>
 			{jobs.map((job) => (
-				<JobWrapperLink key={job.id}>
+				<JobWrapperLink key={job.id} link={`/j/${job.id}`}>
 					<header>
 						<JobTitle>{job.title}</JobTitle>
 
 						<JobInfos className="flex-row gap-4">
-							{job.company?.name && <JobCompany text={job.company.name} />}
 							{job.location?.name && <JobLocation text={job.location.name} />}
 						</JobInfos>
 					</header>
@@ -42,8 +41,6 @@ export function Jobs({ jobs }: JobsProps) {
 					</JobContent>
 
 					<JobFooter>
-						{job.job_type && <JobBadgeType type={job.job_type} />}
-
 						{job.salary && (
 							<JobSalary
 								rateLow={job.salary?.rateLow}
