@@ -24,9 +24,14 @@ export function SearchPageTemplate({
 		<section>
 			<PageHeader>
 				<PageHeaderTitle>{title}</PageHeaderTitle>
-				{resume && <PageHeaderResume>{resume}</PageHeaderResume>}
+				<PageHeaderResume>
+					Explore thousands of job opportunities in the culinary world.
+				</PageHeaderResume>
+
 				<Suspense>
-					<SearchFrom />
+					<div className="mt-4">
+						<SearchFrom />
+					</div>
 				</Suspense>
 			</PageHeader>
 

@@ -1,8 +1,7 @@
-import type { Metadata } from 'next'
-import { redirect } from 'next/navigation'
-
 import { JobResults } from '@/components/blocks/job-results'
 import { SearchPageTemplate } from '@/templates/pages'
+import type { Metadata } from 'next'
+import { redirect } from 'next/navigation'
 
 const TITLE = 'Search'
 
