@@ -68,8 +68,8 @@ export async function searchJobs({
 		searchParams.append('per_page', per_page.toString())
 	}
 
-	const filterParams = searchParams.toString()
-	const url = `/portals/jobs/search?search=${encodeURIComponent(q || '')}${filterParams ? `&${filterParams}` : ''}`
+	const queryString = searchParams.toString()
+	const url = `/portals/jobs/search${queryString ? `?${queryString}` : ''}`
 
 	const response = await api(url, { headers })
 
