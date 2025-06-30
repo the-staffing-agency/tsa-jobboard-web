@@ -35,14 +35,14 @@ const formSchema = z.object({
 	}),
 })
 
-type ApplyJobFormProps = z.infer<typeof formSchema>
+type JobApplicationFormProps = z.infer<typeof formSchema>
 
-export function ApplyJobForm({ id }: { id: number | string }) {
-	const { addToApplied, store } = useAppliedJobsLocal()
+export function JobApplicationForm({ id }: { id: number | string }) {
+	const { store } = useAppliedJobsLocal()
 
 	const { submitApplication, isPending, isSuccess, isError } =
 		useSubmitJobApplication()
-	const form = useForm<ApplyJobFormProps>({
+	const form = useForm<JobApplicationFormProps>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			first_name: '',
@@ -53,7 +53,7 @@ export function ApplyJobForm({ id }: { id: number | string }) {
 		},
 	})
 
-	function onSubmit(data: ApplyJobFormProps) {
+	function onSubmit(data: JobApplicationFormProps) {
 		submitApplication({
 			id: id.toString(),
 			data: {
@@ -67,19 +67,7 @@ export function ApplyJobForm({ id }: { id: number | string }) {
 		})
 
 		if (isSuccess) {
-			addToApplied({
-				applicant: {
-					name: data.first_name,
-					lastname: data.last_name,
-					email: data.email,
-				},
-				id: id.toString(),
-			})
 			form.reset()
-		}
-
-		if (isError) {
-			console.error('Failed to submit application')
 		}
 	}
 

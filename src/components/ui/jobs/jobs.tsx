@@ -1,11 +1,6 @@
 import type { IJob } from '@/interfaces/job'
-import Link from 'next/link'
-import { ApplyJobForm } from '../../forms/apply-job-form'
 
 import {
-	JobActions,
-	JobBadgeType,
-	JobCompany,
 	JobContent,
 	JobFooter,
 	JobInfos,

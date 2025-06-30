@@ -1,12 +1,8 @@
-import sanitizeHtml from 'sanitize-html'
-
-import { ApplyJobForm } from '@/components/forms'
+import { JobApplicationForm } from '@/components/forms'
 import { SanitizedHtml } from '@/components/sanitized-html'
 import { PageAsideDefault } from '@/components/templates'
 import { Container } from '@/components/ui/container'
-import { JobActions } from '@/components/ui/job'
 import { Widget, WidgetContent, WidgetTitle } from '@/components/widget'
-import { sanitizeOptions } from '@/config/sanitize-options'
 
 interface JobSinglePage {
 	content: {
@@ -39,7 +35,7 @@ export function JobSinglePage({ content }: JobSinglePage) {
 					<WidgetTitle>Apply Now</WidgetTitle>
 					<WidgetContent>
 						<div className="w-full">
-							<ApplyJobForm id={content.id} />
+							<JobApplicationForm id={content.id} />
 						</div>
 					</WidgetContent>
 				</Widget>
