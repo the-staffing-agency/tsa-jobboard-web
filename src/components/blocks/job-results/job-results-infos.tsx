@@ -1,18 +1,23 @@
 'use client'
 
-import { Skeleton } from '@/components/skaleton'
-import type { IMeta } from '@/http/search-jobs'
+import { SearchNotFound } from '@/components/search-not-found'
 
 interface JobResultsInfosProps {
-	meta: IMeta
-	term: string
+	query?: string
+	found: number
 }
 
-export function JobResultsInfos({ meta, term }: JobResultsInfosProps) {
-	return meta ? (
-		<span className="text-base">
-			Found <b>{meta.total ? meta.total : <Skeleton className="h-4 w-8" />}</b>{' '}
-			{meta.total > 1 ? 'results' : 'result'} for "<b>{term}</b>"
-		</span>
-	) : null
+export function JobResultsInfos({ query, found }: JobResultsInfosProps) {
+	return (
+		<div>
+			{found > 0 ? (
+				<span>
+					Filtered <b>{found}</b> {`${found > 1 ? 'results' : 'result'}`} for
+					your search <b>"{query}"</b>
+				</span>
+			) : (
+				<SearchNotFound />
+			)}
+		</div>
+	)
 }

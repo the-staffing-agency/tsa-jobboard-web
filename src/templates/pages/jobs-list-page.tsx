@@ -1,4 +1,4 @@
-import { PortalFilters } from '@/components/blocks/portal-filters'
+import { PortalFiltersBlock } from '@/components/blocks/portal-filters-block'
 import { SearchFrom } from '@/components/forms/search'
 import {
 	PageAsideDefault,
@@ -8,19 +8,18 @@ import {
 	PageMainDefault,
 } from '@/components/templates'
 import { Container } from '@/components/ui/container'
-import { Widget, WidgetContent, WidgetTitle } from '@/components/widget'
 import { type ComponentProps, Suspense } from 'react'
 
-interface SearchPageTemplateProps extends ComponentProps<'section'> {
+interface JobsListPageTemplateProps extends ComponentProps<'section'> {
 	title: string
 	resume?: string
 }
 
-export function SearchPageTemplate({
+export function JobsListPageTemplate({
 	title,
 	resume,
 	children,
-}: SearchPageTemplateProps) {
+}: JobsListPageTemplateProps) {
 	return (
 		<section>
 			<PageHeader>
@@ -33,14 +32,8 @@ export function SearchPageTemplate({
 
 			<Container className="mt-10 flex flex-col justify-center gap-10 lg:flex-row">
 				<PageAsideDefault>
-					<Widget>
-						<WidgetTitle>Filter</WidgetTitle>
-						<WidgetContent>
-							<PortalFilters />
-						</WidgetContent>
-					</Widget>
+					<PortalFiltersBlock />
 				</PageAsideDefault>
-
 				<PageMainDefault>{children}</PageMainDefault>
 			</Container>
 

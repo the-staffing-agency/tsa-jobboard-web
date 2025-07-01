@@ -27,7 +27,7 @@ function PageHeaderResume({ children }: { children: React.ReactNode }) {
 
 function PageHeader({ children }: { children: React.ReactNode }) {
 	return (
-		<header className="flex w-full flex-col justify-center bg-accent lg:h-[340px] lg:pt-6 lg:pb-14">
+		<header className="flex h-[220px] w-full flex-col justify-center bg-accent lg:h-[340px] lg:pt-6 lg:pb-14">
 			<Container className="relative flex flex-col items-center justify-center">
 				<div className="flex h-40 flex-col items-center gap-2 pt-4">
 					{children}
