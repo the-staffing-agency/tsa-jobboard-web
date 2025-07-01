@@ -49,7 +49,7 @@
 
 :root {
 	--radius: 0.625rem;
-	--accent: #222222;
+	--accent: oklab(25.197000000000003% 0 -0.00003);
 	--accent-chefs: oklch(0.471 0.11 137.5);
 	--accent-luxury: oklch(0.523 0.129 277.6);
 	--accent-resume: oklch(0.435 0.045 137.5);
