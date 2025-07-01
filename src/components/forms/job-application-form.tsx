@@ -30,9 +30,11 @@ const formSchema = z.object({
 	email: z.string().email('Please enter a valid email address'),
 	phone: z.string().optional(),
 	mobile: z.string().optional(),
-	resume: z.instanceof(File, {
-		message: 'Please upload a valid file',
-	}),
+	resume: z
+		.instanceof(File, {
+			message: 'Please upload a valid file',
+		})
+		.optional(),
 })
 
 type JobApplicationFormProps = z.infer<typeof formSchema>
@@ -130,7 +132,7 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 									name="email"
 									render={({ field }) => (
 										<FormItem className="w-full">
-											<FormLabel>Email</FormLabel>
+											<FormLabel aria-required>Email</FormLabel>
 											<FormControl>
 												<Input {...field} />
 											</FormControl>
@@ -169,7 +171,7 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 									name="resume"
 									render={({ field }) => (
 										<FormItem className="w-full">
-											<FormLabel aria-required>Resume</FormLabel>
+											<FormLabel>Resume</FormLabel>
 											<FormControl>
 												<Input
 													type="file"
