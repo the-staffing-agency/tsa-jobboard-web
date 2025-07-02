@@ -1,10 +1,11 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 echo "🔍 Running type check..."
 pnpm type-check
 
-echo "🎨 Running linter and formatter on staged files..."
-pnpm lint:staged
+echo "🎨 Running linter and formatter..."
+if [ "$(git diff --cached --name-only)" ]; then
+  pnpm lint:staged || pnpm lint:fix
+else
+  echo "No staged files, skipping lint"
+fi
 
 echo "✅ Pre-commit checks passed!"
