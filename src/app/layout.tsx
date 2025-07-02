@@ -21,13 +21,23 @@ export default async function RootLayout({
 }: {
 	children: React.ReactNode
 }) {
-	const host = (await headers()).get('host')
+	const headersList = await headers()
+	const host = headersList.get('host')
+	const isThemeHeaderPresent = headersList.get('x-theme')
+
 	const hostnameParts = splitHostname(host)
 
 	let theme: ThemeType | null | undefined
 
 	if (hostnameParts) {
 		theme = findValidTheme(hostnameParts) as ThemeType | null | undefined
+	}
+
+	if (isThemeHeaderPresent) {
+		theme = findValidTheme([isThemeHeaderPresent]) as
+			| ThemeType
+			| null
+			| undefined
 	}
 
 	return (
