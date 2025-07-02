@@ -1,29 +1,32 @@
+import { env } from '@/config/env'
 import type { IJob } from '@/interfaces/job'
 import { api } from '@/lib/api'
 
-interface ISearchJobsFilters {
-	title?: string
-	location?: string
-	locationId?: string
-	company?: string
-	companyId?: string
-	category?: string
-	categoryId?: string
-	job_type?: string
+export interface ISearchJobsFilter {
+	title?: string | string[]
+	location_id?: string | string[]
+	company_id?: string | string[]
+	category_id?: string | string[]
+	job_type?: string | string[]
 	salary?: string
 }
 
-interface ISearchJobsRequest {
-	key: string
-	params: {
+export interface ISearchJobsRequest {
+	key?: string
+	search: {
 		q?: string
-		filters?: ISearchJobsFilters
+		filters?: ISearchJobsFilter
 		page?: number
 		per_page?: number
 	}
 }
 
-interface IMeta {
+interface ISearchJobsResponse {
+	data: IJob[]
+	meta: IMeta
+}
+
+export interface IMeta {
 	current_page: number
 	from: number
 	last_page: number
@@ -32,37 +35,28 @@ interface IMeta {
 	total: number
 }
 
-interface IJobsResponse {
-	data: IJob[]
-	meta?: IMeta
-}
-
 export async function searchJobs({
 	key,
-	params,
-}: ISearchJobsRequest): Promise<IJobsResponse> {
+	search,
+}: ISearchJobsRequest): Promise<ISearchJobsResponse> {
 	const headers = new Headers({
-		'Content-type': 'application/json',
-		'x-api-key': key,
+		'Content-Type': 'application/json',
+		'x-api-key': key ?? env.NEXT_PUBLIC_PORTAL_TCA_KEY, // Hardcoded key for now, should be dynamic,
 	})
 
 	const searchParams = new URLSearchParams()
 
-	const { q, filters, page, per_page } = params
+	const { q, filters, page, per_page } = search
 
-	if (!params) {
-	}
-
-	if (q) {
-		searchParams.append('q', q)
-	}
+	searchParams.append('search', q ? q : '')
 
 	if (filters) {
-		// biome-ignore lint/complexity/noForEach: <explanation>
 		Object.entries(filters).forEach(([key, value]) => {
-			if (value) {
-				searchParams.append(`filter[${key}]`, value)
-			}
+			Array.isArray(value)
+				? value.forEach(
+						(filter) => filter && searchParams.append(`filter[${key}]`, filter),
+					)
+				: searchParams.append(`filter[${key}]`, value)
 		})
 	}
 
@@ -77,10 +71,13 @@ export async function searchJobs({
 	const queryString = searchParams.toString()
 	const url = `/portals/jobs/search${queryString ? `?${queryString}` : ''}`
 
-	const response = await api(url, {
-		headers,
-	})
+	const response = await api(url, { headers })
 
-	const data = (await response.json()) as IJobsResponse
+	if (!response.ok) {
+		const errorText = await response.text()
+		throw new Error(`API Error: ${response.status} - ${errorText}`)
+	}
+
+	const data = (await response.json()) as ISearchJobsResponse
 	return data
 }

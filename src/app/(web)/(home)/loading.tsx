@@ -5,7 +5,7 @@ import {
 	HeroSubtitle,
 	HeroTitle,
 } from '@/components/blocks/hero'
-import { SearchJobFrom } from '@/components/forms/search-job-form'
+import { SearchFrom } from '@/components/forms/search'
 import {
 	SectionBlock,
 	SectionBlockCallToAction,
@@ -30,7 +30,7 @@ export default function Loading() {
 
 				<HeroFooter>
 					<Suspense>
-						<SearchJobFrom />
+						<SearchFrom />
 					</Suspense>
 					<JobCategories />
 				</HeroFooter>

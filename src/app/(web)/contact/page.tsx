@@ -1,14 +1,9 @@
 import { Container } from '@/components/ui/container'
-import { PageHeader } from '../_components/page-header'
+import { PageHeader } from '../../../components/templates/page-header'
 
 export default function ContactPage() {
 	return (
 		<>
-			<PageHeader
-				title="Contact"
-				description="We’re here to help you with anything related to job applications, partnerships, or general inquiries."
-			/>
-
 			<Container className="flex justify-center lg:mt-10">
 				<main className="w-full max-w-[800px]">
 					<h2 className="mb-4 text-center font-bold text-2xl">

@@ -1,9 +1,4 @@
 # The Staffing Agency
-The staff agency operates 4 companies under the same umbrella: 
-1. [The Chef Agency](https://www.thechefagency.com/): Staffing for the hospitality industry.
-2. [The Estate Agency](https://theestateagency.com/): Private staffing and recruitment agency, specializing in placing highly qualified household and executive staff.
-3. [The Supermarket Agency](https://thesupermarketagency.com/)
-4. [The Resume Agency](https://www.theresumeagency.com/)
 
 ## Installation
 Install and configure The Staffing Agency project with:
@@ -34,4 +29,18 @@ npm install
 
 ### 5. Use React Context API for state management
 - [ ] Shared data such as candidate information must be properly **managed using React’s Context API** to ensure consistency across components.
+
+
+### 7. Dynamic themes
+# Chef job search with chefs theme
+?theme=chefs
+
+# Luxury hotel positions with luxury theme  
+?theme=luxury
+
+# Resume services with resume theme
+?theme=resume
+
+# Grocery store jobs with supermarket theme
+?theme=supermarket
 

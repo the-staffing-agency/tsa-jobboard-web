@@ -1,6 +1,6 @@
-import { Header } from '@/app/(web)/_components/header'
-import { NavBar } from '@/app/(web)/_components/nav-bar'
-import { AppliedJobsProvider } from '@/contexts/applied-jobs-context'
+import { NavBar } from '@/components/nav-bar'
+import { Header } from '@/components/templates/header'
+import { JobApplicationProvider } from '@/contexts/jobs-applied-context'
 import { NavToggleProvider } from '@/contexts/nav-toggle-context'
 
 export default function WebLayout({
@@ -13,9 +13,7 @@ export default function WebLayout({
 			<Header>
 				<NavBar />
 			</Header>
-			<section>
-				<AppliedJobsProvider>{children}</AppliedJobsProvider>
-			</section>
+			<JobApplicationProvider>{children}</JobApplicationProvider>
 		</NavToggleProvider>
 	)
 }
