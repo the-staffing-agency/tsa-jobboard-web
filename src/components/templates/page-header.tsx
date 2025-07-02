@@ -3,7 +3,7 @@ import type React from 'react'
 
 function PageHeaderTitle({ children }: { children: React.ReactNode }) {
 	return (
-		<h1 className="text-center font-extrabold text-2xl text-white leading-none lg:text-4xl">
+		<h1 className="max-w-md text-center font-extrabold text-2xl text-white leading-none lg:text-4xl">
 			{children}
 		</h1>
 	)
@@ -11,7 +11,7 @@ function PageHeaderTitle({ children }: { children: React.ReactNode }) {
 
 function PageHeaderLead({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="mb-2 font-bold text-base text-white uppercase">
+		<div className="mb-2 max-w-md font-bold text-base text-white uppercase ">
 			{children}
 		</div>
 	)
@@ -19,22 +19,45 @@ function PageHeaderLead({ children }: { children: React.ReactNode }) {
 
 function PageHeaderResume({ children }: { children: React.ReactNode }) {
 	return (
-		<h2 className="max-w-md text-center text-base text-white lg:text-lg">
+		<h2 className="max-w-[800px] text-center text-base text-white lg:text-lg">
 			{children}
 		</h2>
 	)
 }
 
+function PageHeaderContainer({ children }: { children?: React.ReactNode }) {
+	return (
+		<div className="relative mx-auto flex max-w-[800px] flex-col items-center justify-center">
+			{children}
+		</div>
+	)
+}
+
+function PageHeaderContent({
+	children,
+}: {
+	children: React.ReactNode
+}) {
+	return (
+		<Container className="relative flex flex-col items-center justify-center">
+			{children}
+		</Container>
+	)
+}
+
 function PageHeader({ children }: { children: React.ReactNode }) {
 	return (
-		<header className="flex h-[220px] w-full flex-col justify-center bg-accent lg:h-[340px] lg:pt-6 lg:pb-14">
-			<Container className="relative flex flex-col items-center justify-center">
-				<div className="flex h-40 flex-col items-center gap-2 pt-4">
-					{children}
-				</div>
-			</Container>
+		<header className="flex w-full flex-col justify-center bg-accent py-8 lg:py-12">
+			{children}
 		</header>
 	)
 }
 
-export { PageHeader, PageHeaderTitle, PageHeaderLead, PageHeaderResume }
+export {
+	PageHeader,
+	PageHeaderTitle,
+	PageHeaderLead,
+	PageHeaderResume,
+	PageHeaderContainer,
+	PageHeaderContent,
+}

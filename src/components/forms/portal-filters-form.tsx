@@ -34,8 +34,8 @@ export const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>
 
-const CATEGORY_PARAM_NAME = 'category_id'
-const LOCATION_PARAM_NAME = 'location_id'
+export const CATEGORY_PARAM_NAME = 'category_id'
+export const LOCATION_PARAM_NAME = 'location_id'
 
 export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 	const router = useRouter()
@@ -104,7 +104,7 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 	return (
 		<Form {...form}>
 			<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-				<FormField
+				{/* <FormField
 					control={form.control}
 					name="categories"
 					render={() => (
@@ -155,7 +155,7 @@ export function PortalFiltersFrom({ filters }: PortalFiltersFormProps) {
 							<FormMessage />
 						</FormItem>
 					)}
-				/>
+				/> */}
 
 				<FormField
 					control={form.control}
