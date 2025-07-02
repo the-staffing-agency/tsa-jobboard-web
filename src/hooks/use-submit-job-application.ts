@@ -16,7 +16,6 @@ export function useSubmitJobApplication() {
 			addToApplied({
 				applicant: {
 					name: variables.data.first_name,
-					lastname: variables.data.last_name,
 					email: variables.data.email,
 				},
 				id: variables.id.toString(),
