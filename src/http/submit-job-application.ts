@@ -25,7 +25,7 @@ export async function submitJobApplication({
 }: IJobApplicationRequest): Promise<IJobApplicationResponse> {
 	const formData = new FormData()
 
-	formData.append('name', data.first_name)
+	formData.append('name', data.name)
 	formData.append('email', data.email.trim())
 
 	data.phone && formData.append('phone', data.phone.trim())
