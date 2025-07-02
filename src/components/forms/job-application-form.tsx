@@ -25,16 +25,11 @@ import {
 import { Input } from '../ui/input'
 
 const formSchema = z.object({
-	first_name: z.string().min(2, 'First name must be at least 2 characters'),
-	last_name: z.string().min(2, 'Last name must be at least 2 characters'),
+	name: z.string().min(2, 'Name must be at least 2 characters'),
 	email: z.string().email('Please enter a valid email address'),
-	phone: z.string().optional(),
-	mobile: z.string().optional(),
-	resume: z
-		.instanceof(File, {
-			message: 'Please upload a valid file',
-		})
-		.optional(),
+	resume: z.instanceof(File, {
+		message: 'Please upload a valid file',
+	}),
 })
 
 type JobApplicationFormProps = z.infer<typeof formSchema>
@@ -44,26 +39,43 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 
 	const { submitApplication, isPending, isSuccess, isError } =
 		useSubmitJobApplication()
+
+	const splitName = (fullName: string) => {
+		const nameParts = fullName.trim().split(/\s+/)
+
+		if (nameParts.length === 1) {
+			return {
+				first_name: nameParts[0],
+				last_name: null,
+			}
+		}
+
+		const first_name = nameParts[0]
+		const last_name = nameParts.slice(1).join(' ')
+
+		return {
+			first_name,
+			last_name,
+		}
+	}
+
 	const form = useForm<JobApplicationFormProps>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			first_name: '',
-			last_name: '',
+			name: '',
 			email: '',
-			phone: '',
-			mobile: '',
 		},
 	})
 
 	function onSubmit(data: JobApplicationFormProps) {
+		const { first_name, last_name } = splitName(data.name)
+
 		submitApplication({
 			id: id.toString(),
 			data: {
-				first_name: data.first_name,
-				last_name: data.last_name,
+				first_name,
+				last_name,
 				email: data.email,
-				phone: data.phone,
-				mobile: data.mobile,
 				resume: data.resume,
 			},
 		})
@@ -103,25 +115,12 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 							>
 								<FormField
 									control={form.control}
-									name="first_name"
+									name="name"
 									render={({ field }) => (
 										<FormItem className="w-full">
-											<FormLabel aria-required>First Name</FormLabel>
+											<FormLabel aria-required>Name</FormLabel>
 											<FormControl>
 												<Input required {...field} />
-											</FormControl>
-											<FormMessage />
-										</FormItem>
-									)}
-								/>
-								<FormField
-									control={form.control}
-									name="last_name"
-									render={({ field }) => (
-										<FormItem className="w-full">
-											<FormLabel aria-required>Last Name</FormLabel>
-											<FormControl>
-												<Input {...field} />
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -140,32 +139,7 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 										</FormItem>
 									)}
 								/>
-								<FormField
-									control={form.control}
-									name="phone"
-									render={({ field }) => (
-										<FormItem className="w-full">
-											<FormLabel>Phone (Optional)</FormLabel>
-											<FormControl>
-												<Input {...field} />
-											</FormControl>
-											<FormMessage />
-										</FormItem>
-									)}
-								/>
-								<FormField
-									control={form.control}
-									name="mobile"
-									render={({ field }) => (
-										<FormItem className="w-full">
-											<FormLabel>Mobile</FormLabel>
-											<FormControl>
-												<Input {...field} />
-											</FormControl>
-											<FormMessage />
-										</FormItem>
-									)}
-								/>
+
 								<FormField
 									control={form.control}
 									name="resume"
@@ -192,7 +166,7 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 										type="submit"
 										className="w-full"
 										size={'lg'}
-										disabled={isPending || !form.formState.isValid}
+										disabled={isPending}
 									>
 										Apply Now
 									</Button>
