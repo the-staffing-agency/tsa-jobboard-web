@@ -4,14 +4,13 @@ import { usePortalFilters } from '@/hooks/use-portal-filters'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState, useTransition } from 'react'
 import { CategorySphereButton } from './category-sphere-button'
-import { CategorySphereSkeleton } from './category-sphere-skeleton'
 import { CATEGORY_PARAM_NAME } from './forms'
 import { Skeleton } from './ui/skeleton'
 
 export function CategorySpheres() {
 	const router = useRouter()
 	const searchParams = useSearchParams()
-	const [isPending, startTransition] = useTransition()
+	const [, startTransition] = useTransition()
 	const [currentCategoryValue, setCurrentCategoryValue] =
 		useState<string>('all')
 
@@ -21,7 +20,6 @@ export function CategorySpheres() {
 
 	const categoriesWithAll = [{ value: 'all', label: 'All' }, ...categories]
 
-	console.log(isLoading)
 	useEffect(() => {
 		const categoryFromParams = searchParams.get(CATEGORY_PARAM_NAME) || 'all'
 		setCurrentCategoryValue(categoryFromParams)

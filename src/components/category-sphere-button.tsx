@@ -1,10 +1,6 @@
 import { type CategoryIconConfig, categoryIcons } from '@/config/category-icons'
 import { cn } from '@/utils/cn'
-import {
-	type RemixiconComponentType,
-	RiCheckFill,
-	RiRestaurantLine,
-} from '@remixicon/react'
+import { type RemixiconComponentType, RiRestaurantLine } from '@remixicon/react'
 import { type VariantProps, cva } from 'class-variance-authority'
 
 const categorySphereVariants = cva(
