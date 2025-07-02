@@ -40,25 +40,6 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 	const { submitApplication, isPending, isSuccess, isError } =
 		useSubmitJobApplication()
 
-	const splitName = (fullName: string) => {
-		const nameParts = fullName.trim().split(/\s+/)
-
-		if (nameParts.length === 1) {
-			return {
-				first_name: nameParts[0],
-				last_name: null,
-			}
-		}
-
-		const first_name = nameParts[0]
-		const last_name = nameParts.slice(1).join(' ')
-
-		return {
-			first_name,
-			last_name,
-		}
-	}
-
 	const form = useForm<JobApplicationFormProps>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -68,13 +49,10 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 	})
 
 	function onSubmit(data: JobApplicationFormProps) {
-		const { first_name, last_name } = splitName(data.name)
-
 		submitApplication({
 			id: id.toString(),
 			data: {
-				first_name,
-				last_name,
+				name: data.name,
 				email: data.email,
 				resume: data.resume,
 			},
