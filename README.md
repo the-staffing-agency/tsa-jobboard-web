@@ -36,3 +36,17 @@ npm install
 ### 6. Use React Context API for state management
 - [ ] Shared data such as candidate information must be properly **managed using React’s Context API** to ensure consistency across components.
 
+
+### 7. Dynamic themes
+# Chef job search with chefs theme
+?theme=chefs
+
+# Luxury hotel positions with luxury theme  
+?theme=luxury
+
+# Resume services with resume theme
+?theme=resume
+
+# Grocery store jobs with supermarket theme
+?theme=supermarket
+
