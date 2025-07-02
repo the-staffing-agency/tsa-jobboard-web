@@ -5,7 +5,7 @@ function isValidTheme(theme: string): theme is ThemeType {
 	return Object.values(THEMES).includes(theme as ThemeType)
 }
 
-export function middleware(request: NextRequest) {
+export default function middleware(request: NextRequest) {
 	const { searchParams } = request.nextUrl
 	const themeParam = searchParams.get('theme')
 
