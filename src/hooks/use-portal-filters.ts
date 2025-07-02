@@ -8,7 +8,7 @@ const PORTAL_FILTERS_QUERY_KEY = ['portal-filters']
 export function usePortalFilters() {
 	const { data, isLoading } = useQuery({
 		queryKey: PORTAL_FILTERS_QUERY_KEY,
-		queryFn: () => getPortalFilters(),
+		queryFn: getPortalFilters,
 		select: (response) => ({
 			workplaces: response.workplaces,
 			categories: response.categories,
@@ -17,7 +17,9 @@ export function usePortalFilters() {
 	})
 
 	return {
-		filters: data ?? [],
+		workplaces: data?.workplaces ?? [],
+		categories: data?.categories ?? [],
+		locations: data?.locations ?? [],
 		isLoading,
 	}
 }

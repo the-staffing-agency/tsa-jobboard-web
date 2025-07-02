@@ -1,8 +1,11 @@
 import { PortalFiltersBlock } from '@/components/blocks/portal-filters-block'
+import { CategorySpheres } from '@/components/category-spheres'
 import { SearchFrom } from '@/components/forms/search'
 import {
 	PageAsideDefault,
 	PageHeader,
+	PageHeaderContainer,
+	PageHeaderContent,
 	PageHeaderResume,
 	PageHeaderTitle,
 	PageMainDefault,
@@ -23,23 +26,31 @@ export function SearchPageTemplate({
 	return (
 		<section>
 			<PageHeader>
-				<PageHeaderTitle>{title}</PageHeaderTitle>
-				<PageHeaderResume>
-					Explore thousands of job opportunities in the culinary world.
-				</PageHeaderResume>
+				<PageHeaderContainer>
+					<PageHeaderTitle>{title}</PageHeaderTitle>
 
-				<Suspense>
-					<div className="mt-4">
-						<SearchFrom />
-					</div>
-				</Suspense>
+					<PageHeaderResume>
+						Explore thousands of job opportunities in the culinary world.
+					</PageHeaderResume>
+				</PageHeaderContainer>
+
+				<PageHeaderContent>
+					<Suspense>
+						<div className="mt-4">
+							<SearchFrom />
+						</div>
+					</Suspense>
+				</PageHeaderContent>
 			</PageHeader>
 
 			<Container className="mt-10 flex flex-col justify-center gap-10 lg:flex-row">
 				<PageAsideDefault>
 					<PortalFiltersBlock />
 				</PageAsideDefault>
-				<PageMainDefault>{children}</PageMainDefault>
+				<PageMainDefault>
+					<CategorySpheres />
+					{children}
+				</PageMainDefault>
 			</Container>
 
 			<footer className="mt-20" />
