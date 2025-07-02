@@ -5,7 +5,6 @@ import { createContext, useEffect, useState } from 'react'
 
 interface IApplicant {
 	name: string
-	lastname: string
 	email: string
 }
 
