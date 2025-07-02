@@ -28,8 +28,6 @@ const formSchema = z.object({
 	first_name: z.string().min(2, 'First name must be at least 2 characters'),
 	last_name: z.string().min(2, 'Last name must be at least 2 characters'),
 	email: z.string().email('Please enter a valid email address'),
-	phone: z.string().optional(),
-	mobile: z.string().optional(),
 	resume: z.instanceof(File, {
 		message: 'Please upload a valid file',
 	}),
@@ -48,8 +46,6 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 			first_name: '',
 			last_name: '',
 			email: '',
-			phone: '',
-			mobile: '',
 		},
 	})
 
@@ -60,8 +56,6 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 				first_name: data.first_name,
 				last_name: data.last_name,
 				email: data.email,
-				phone: data.phone,
-				mobile: data.mobile,
 				resume: data.resume,
 			},
 		})
@@ -138,32 +132,7 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 										</FormItem>
 									)}
 								/>
-								<FormField
-									control={form.control}
-									name="phone"
-									render={({ field }) => (
-										<FormItem className="w-full">
-											<FormLabel>Phone (Optional)</FormLabel>
-											<FormControl>
-												<Input {...field} />
-											</FormControl>
-											<FormMessage />
-										</FormItem>
-									)}
-								/>
-								<FormField
-									control={form.control}
-									name="mobile"
-									render={({ field }) => (
-										<FormItem className="w-full">
-											<FormLabel>Mobile</FormLabel>
-											<FormControl>
-												<Input {...field} />
-											</FormControl>
-											<FormMessage />
-										</FormItem>
-									)}
-								/>
+
 								<FormField
 									control={form.control}
 									name="resume"
