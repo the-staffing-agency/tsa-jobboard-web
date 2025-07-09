@@ -124,6 +124,10 @@
 	--sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+[data-theme="default"] {
+	--background: var(--color-background-chefs);
+}
+
 [data-theme="chefs"] {
 	--accent: var(--accent-chefs);
 	--background: var(--color-background-chefs);
