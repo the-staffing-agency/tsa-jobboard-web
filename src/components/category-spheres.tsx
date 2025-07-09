@@ -51,7 +51,7 @@ export function CategorySpheres() {
 			params.delete('page')
 
 			startTransition(() => {
-				router.push(`?${params.toString()}`, {
+				router.push(`/search/jobs?${params.toString()}`, {
 					scroll: false,
 				})
 			})
@@ -65,15 +65,15 @@ export function CategorySpheres() {
 		params.append('page', '1')
 
 		startTransition(() => {
-			router.push(`?${params.toString()}`, {
+			router.push(`/search/jobs?${params.toString()}`, {
 				scroll: false,
 			})
 		})
 	}
 
 	return (
-		<div className="min-h-20">
-			<div className="flex gap-4 overflow-x-auto lg:justify-center lg:gap-8">
+		<div className="min-h-20 overflow-x-auto">
+			<div className="flex gap-4 lg:justify-center lg:gap-8">
 				{isLoading
 					? Array.from({ length: 8 }).map(() => {
 							return (
