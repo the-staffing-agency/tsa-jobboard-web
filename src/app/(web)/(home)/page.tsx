@@ -20,7 +20,7 @@ export default async function HomePage() {
 					<HeroSubtitle>{mockHeroData.subtitle}</HeroSubtitle>
 				</HeroContent>
 
-				<HeroFooter>
+				<HeroFooter className="mt-2 lg:mt-4">
 					<Suspense>
 						<SearchFrom />
 					</Suspense>

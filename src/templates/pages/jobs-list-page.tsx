@@ -8,7 +8,7 @@ import {
 	PageMainDefault,
 } from '@/components/templates'
 import { Container } from '@/components/ui/container'
-import { type ComponentProps, Suspense } from 'react'
+import type { ComponentProps } from 'react'
 
 interface JobsListPageTemplateProps extends ComponentProps<'section'> {
 	title: string
@@ -25,9 +25,10 @@ export function JobsListPageTemplate({
 			<PageHeader>
 				<PageHeaderTitle>{title}</PageHeaderTitle>
 				{resume && <PageHeaderResume>{resume}</PageHeaderResume>}
-				<Suspense>
+
+				<div className="mt-2 lg:mt-4">
 					<SearchFrom />
-				</Suspense>
+				</div>
 			</PageHeader>
 
 			<Container className="mt-10 flex flex-col justify-center gap-10 lg:flex-row">
