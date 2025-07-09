@@ -3,9 +3,9 @@ import { Badge } from '../badge'
 
 export function JobLocation({ text }: { text: string }) {
 	return (
-		<Badge className="p-0" variant={'ghost'}>
+		<Badge className="flex items-center p-0" variant={'ghost'}>
 			<RiMapPin2Line className="text-accent" />
-			{text}
+			<span className="pt-1 text-base/none">{text}</span>
 		</Badge>
 	)
 }

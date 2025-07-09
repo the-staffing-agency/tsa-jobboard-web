@@ -18,9 +18,7 @@ export function JobSinglePage({ content }: JobSinglePage) {
 			<div className="justify-baseline flex flex-col gap-4 pb-10 lg:flex-row lg:gap-10 lg:pb-0">
 				<article className="max-w-[800px] flex-3/4">
 					<header className="flex flex-col gap-1 lg:mb-6">
-						<h1 className="font-extrabold text-3xl lg:text-4xl">
-							{content.title}
-						</h1>
+						<h1 className="font-bold text-3xl lg:text-4xl">{content.title}</h1>
 					</header>
 
 					<main className="prose">

@@ -6,7 +6,10 @@ export function JobTitle({
 	...props
 }: ComponentProps<'h3'>) {
 	return (
-		<h3 className="font-semibold text-lg/tight text-slate-800" {...props}>
+		<h3
+			className="font-semibold text-accent text-lg/tight lg:text-xl"
+			{...props}
+		>
 			{children}
 		</h3>
 	)
