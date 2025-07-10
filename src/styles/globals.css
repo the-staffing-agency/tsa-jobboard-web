@@ -11,7 +11,11 @@
 	--color-accent: var(--accent);
 	--color-luxury-accent: var(--accent-luxury);
 	--color-chefs-accent: var(--accent-chefs);
-	--color-background-chefs: #f4f1ec;
+	--color-body-background-chefs: #f4f1ec;
+	--color-charcoal: rgb(34, 34, 34);
+	--color-faded: rgb(255, 240, 213);
+	--color-warm-orange: rgb(250, 102, 54);
+	--color-dark-red: rgb(190, 30, 45);
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 	--color-sidebar-ring: var(--sidebar-ring);
@@ -51,10 +55,10 @@
 :root {
 	--radius: 0.625rem;
 	--accent: rgb(34, 34, 34);
-	--accent-chefs: rgb(34, 34, 34);
+	--accent-chefs: var(--color-charcoal);
 	--accent-luxury: oklch(0.523 0.129 277.6);
 	--accent-resume: oklch(0.435 0.045 137.5);
-	--accent-supermarket: oklch(0.462 0.144 148.7);
+	--accent-supermarket: var(--color-dark-red);
 	--background: var(--color-slate-100);
 	--foreground: var(--color-slate-800);
 	--card: oklch(1 0 0);
@@ -127,9 +131,14 @@
 [data-theme="default"] {
 	--background: var(--color-background-chefs);
 }
+
 [data-theme="chefs"] {
 	--accent: var(--accent-chefs);
-	--background: var(--color-background-chefs);
+	--background: var(--color-body-background-chefs);
+
+	.theme-header {
+		background-color: var(--color-charcoal);
+	}
 }
 [data-theme="luxury"] {
 	--accent: var(--accent-luxury);
@@ -139,6 +148,11 @@
 }
 [data-theme="supermarket"] {
 	--accent: var(--accent-supermarket);
+	--background: var(--color-faded);
+
+	.theme-header {
+		background-color: var(--color-faded);
+	}
 }
 
 @layer base {
