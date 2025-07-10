@@ -99,7 +99,7 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 					disabled={isPending || hasAlreadyApplied}
 					className="w-full"
 				>
-					{hasAlreadyApplied ? 'Already Applied' : 'Apply Now'}
+					{hasAlreadyApplied ? 'Already Applied' : 'Learn more'}
 				</Button>
 			</DialogTrigger>
 			<DialogContent>
@@ -182,7 +182,7 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 										size={'lg'}
 										disabled={isPending}
 									>
-										Apply Now
+										Send
 									</Button>
 								</DialogClose>
 							</form>
