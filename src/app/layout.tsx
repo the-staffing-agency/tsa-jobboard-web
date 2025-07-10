@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 
+import { fontConfig } from '@/config/local-font'
 import { metadataConfig } from '@/config/metadata'
 import { Providers } from '@/config/provides'
 import { ThemeProvider } from '@/contexts/theme-provider'
@@ -7,10 +8,7 @@ import { THEMES, type ThemeType } from '@/themes'
 import { findValidTheme } from '@/utils/find-valid-theme'
 import { splitHostname } from '@/utils/split-hostname'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import { headers } from 'next/headers'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
 	...metadataConfig,
@@ -40,9 +38,11 @@ export default async function RootLayout({
 			| undefined
 	}
 
+	const activeFontFamily = theme ? fontConfig[theme] : fontConfig.default
+
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={inter.className}>
+			<body className={activeFontFamily.className}>
 				<Providers>
 					<ThemeProvider
 						defaultTheme={theme ?? 'default'}

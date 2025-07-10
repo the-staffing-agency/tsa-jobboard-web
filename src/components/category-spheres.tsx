@@ -4,14 +4,13 @@ import { usePortalFilters } from '@/hooks/use-portal-filters'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState, useTransition } from 'react'
 import { CategorySphereButton } from './category-sphere-button'
-import { CategorySphereSkeleton } from './category-sphere-skeleton'
 import { CATEGORY_PARAM_NAME } from './forms'
 import { Skeleton } from './ui/skeleton'
 
 export function CategorySpheres() {
 	const router = useRouter()
 	const searchParams = useSearchParams()
-	const [isPending, startTransition] = useTransition()
+	const [, startTransition] = useTransition()
 	const [currentCategoryValue, setCurrentCategoryValue] =
 		useState<string>('all')
 
@@ -21,7 +20,6 @@ export function CategorySpheres() {
 
 	const categoriesWithAll = [{ value: 'all', label: 'All' }, ...categories]
 
-	console.log(isLoading)
 	useEffect(() => {
 		const categoryFromParams = searchParams.get(CATEGORY_PARAM_NAME) || 'all'
 		setCurrentCategoryValue(categoryFromParams)
@@ -53,7 +51,7 @@ export function CategorySpheres() {
 			params.delete('page')
 
 			startTransition(() => {
-				router.push(`?${params.toString()}`, {
+				router.push(`/search/jobs?${params.toString()}`, {
 					scroll: false,
 				})
 			})
@@ -67,15 +65,15 @@ export function CategorySpheres() {
 		params.append('page', '1')
 
 		startTransition(() => {
-			router.push(`?${params.toString()}`, {
+			router.push(`/search/jobs?${params.toString()}`, {
 				scroll: false,
 			})
 		})
 	}
 
 	return (
-		<div className="min-h-20">
-			<div className="flex gap-4 overflow-x-auto lg:justify-center lg:gap-8">
+		<div className="min-h-20 overflow-x-auto">
+			<div className="flex gap-4 lg:justify-center lg:gap-8">
 				{isLoading
 					? Array.from({ length: 8 }).map(() => {
 							return (

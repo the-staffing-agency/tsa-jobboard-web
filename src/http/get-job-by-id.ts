@@ -1,5 +1,4 @@
 import { env } from '@/config/env'
-import type { IJob } from '@/interfaces/job'
 import { api } from '@/lib/api'
 
 export interface ISearchJobsRequest {

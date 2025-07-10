@@ -2,7 +2,8 @@ import { env } from '@/config/env'
 import { api } from '@/lib/api'
 
 interface IJobApplicationData {
-	name: string
+	first_name: string
+	last_name: string | null
 	email: string
 	phone?: string
 	mobile?: string
@@ -25,7 +26,8 @@ export async function submitJobApplication({
 }: IJobApplicationRequest): Promise<IJobApplicationResponse> {
 	const formData = new FormData()
 
-	formData.append('name', data.name)
+	formData.append('first_name', data.first_name)
+	formData.append('last_name', data.last_name ?? '')
 	formData.append('email', data.email.trim())
 
 	data.phone && formData.append('phone', data.phone.trim())

@@ -11,6 +11,7 @@ import { Input } from '../ui/input'
 
 const formSchema = z.object({
 	query: z.string().optional(),
+	location: z.string().optional(),
 })
 
 type SearchFormProps = z.infer<typeof formSchema>
@@ -20,21 +21,31 @@ export function SearchFrom() {
 	const searchParams = useSearchParams()
 
 	const query = searchParams.get('q')
+	const location = searchParams.get('location')
 
 	const form = useForm<SearchFormProps>({
 		resolver: zodResolver(formSchema),
 
 		defaultValues: {
 			query: query ?? '',
+			location: location ?? '',
 		},
 	})
 
 	function handleSearchSubmit(data: SearchFormProps) {
-		const { query } = data
+		const { query, location } = data
 
-		const queryString = query?.trim()
+		const params = new URLSearchParams()
 
-		const href = `/search/jobs/${queryString ? `?q=${encodeURIComponent(queryString).replace(/%20/g, '+')}` : ''}`
+		if (query) {
+			params.set('q', query)
+		}
+
+		if (location) {
+			params.set('location', location)
+		}
+
+		const href = `/search/jobs${params.toString() ? `?${params.toString()}` : ''}`
 
 		router.push(href, {
 			scroll: false,
@@ -51,11 +62,30 @@ export function SearchFrom() {
 					control={form.control}
 					name="query"
 					render={({ field }) => (
-						<FormItem className="grow">
+						<FormItem className="flex-2/3 grow">
 							<FormControl>
 								<div className="relative flex h-12 items-center">
 									<Input
-										placeholder="Job Title, Keywords, or Anythings"
+										placeholder="Search by role. E.g. Front Desk"
+										{...field}
+										className="h-full"
+									/>
+								</div>
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+
+				<FormField
+					control={form.control}
+					name="location"
+					render={({ field }) => (
+						<FormItem className="flex-1/3 grow">
+							<FormControl>
+								<div className="relative flex h-12 items-center">
+									<Input
+										placeholder="Search by Location"
 										{...field}
 										className="h-full"
 									/>

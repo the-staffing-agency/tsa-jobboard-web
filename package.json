@@ -1,16 +1,26 @@
 {
 	"name": "tsa-jobboard-web",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
+		"type-check": "tsc --noEmit",
 		"lint": "biome check",
 		"lint:fix": "biome check --write",
 		"lint:staged": "biome check --staged --write",
 		"lint:ci": "biome ci",
+		"lint:check": "biome format",
+		"check": "pnpm type-check && pnpm lint && pnpm lint:check",
+		"check:fix": "pnpm type-check && pnpm lint:fix",
+		"test": "echo \"No tests yet\" && exit 0",
+		"clean": "rm -rf .next dist coverage",
 		"check:updates": "npm-check-updates -i --color",
+		"changeset": "changeset",
+		"changeset:version": "changeset version",
+		"changeset:publish": "changeset publish",
+		"release": "pnpm build && pnpm changeset:publish",
 		"prepare": "husky"
 	},
 	"dependencies": {
@@ -43,8 +53,10 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
+		"@changesets/cli": "^2.29.5",
 		"@commitlint/cli": "^19.8.1",
 		"@commitlint/config-conventional": "^19.8.1",
+		"@commitlint/types": "^19.8.1",
 		"@tailwindcss/postcss": "^4",
 		"@types/node": "^22",
 		"@types/react": "^19",

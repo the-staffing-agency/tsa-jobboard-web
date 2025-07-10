@@ -1,9 +1,10 @@
 {
 	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
 	"vcs": {
-		"enabled": false,
+		"enabled": true,
 		"clientKind": "git",
-		"useIgnoreFile": false
+		"useIgnoreFile": true,
+		"defaultBranch": "main"
 	},
 	"files": {
 		"ignore": [
@@ -48,7 +49,27 @@
 				}
 			},
 			"complexity": {
-				"noForEach": "off"
+				"noForEach": "off",
+				"noExcessiveCognitiveComplexity": "error"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "warn",
+				"noConsoleLog": "warn",
+				"noDebugger": "error"
+			},
+			"performance": {
+				"noAccumulatingSpread": "error",
+				"noDelete": "error"
+			},
+			"correctness": {
+				"noUnusedVariables": "error",
+				"noUnusedImports": "error",
+				"useExhaustiveDependencies": "warn"
+			},
+			"style": {
+				"noNonNullAssertion": "warn",
+				"useImportType": "error",
+				"useConst": "error"
 			}
 		}
 	},
@@ -62,5 +83,17 @@
 			"trailingCommas": "all",
 			"quoteStyle": "single"
 		}
-	}
+	},
+	"overrides": [
+		{
+			"include": ["*.config.*", "*.test.*", "*.spec.*"],
+			"linter": {
+				"rules": {
+					"suspicious": {
+						"noConsoleLog": "off"
+					}
+				}
+			}
+		}
+	]
 }

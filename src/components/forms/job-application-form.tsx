@@ -27,6 +27,7 @@ import { Input } from '../ui/input'
 const formSchema = z.object({
 	name: z.string().min(2, 'Name must be at least 2 characters'),
 	email: z.string().email('Please enter a valid email address'),
+	phone: z.string().min(10, 'Phone number must be at least 10 digits'),
 	resume: z.instanceof(File, {
 		message: 'Please upload a valid file',
 	}),
@@ -37,23 +38,46 @@ type JobApplicationFormProps = z.infer<typeof formSchema>
 export function JobApplicationForm({ id }: { id: number | string }) {
 	const { store } = useAppliedJobsLocal()
 
-	const { submitApplication, isPending, isSuccess, isError } =
-		useSubmitJobApplication()
+	const { submitApplication, isPending, isSuccess } = useSubmitJobApplication()
+
+	const splitName = (fullName: string) => {
+		const nameParts = fullName.trim().split(/\s+/)
+
+		if (nameParts.length === 1) {
+			return {
+				first_name: nameParts[0],
+				last_name: null,
+			}
+		}
+
+		const first_name = nameParts[0]
+		const last_name = nameParts.slice(1).join(' ')
+
+		return {
+			first_name,
+			last_name,
+		}
+	}
 
 	const form = useForm<JobApplicationFormProps>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			name: '',
 			email: '',
+			phone: '',
 		},
 	})
 
 	function onSubmit(data: JobApplicationFormProps) {
+		const { first_name, last_name } = splitName(data.name)
+
 		submitApplication({
 			id: id.toString(),
 			data: {
-				name: data.name,
+				first_name,
+				last_name,
 				email: data.email,
+				phone: data.phone,
 				resume: data.resume,
 			},
 		})
@@ -117,13 +141,25 @@ export function JobApplicationForm({ id }: { id: number | string }) {
 										</FormItem>
 									)}
 								/>
-
+								<FormField
+									control={form.control}
+									name="phone"
+									render={({ field }) => (
+										<FormItem className="w-full">
+											<FormLabel aria-required>Phone Number</FormLabel>
+											<FormControl>
+												<Input {...field} />
+											</FormControl>
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
 								<FormField
 									control={form.control}
 									name="resume"
 									render={({ field }) => (
 										<FormItem className="w-full">
-											<FormLabel>Resume</FormLabel>
+											<FormLabel aria-required>Resume</FormLabel>
 											<FormControl>
 												<Input
 													type="file"

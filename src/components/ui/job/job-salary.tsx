@@ -8,7 +8,7 @@ export interface JobSalaryProps {
 
 export function JobSalary({ rateLow, rateHigh, ratePer }: JobSalaryProps) {
 	return (
-		<div className="flex gap-1 font-semibold text-slate-800 text-sm">
+		<div className="flex gap-1 font-normal text-accent text-base">
 			<span>{moneyFormatter.format(rateLow)}</span> -{' '}
 			<span>{moneyFormatter.format(rateHigh)}</span>{' '}
 			{ratePer && <span> per {ratePer} </span>}
