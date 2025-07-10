@@ -33,7 +33,9 @@ export function JobSinglePage({ content }: JobSinglePage) {
 
 				<PageAsideDefault>
 					<Widget className="fixed bottom-0 left-0 w-full lg:relative lg:text-center">
-						<WidgetTitle className="hidden lg:block">Apply Now</WidgetTitle>
+						<WidgetTitle className="hidden lg:block">
+							Connect with a Recruiter
+						</WidgetTitle>
 						<WidgetContent>
 							<div className="w-full">
 								<JobApplicationForm id={content.id} />

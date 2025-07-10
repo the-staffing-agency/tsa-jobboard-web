@@ -55,7 +55,7 @@ export function SearchFrom() {
 							<FormControl>
 								<div className="relative flex h-12 items-center">
 									<Input
-										placeholder="Job Title, Keywords, or Anythings"
+										placeholder="Job title"
 										{...field}
 										className="h-full"
 									/>
