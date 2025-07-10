@@ -37,8 +37,7 @@ type JobApplicationFormProps = z.infer<typeof formSchema>
 export function JobApplicationForm({ id }: { id: number | string }) {
 	const { store } = useAppliedJobsLocal()
 
-	const { submitApplication, isPending, isSuccess, isError } =
-		useSubmitJobApplication()
+	const { submitApplication, isPending, isSuccess } = useSubmitJobApplication()
 
 	const form = useForm<JobApplicationFormProps>({
 		resolver: zodResolver(formSchema),

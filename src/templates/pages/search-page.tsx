@@ -20,7 +20,6 @@ interface SearchPageTemplateProps extends ComponentProps<'section'> {
 
 export function SearchPageTemplate({
 	title,
-	resume,
 	children,
 }: SearchPageTemplateProps) {
 	return (

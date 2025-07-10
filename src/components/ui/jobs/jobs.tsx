@@ -1,7 +1,6 @@
 import type { IJob } from '@/interfaces/job'
 
 import {
-	JobContent,
 	JobFooter,
 	JobInfos,
 	JobLocation,
@@ -26,14 +25,10 @@ export function Jobs({ jobs }: JobsProps) {
 					<header>
 						<JobTitle>{job.title}</JobTitle>
 
-						<JobInfos className="flex-row gap-4">
+						<JobInfos>
 							{job.location?.name && <JobLocation text={job.location.name} />}
 						</JobInfos>
 					</header>
-
-					<JobContent>
-						{/* <JobResumeText>{job.resume}</JobResumeText> */}
-					</JobContent>
 
 					<JobFooter>
 						{job.salary && (
@@ -43,17 +38,6 @@ export function Jobs({ jobs }: JobsProps) {
 								ratePer={job.salary?.ratePer}
 							/>
 						)}
-
-						{/* <JobActions>
-							<Link
-								href={`/jobs/${job.external_id}`}
-								className="font-semibold text-accent underline underline-offset-1 hover:underline-offset-2"
-							>
-								View Job
-							</Link>
-
-							<ApplyJobForm jobId={job.external_id} />
-						</JobActions> */}
 					</JobFooter>
 				</JobWrapperLink>
 			))}
