@@ -71,7 +71,7 @@ export function CategorySphereButton({
 					/>
 				</div>
 			</div>
-			<span className="line-clamp-2 text-center font-semibold text-foreground/80 text-xs transition-all duration-300">
+			<span className="text-center font-semibold text-foreground/80 text-xs transition-all duration-300">
 				{label}
 			</span>
 		</button>
