@@ -1,3 +1,4 @@
+import { getTheme } from '@/actions/get-theme'
 import {
 	Hero,
 	HeroContent,
@@ -13,26 +14,29 @@ import {
 	SectionBlockSubTitle,
 	SectionBlockTitle,
 } from '@/components/section-block'
-import { JobCategories } from '@/components/ui/job/job-categories'
-import { mockHeroData } from '@/data/website/hero'
 import { contentFeaturedJobs } from '@/data/website/sections/content-featured-jobs'
+import { heroMock } from '@/mocks/hero.mock'
 import Link from 'next/link'
 import { Suspense } from 'react'
 
-export default function Loading() {
+export default async function Loading() {
+	const theme = await getTheme()
+
+	const heroTitleText = heroMock[theme].title
+	const heroSubtitleText = heroMock[theme].subtitle
+
 	return (
 		<>
 			<Hero>
 				<HeroContent>
-					<HeroTitle>{mockHeroData.title}</HeroTitle>
-					<HeroSubtitle>{mockHeroData.subtitle}</HeroSubtitle>
+					<HeroTitle>{heroTitleText}</HeroTitle>
+					{heroSubtitleText && <HeroSubtitle>{heroSubtitleText}</HeroSubtitle>}
 				</HeroContent>
 
-				<HeroFooter>
+				<HeroFooter className="mt-2 lg:mt-4">
 					<Suspense>
 						<SearchFrom />
 					</Suspense>
-					<JobCategories />
 				</HeroFooter>
 			</Hero>
 
