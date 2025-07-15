@@ -2,6 +2,7 @@ import { type CategoryIconConfig, categoryIcons } from '@/config/category-icons'
 import { cn } from '@/utils/cn'
 import { type RemixiconComponentType, RiRestaurantLine } from '@remixicon/react'
 import { type VariantProps, cva } from 'class-variance-authority'
+import type { ComponentType, SVGProps } from 'react'
 
 const categorySphereVariants = cva(
 	'flex flex-col items-center gap-2 group transition-all duration-300 focus:outline-none rounded-lg px-1 cursor-pointer w-16 disabled:opacity-50 disabled:cursor-not-allowed',
@@ -17,7 +18,7 @@ interface CategorySphereButtonProps
 
 export function getCategoryIcon(
 	categoryValueOrLabel: string,
-): RemixiconComponentType | null {
+): RemixiconComponentType | ComponentType<SVGProps<SVGSVGElement>> | null {
 	const category = categoryIcons.find(
 		(cat) =>
 			cat.value === categoryValueOrLabel ||
@@ -46,6 +47,7 @@ export function CategorySphereButton({
 	...props
 }: CategorySphereButtonProps) {
 	const categoryConfig = getCategoryConfig(label)
+
 	const IconComponent = categoryConfig?.icon || RiRestaurantLine
 
 	const innerClasses = cn(
@@ -67,7 +69,7 @@ export function CategorySphereButton({
 			>
 				<div className={innerClasses}>
 					<IconComponent
-						className={`size-4 transition-all duration-300 ${cn(categoryConfig?.textColor)}`}
+						className={`size-6 transition-all duration-300 ${cn(categoryConfig?.textColor)}`}
 					/>
 				</div>
 			</div>
