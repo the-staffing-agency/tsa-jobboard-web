@@ -45,12 +45,6 @@ jobs:
         run: pnpm build
         env:
           NODE_ENV: production
-          NEXT_PUBLIC_API_BASE_URL: "http://localhost:3000"
-          NEXT_PUBLIC_LOCAL_STORAGE_NAME: "@tsa:jobsboard-1.0.0"
-          NEXT_PUBLIC_PORTAL_TCA_KEY: "test-key-for-ci"
-          NEXT_PUBLIC_PORTAL_TCA_ID: "test-id-for-ci"
-          NEXT_PUBLIC_PORTAL_SUPERMARKET_KEY: "test-supermarket-key-for-ci"
-          NEXT_PUBLIC_PORTAL_SUPERMARKET_ID: "test-supermarket-id-for-ci"
 
       - name: PR validation summary
         if: always()
