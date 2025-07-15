@@ -1,0 +1,5 @@
+export * from './tca-icons/casinos-icon'
+export * from './tca-icons/country-club-icon'
+export * from './tca-icons/grocery-icon'
+export * from './tca-icons/hotels-icon'
+export * from './tca-icons/restaurants-icon'
