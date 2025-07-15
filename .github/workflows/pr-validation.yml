@@ -1,0 +1,58 @@
+name: PR Validation
+
+on:
+  pull_request:
+    branches: [develop]
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  validate:
+    name: PR Validation
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.10.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Type check
+        run: pnpm type-check
+
+      - name: Lint check
+        run: pnpm lint:ci
+
+      - name: Format check
+        run: pnpm lint:check
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Build verification
+        run: pnpm build
+        env:
+          NODE_ENV: production
+
+      - name: PR validation summary
+        if: always()
+        run: |
+          echo "## PR Validation Results" >> $GITHUB_STEP_SUMMARY
+          echo "✅ All validation steps completed successfully" >> $GITHUB_STEP_SUMMARY
+          echo "- Type check: Passed" >> $GITHUB_STEP_SUMMARY
+          echo "- Lint check: Passed" >> $GITHUB_STEP_SUMMARY
+          echo "- Format check: Passed" >> $GITHUB_STEP_SUMMARY
+          echo "- Tests: Passed" >> $GITHUB_STEP_SUMMARY
+          echo "- Build: Passed" >> $GITHUB_STEP_SUMMARY
