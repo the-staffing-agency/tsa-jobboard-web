@@ -1,19 +1,22 @@
 import {
+	CasinosIcon,
+	CountryClubIcon,
+	GroceryIcon,
+	HotelsIcon,
+	RestaurantsIcon,
+} from '@/components/icons'
+import {
 	type RemixiconComponentType,
 	RiApps2Line,
-	RiBuildingLine,
-	RiGamepadLine,
-	RiKnifeLine,
-	RiPlantLine,
 	RiRestaurantLine,
 	RiSearchLine,
 	RiShipLine,
-	RiShoppingCartLine,
 } from '@remixicon/react'
+import type { ComponentType } from 'react'
 
 export interface CategoryIconConfig {
 	value: string
-	icon: RemixiconComponentType
+	icon: RemixiconComponentType | ComponentType<React.SVGProps<SVGSVGElement>>
 	label: string
 	bgColor: string
 	textColor: string
@@ -48,27 +51,27 @@ export const categoryIcons: CategoryIconConfig[] = [
 	},
 	{
 		value: 'restaurants',
-		icon: RiKnifeLine,
+		icon: RestaurantsIcon,
 		label: 'Restaurants',
 		bgColor: 'bg-red-200/40',
-		textColor: 'text-red-800',
+		textColor: 'fill-red-800',
 		gradientBorder: 'bg-gradient-to-tr from-red-400 via-red-500 to-rose-600',
 	},
 	{
 		value: 'hotels',
-		icon: RiBuildingLine,
+		icon: HotelsIcon,
 		label: 'Hotels',
 		bgColor: 'bg-purple-200/40',
-		textColor: 'text-purple-800',
+		textColor: 'fill-purple-800',
 		gradientBorder:
 			'bg-gradient-to-tr from-purple-400 via-purple-500 to-indigo-600',
 	},
 	{
 		value: 'casinos',
-		icon: RiGamepadLine,
+		icon: CasinosIcon,
 		label: 'Casinos',
 		bgColor: 'bg-yellow-200/40',
-		textColor: 'text-yellow-800',
+		textColor: 'fill-yellow-800',
 		gradientBorder:
 			'bg-gradient-to-tr from-yellow-400 via-amber-500 to-orange-500',
 	},
@@ -83,20 +86,20 @@ export const categoryIcons: CategoryIconConfig[] = [
 	},
 	{
 		value: 'grocery',
-		icon: RiShoppingCartLine,
+		icon: GroceryIcon,
 		label: 'Grocery',
-		bgColor: 'bg-green-200/40',
-		textColor: 'text-green-800',
+		bgColor: 'bg-green-300/40',
+		textColor: 'fill-green-800',
 		gradientBorder:
-			'bg-gradient-to-tr from-green-400 via-emerald-500 to-teal-500',
+			'bg-gradient-to-tr from-green-400 via-green-500 to-teal-500',
 	},
 	{
 		value: 'country-club-golf-club',
-		icon: RiPlantLine,
+		icon: CountryClubIcon,
 		label: 'Country Club & Golf Club',
-		bgColor: 'bg-emerald-200/40',
-		textColor: 'text-emerald-800',
+		bgColor: 'bg-emerald-300/40',
+		textColor: 'fill-emerald-800',
 		gradientBorder:
-			'bg-gradient-to-tr from-emerald-400 via-green-500 to-lime-500',
+			'bg-gradient-to-tr from-emerald-400 via-emerald-500 to-lime-500',
 	},
 ]
