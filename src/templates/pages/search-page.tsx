@@ -6,7 +6,6 @@ import {
 	PageHeader,
 	PageHeaderContainer,
 	PageHeaderContent,
-	PageHeaderResume,
 	PageHeaderTitle,
 	PageMainDefault,
 } from '@/components/templates'
@@ -27,10 +26,6 @@ export function SearchPageTemplate({
 			<PageHeader>
 				<PageHeaderContainer>
 					<PageHeaderTitle>{title}</PageHeaderTitle>
-
-					<PageHeaderResume>
-						Explore thousands of job opportunities in the culinary world.
-					</PageHeaderResume>
 				</PageHeaderContainer>
 
 				<PageHeaderContent>

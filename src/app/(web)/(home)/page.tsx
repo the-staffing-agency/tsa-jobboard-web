@@ -1,3 +1,4 @@
+import { getTheme } from '@/actions/get-theme'
 import {
 	Hero,
 	HeroContent,
@@ -9,16 +10,21 @@ import { LastestJobs } from '@/components/blocks/latest-jobs'
 import { CategorySpheres } from '@/components/category-spheres'
 import { SearchFrom } from '@/components/forms/search'
 import { Container } from '@/components/ui/container'
-import { mockHeroData } from '@/data/website/hero'
+import { heroMock } from '@/mocks/hero.mock'
 import { Suspense } from 'react'
 
 export default async function HomePage() {
+	const theme = await getTheme()
+
+	const heroTitleText = heroMock[theme].title
+	const heroSubtitleText = heroMock[theme].subtitle
+
 	return (
 		<div className="min-h-screen">
 			<Hero>
 				<HeroContent>
-					<HeroTitle>{mockHeroData.title}</HeroTitle>
-					<HeroSubtitle>{mockHeroData.subtitle}</HeroSubtitle>
+					<HeroTitle>{heroTitleText}</HeroTitle>
+					{heroSubtitleText && <HeroSubtitle>{heroSubtitleText}</HeroSubtitle>}
 				</HeroContent>
 
 				<HeroFooter className="mt-2 lg:mt-4">
