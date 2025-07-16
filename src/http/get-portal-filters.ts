@@ -1,6 +1,7 @@
 import { getCurrentPortalKey } from '@/config/portal/portal-service'
 import { api } from '@/lib/api'
 import type { IFilterOption } from '@/types'
+import { PortalKeyNotFound } from './errors/portal-key-not-found'
 
 export interface IFiltersResponse {
 	categories: IFilterOption[]
@@ -16,7 +17,7 @@ export async function getPortalFilters(): Promise<IFiltersResponse> {
 	const portalKey = await getCurrentPortalKey()
 
 	if (!portalKey) {
-		throw new Error('No portal key found for current theme')
+		throw new PortalKeyNotFound()
 	}
 
 	const headers = new Headers({
