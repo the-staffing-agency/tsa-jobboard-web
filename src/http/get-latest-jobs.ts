@@ -1,6 +1,7 @@
 import { getCurrentPortalKey } from '@/config/portal/portal-service'
 import type { IJob } from '@/interfaces/job'
 import { api } from '@/lib/api'
+import { PortalKeyNotFound } from './errors/portal-key-not-found'
 
 interface IMeta {
 	current_page: number
@@ -20,7 +21,7 @@ export async function getLatestJobs(): Promise<IJobsResponse> {
 	const portalKey = await getCurrentPortalKey()
 
 	if (!portalKey) {
-		throw new Error('No portal key found for current theme')
+		throw new PortalKeyNotFound()
 	}
 
 	const headers = new Headers({
