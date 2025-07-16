@@ -1,4 +1,4 @@
-import { env } from '@/config/env'
+import { getCurrentPortalKey } from '@/config/portal/portal-service'
 import { api } from '@/lib/api'
 
 export interface ISearchJobsRequest {
@@ -95,9 +95,15 @@ export interface IJobAd {
 export async function getJobById({
 	id,
 }: ISearchJobsRequest): Promise<IJobByIdResponse> {
+	const portalKey = await getCurrentPortalKey()
+
+	if (!portalKey) {
+		throw new Error('No portal key found for current theme')
+	}
+
 	const headers = new Headers({
 		'Content-Type': 'application/json',
-		'x-api-key': env.NEXT_PUBLIC_PORTAL_TCA_KEY, // Hardcoded key for now, should be dynamic,
+		'x-api-key': portalKey,
 	})
 
 	const url = `/portals/jobs/${encodeURIComponent(id)}`

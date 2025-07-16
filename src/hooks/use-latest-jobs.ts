@@ -3,14 +3,10 @@
 import { getLatestJobs } from '@/http/get-latest-jobs'
 import { useQuery } from '@tanstack/react-query'
 
-interface ILatestJobsInput {
-	key: string
-}
-
-export function useLatestJobs({ key }: ILatestJobsInput) {
+export function useLatestJobs() {
 	const { data, isLoading } = useQuery({
-		queryKey: ['latest-jobs', key],
-		queryFn: () => getLatestJobs({ key }),
+		queryKey: ['latest-jobs'],
+		queryFn: () => getLatestJobs(),
 		select: (response) => response.data ?? [],
 	})
 

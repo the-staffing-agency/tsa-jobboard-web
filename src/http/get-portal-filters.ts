@@ -1,4 +1,4 @@
-import { env } from '@/config/env'
+import { getCurrentPortalKey } from '@/config/portal/portal-service'
 import { api } from '@/lib/api'
 import type { IFilterOption } from '@/types'
 
@@ -13,9 +13,15 @@ export interface IFiltersRequest {
 }
 
 export async function getPortalFilters(): Promise<IFiltersResponse> {
+	const portalKey = await getCurrentPortalKey()
+
+	if (!portalKey) {
+		throw new Error('No portal key found for current theme')
+	}
+
 	const headers = new Headers({
 		'Content-Type': 'application/json',
-		'x-api-key': env.NEXT_PUBLIC_PORTAL_TCA_KEY, // Hardcoded key for now, should be dynamic,
+		'x-api-key': portalKey,
 	})
 
 	const response = await api('/portals/filters', {
