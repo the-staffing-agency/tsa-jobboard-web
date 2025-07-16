@@ -1,4 +1,4 @@
-import { getThemeActions } from '@/actions/get-theme-actions'
+import { getThemeActions } from '@/config/theme/theme-actions'
 import type { ThemePortalName } from '@/config/theme/theme-mapping'
 import { getPortalKeyByTheme } from './portal-repository'
 
