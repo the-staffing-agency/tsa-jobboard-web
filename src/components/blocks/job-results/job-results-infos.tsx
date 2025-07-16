@@ -20,7 +20,7 @@ export function JobResultsInfos({ query, found }: JobResultsInfosProps) {
 		<div>
 			{found > 0 ? (
 				<span>
-					Filtered <b>{found}</b> {`${found > 1 ? 'results' : 'result'}`}
+					Filtered <b>{found}</b> {`${found > 1 ? 'results' : 'result'}`}{' '}
 					{query && <ResultQueryName query={query} />}
 				</span>
 			) : (
