@@ -1,4 +1,4 @@
-import { THEMES } from '@/themes'
+import { THEMES } from '@/config/theme/theme-mapping'
 
 export function findValidTheme(hostParts: string[]): string | null {
 	const themes = Object.values(THEMES) as string[]

@@ -131,8 +131,7 @@
 [data-theme="default"] {
 	--background: var(--color-background-chefs);
 }
-
-[data-theme="chefs"] {
+[data-theme="thechefagency"] {
 	--accent: var(--accent-chefs);
 	--background: var(--color-body-background-chefs);
 
@@ -140,13 +139,10 @@
 		background-color: var(--color-charcoal);
 	}
 }
-[data-theme="luxury"] {
-	--accent: var(--accent-luxury);
-}
-[data-theme="resume"] {
+[data-theme="theestateagency"] {
 	--accent: var(--accent-resume);
 }
-[data-theme="supermarket"] {
+[data-theme="thesupermarketagency"] {
 	--accent: var(--accent-supermarket);
 	--background: var(--color-faded);
 

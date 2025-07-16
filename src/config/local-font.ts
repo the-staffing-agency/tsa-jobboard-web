@@ -1,5 +1,5 @@
-import { THEMES } from '@/themes'
 import localFont from 'next/font/local'
+import { THEMES } from './theme/theme-mapping'
 
 const rocGroteks = localFont({
 	src: [
@@ -15,38 +15,6 @@ const rocGroteks = localFont({
 		},
 	],
 	variable: '--font-roc-grotesk',
-})
-
-const luxuryFont = localFont({
-	src: [
-		{
-			path: '../../public/fonts/RocGroteskBold.otf',
-			weight: '700',
-			style: 'normal',
-		},
-		{
-			path: '../../public/fonts/RocGroteskRegular.otf',
-			weight: '400',
-			style: 'normal',
-		},
-	],
-	variable: '--font-luxury',
-})
-
-const resumeFont = localFont({
-	src: [
-		{
-			path: '../../public/fonts/RocGroteskBold.otf',
-			weight: '700',
-			style: 'normal',
-		},
-		{
-			path: '../../public/fonts/RocGroteskRegular.otf',
-			weight: '400',
-			style: 'normal',
-		},
-	],
-	variable: '--font-resume',
 })
 
 const supermarketFont = localFont({
@@ -65,10 +33,25 @@ const supermarketFont = localFont({
 	variable: '--font-supermarket',
 })
 
+const estateFont = localFont({
+	src: [
+		{
+			path: '../../public/fonts/RocGroteskBold.otf',
+			weight: '700',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/RocGroteskRegular.otf',
+			weight: '400',
+			style: 'normal',
+		},
+	],
+	variable: '--font-resume',
+})
+
 export const fontConfig = {
-	[THEMES.CHEFS]: rocGroteks,
-	[THEMES.LUXURY]: luxuryFont,
-	[THEMES.RESUME]: resumeFont,
+	[THEMES.CHEF]: rocGroteks,
 	[THEMES.SUPERMARKET]: supermarketFont,
+	[THEMES.ESTATE]: estateFont,
 	default: rocGroteks,
 }

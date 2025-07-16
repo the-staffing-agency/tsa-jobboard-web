@@ -1,19 +1,15 @@
-import { THEMES } from '@/themes'
+import { THEMES } from '@/config/theme/theme-mapping'
 
 export const heroMock = {
-	[THEMES.CHEFS]: {
-		title: 'The Ultimate Source of Hospitality Talent',
-		subtitle: null,
-	},
-	[THEMES.LUXURY]: {
-		title: 'The Ultimate Source of Hospitality Talent',
-		subtitle: null,
-	},
-	[THEMES.RESUME]: {
+	[THEMES.CHEF]: {
 		title: 'The Ultimate Source of Hospitality Talent',
 		subtitle: null,
 	},
 	[THEMES.SUPERMARKET]: {
+		title: 'The Ultimate Source of Hospitality Talent',
+		subtitle: null,
+	},
+	[THEMES.ESTATE]: {
 		title: 'The Ultimate Source of Hospitality Talent',
 		subtitle: null,
 	},
