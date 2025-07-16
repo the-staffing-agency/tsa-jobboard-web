@@ -12,16 +12,12 @@ export const env = createEnv({
 		NEXT_PUBLIC_PORTAL_TCA_KEY: z
 			.string()
 			.min(1, 'Portal The Chef Agency token is required'),
-		NEXT_PUBLIC_PORTAL_TCA_ID: z
-			.string()
-			.min(1, 'Portal The Chef Agency ID is required'),
 		NEXT_PUBLIC_API_BASE_URL: z.string().url(),
 		NEXT_PUBLIC_LOCAL_STORAGE_NAME: z.string(),
 	},
 
 	runtimeEnv: {
 		// NODE_ENV: process.env.NODE_ENV,
-		NEXT_PUBLIC_PORTAL_TCA_ID: process.env.NEXT_PUBLIC_PORTAL_TCA_ID,
 		NEXT_PUBLIC_PORTAL_TCA_KEY: process.env.NEXT_PUBLIC_PORTAL_TCA_KEY,
 		NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
 		NEXT_PUBLIC_LOCAL_STORAGE_NAME: process.env.NEXT_PUBLIC_LOCAL_STORAGE_NAME,

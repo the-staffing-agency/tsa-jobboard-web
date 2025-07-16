@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 import { JobResults } from '@/components/blocks/job-results'
-import { SearchPageTemplate } from '@/templates/pages'
+import { NoSidebarPageTemplate } from '@/templates/pages/no-sidebar'
 
 const TITLE = 'Jobs'
 
@@ -26,8 +26,8 @@ export default async function SearchPage({
 	}
 
 	return (
-		<SearchPageTemplate title={TITLE}>
+		<NoSidebarPageTemplate title={TITLE}>
 			<JobResults search={search} />
-		</SearchPageTemplate>
+		</NoSidebarPageTemplate>
 	)
 }
