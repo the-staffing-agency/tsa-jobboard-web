@@ -5,7 +5,7 @@ import { findValidTheme } from '@/utils/find-valid-theme'
 import { splitHostname } from '@/utils/split-hostname'
 import { headers } from 'next/headers'
 
-export async function getThemeActions(): Promise<ThemeType | 'default'> {
+export async function getThemeActions(): Promise<ThemeType> {
 	try {
 		const headersList = await headers()
 		const host = headersList.get('host')
