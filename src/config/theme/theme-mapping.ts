@@ -1,4 +1,5 @@
 export const THEME_NAMES = {
+	DEFAULT: 'default',
 	CHEF: 'thechefagency',
 	ESTATE: 'theestateagency',
 	SUPERMARKET: 'thesupermarketagency',
