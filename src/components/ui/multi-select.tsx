@@ -87,8 +87,8 @@ export function MultiSelect({
 						<CommandGroup>
 							{options.map((option) => (
 								<CommandItem
-									key={option.value.toString()}
-									value={option.value.toString()}
+									key={option.label.toString()}
+									value={option.label.toString()}
 									onSelect={() => handleSelect(option.value.toString())}
 								>
 									{option.label}
