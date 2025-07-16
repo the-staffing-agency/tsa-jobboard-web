@@ -1,25 +1,10 @@
-import { env } from '@/config/env'
 import type { ThemePortalName } from '@/config/theme/theme-mapping'
+import { portals } from './portals'
 
 export interface Portal {
 	key: string
 	theme: ThemePortalName
 }
-
-const portals: Portal[] = [
-	{
-		key: env.NEXT_PUBLIC_PORTAL_CHEF_KEY,
-		theme: 'thechefagency',
-	},
-	{
-		key: env.NEXT_PUBLIC_PORTAL_SUPERMARKET_KEY,
-		theme: 'thesupermarketagency',
-	},
-	{
-		key: env.NEXT_PUBLIC_PORTAL_ESTATE_KEY,
-		theme: 'theestateagency',
-	},
-]
 
 export function getAllPortals(): Portal[] {
 	return [...portals]

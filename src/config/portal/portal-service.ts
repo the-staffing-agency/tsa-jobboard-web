@@ -5,9 +5,6 @@ import { getPortalKeyByTheme } from './portal-repository'
 export async function getCurrentPortalKey(): Promise<string | null> {
 	try {
 		const currentTheme = await getThemeActions()
-		if (currentTheme === 'default') {
-			return 'chef'
-		}
 
 		const portalTheme = currentTheme as ThemePortalName
 
