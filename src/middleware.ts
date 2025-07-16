@@ -1,5 +1,5 @@
 import { type NextRequest, NextResponse } from 'next/server'
-import { THEMES, type ThemeType } from './themes'
+import { THEMES, type ThemeType } from './config/theme/theme-mapping'
 
 function isValidTheme(theme: string): theme is ThemeType {
 	return Object.values(THEMES).includes(theme as ThemeType)
