@@ -1,4 +1,7 @@
-import { type CategoryIconConfig, categoryIcons } from '@/config/category-icons'
+import {
+	type CategoryIconConfig,
+	categoryIcons,
+} from '@/components/category-sphere'
 import { cn } from '@/utils/cn'
 import { type RemixiconComponentType, RiRestaurantLine } from '@remixicon/react'
 import { type VariantProps, cva } from 'class-variance-authority'
@@ -64,7 +67,7 @@ export function CategorySphereButton({
 			<div
 				className={cn(
 					'relative rounded-full p-0.5 opacity-80 transition-all duration-300 group-hover:opacity-100',
-					isActive && categoryConfig?.gradientBorder,
+					isActive && categoryConfig?.isActive,
 				)}
 			>
 				<div className={innerClasses}>
