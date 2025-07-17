@@ -1,7 +1,7 @@
 'use server'
 
-import { findValidTheme } from '@/config/theme/find-valid-theme'
 import type { ThemeType } from '@/config/theme/theme-mapping'
+import { findValidTheme } from '@/utils/find-valid-theme'
 import { splitHostname } from '@/utils/split-hostname'
 import { headers } from 'next/headers'
 
