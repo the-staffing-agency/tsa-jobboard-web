@@ -1,4 +1,3 @@
-import { getTheme } from '@/actions/get-theme'
 import {
 	Hero,
 	HeroContent,
@@ -14,13 +13,14 @@ import {
 	SectionBlockSubTitle,
 	SectionBlockTitle,
 } from '@/components/section-block'
+import { getThemeActions } from '@/config/theme/theme-actions'
 import { contentFeaturedJobs } from '@/data/website/sections/content-featured-jobs'
 import { heroMock } from '@/mocks/hero.mock'
 import Link from 'next/link'
 import { Suspense } from 'react'
 
 export default async function Loading() {
-	const theme = await getTheme()
+	const theme = await getThemeActions()
 
 	const heroTitleText = heroMock[theme].title
 	const heroSubtitleText = heroMock[theme].subtitle

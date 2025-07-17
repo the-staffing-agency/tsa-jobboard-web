@@ -1,5 +1,6 @@
-import { env } from '@/config/env'
+import { getCurrentPortalKey } from '@/config/portal/portal-service'
 import { api } from '@/lib/api'
+import { PortalKeyNotFound } from './errors/portal-key-not-found'
 
 interface IJobApplicationData {
 	first_name: string
@@ -24,6 +25,12 @@ export async function submitJobApplication({
 	id,
 	data,
 }: IJobApplicationRequest): Promise<IJobApplicationResponse> {
+	const portalKey = await getCurrentPortalKey()
+
+	if (!portalKey) {
+		throw new PortalKeyNotFound()
+	}
+
 	const formData = new FormData()
 
 	formData.append('first_name', data.first_name)
@@ -36,7 +43,7 @@ export async function submitJobApplication({
 
 	const headers = new Headers({
 		Accept: 'application/json',
-		'x-api-key': env.NEXT_PUBLIC_PORTAL_TCA_KEY,
+		'x-api-key': portalKey,
 	})
 
 	const response = await api(`/portals/jobs/${id}/application`, {

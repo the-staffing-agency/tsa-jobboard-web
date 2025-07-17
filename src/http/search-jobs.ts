@@ -1,6 +1,7 @@
-import { env } from '@/config/env'
+import { getCurrentPortalKey } from '@/config/portal/portal-service'
 import type { IJob } from '@/interfaces/job'
 import { api } from '@/lib/api'
+import { PortalKeyNotFound } from './errors/portal-key-not-found'
 
 export interface ISearchJobsFilter {
 	title?: string | string[]
@@ -12,7 +13,6 @@ export interface ISearchJobsFilter {
 }
 
 export interface ISearchJobsRequest {
-	key?: string
 	search: {
 		q?: string
 		filters?: ISearchJobsFilter
@@ -36,12 +36,17 @@ export interface IMeta {
 }
 
 export async function searchJobs({
-	key,
 	search,
 }: ISearchJobsRequest): Promise<ISearchJobsResponse> {
+	const portalKey = await getCurrentPortalKey()
+
+	if (!portalKey) {
+		throw new PortalKeyNotFound()
+	}
+
 	const headers = new Headers({
 		'Content-Type': 'application/json',
-		'x-api-key': key ?? env.NEXT_PUBLIC_PORTAL_TCA_KEY, // Hardcoded key for now, should be dynamic,
+		'x-api-key': portalKey,
 	})
 
 	const searchParams = new URLSearchParams()

@@ -1,4 +1,3 @@
-import { getTheme } from '@/actions/get-theme'
 import {
 	Hero,
 	HeroContent,
@@ -10,11 +9,12 @@ import { LastestJobs } from '@/components/blocks/latest-jobs'
 import { CategorySpheres } from '@/components/category-spheres'
 import { SearchFrom } from '@/components/forms/search'
 import { Container } from '@/components/ui/container'
+import { getThemeActions } from '@/config/theme/theme-actions'
 import { heroMock } from '@/mocks/hero.mock'
 import { Suspense } from 'react'
 
 export default async function HomePage() {
-	const theme = await getTheme()
+	const theme = await getThemeActions()
 
 	const heroTitleText = heroMock[theme].title
 	const heroSubtitleText = heroMock[theme].subtitle

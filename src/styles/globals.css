@@ -2,10 +2,9 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-@custom-variant chefs (&:is([data-theme="chefs"] *));
-@custom-variant luxury (&:is([data-theme="luxury"] *));
-@custom-variant chefs (&:is([data-theme="resume"] *));
-@custom-variant chefs (&:is([data-theme="supermarket"] *));
+@custom-variant thechefagency (&:is([data-theme="thechefagency"] *));
+@custom-variant theestateagency (&:is([data-theme="theestateagency"] *));
+@custom-variant thesupermarketagency (&:is([data-theme="thesupermarketagency"] *));
 
 @theme inline {
 	--color-accent: var(--accent);
@@ -128,11 +127,7 @@
 	--sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
-[data-theme="default"] {
-	--background: var(--color-background-chefs);
-}
-
-[data-theme="chefs"] {
+[data-theme="thechefagency"] {
 	--accent: var(--accent-chefs);
 	--background: var(--color-body-background-chefs);
 
@@ -140,13 +135,10 @@
 		background-color: var(--color-charcoal);
 	}
 }
-[data-theme="luxury"] {
+[data-theme="theestateagency"] {
 	--accent: var(--accent-luxury);
 }
-[data-theme="resume"] {
-	--accent: var(--accent-resume);
-}
-[data-theme="supermarket"] {
+[data-theme="thesupermarketagency"] {
 	--accent: var(--accent-supermarket);
 	--background: var(--color-faded);
 

@@ -1,11 +1,11 @@
 'use server'
 
-import type { ThemeType } from '@/themes'
+import type { ThemeType } from '@/config/theme/theme-mapping'
 import { findValidTheme } from '@/utils/find-valid-theme'
 import { splitHostname } from '@/utils/split-hostname'
 import { headers } from 'next/headers'
 
-export async function getTheme(): Promise<ThemeType | 'default'> {
+export async function getThemeActions(): Promise<ThemeType> {
 	try {
 		const headersList = await headers()
 		const host = headersList.get('host')
