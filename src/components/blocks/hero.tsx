@@ -1,5 +1,4 @@
 import { cn } from '@/utils/cn'
-import Image from 'next/image'
 import type React from 'react'
 import { Container } from '../ui/container'
 
@@ -73,13 +72,6 @@ function Hero({
 			className={`relative flex h-lvh max-h-[500px] flex-col items-center justify-center gap-6 bg-accent lg:gap-10 ${cn(className)}`}
 			{...props}
 		>
-			<Image
-				src={'/images/image.png'}
-				fill
-				alt="Hero background"
-				className="abolute top-0 left-0 z-0 w-full object-cover opacity-70"
-			/>
-
 			<div className="relative z-10">{children}</div>
 		</section>
 	)
