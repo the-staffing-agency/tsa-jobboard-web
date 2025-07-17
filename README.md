@@ -35,12 +35,14 @@ npm install
 # Chef job search with chefs theme
 ?theme=chefs
 
+Page: jobs.thechefagency.com
+
 # Luxury hotel positions with luxury theme  
 ?theme=luxury
 
-# Resume services with resume theme
-?theme=resume
+Page: jobs.theestateagency.com
 
 # Grocery store jobs with supermarket theme
 ?theme=supermarket
 
+Page: jobs.thesupermarketagency.com
