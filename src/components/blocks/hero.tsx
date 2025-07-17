@@ -1,4 +1,6 @@
+import { getThemeActions } from '@/config/theme/theme-actions'
 import { cn } from '@/utils/cn'
+import Image from 'next/image'
 import type React from 'react'
 import { Container } from '../ui/container'
 
@@ -62,16 +64,24 @@ function HeroFooter({
 	)
 }
 
-function Hero({
+async function Hero({
 	children,
 	className,
 	...props
 }: React.ComponentProps<'section'>) {
+	const theme = await getThemeActions()
+
 	return (
 		<section
 			className={`relative flex h-lvh max-h-[500px] flex-col items-center justify-center gap-6 bg-accent lg:gap-10 ${cn(className)}`}
 			{...props}
 		>
+			<Image
+				src={`/assets/images/${theme}/hero-background.jpeg`}
+				fill
+				alt="Hero background"
+				className="abolute top-0 left-0 z-0 w-full object-cover opacity-70"
+			/>
 			<div className="relative z-10">{children}</div>
 		</section>
 	)
