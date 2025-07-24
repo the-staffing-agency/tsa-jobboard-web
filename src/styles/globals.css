@@ -8,8 +8,9 @@
 
 @theme inline {
 	--color-accent: var(--accent);
-	--color-luxury-accent: var(--accent-luxury);
-	--color-chefs-accent: var(--accent-chefs);
+	--color-theestateagency-accent: var(--accent-theestateagency);
+	--color-thechefagency-accent: var(--accent-thechefagency);
+	--color-thesupermarketagency-accent: var(--accent-thesupermarketagency);
 	--color-body-background-chefs: #f4f1ec;
 	--color-charcoal: rgb(34, 34, 34);
 	--color-faded: rgb(255, 240, 213);
@@ -54,10 +55,9 @@
 :root {
 	--radius: 0.625rem;
 	--accent: rgb(34, 34, 34);
-	--accent-chefs: var(--color-charcoal);
-	--accent-luxury: oklch(0.523 0.129 277.6);
-	--accent-resume: oklch(0.435 0.045 137.5);
-	--accent-supermarket: var(--color-dark-red);
+	--accent-thechefagency: var(--color-charcoal);
+	--accent-theestateagency: var(--color-black);
+	--accent-thesupermarketagency: var(--color-dark-red);
 	--background: var(--color-slate-100);
 	--foreground: var(--color-slate-800);
 	--card: oklch(1 0 0);
@@ -90,10 +90,10 @@
 }
 
 .dark {
-	--accent-chefs: oklch(0.471 0.11 137.5);
-	--accent-luxury: oklch(0.523 0.129 277.6);
+	--accent-thechefagency: oklch(0.471 0.11 137.5);
+	--accent-theestateagency: oklch(0.523 0.129 277.6);
 	--accent-resume: oklch(0.435 0.045 137.5);
-	--accent-supermarket: oklch(0.462 0.144 148.7);
+	--accent-thesupermarketagency: oklch(0.462 0.144 148.7);
 	--background: oklch(0.129 0.042 264.695);
 	--foreground: oklch(0.984 0.003 247.858);
 	--card: oklch(0.208 0.042 265.755);
@@ -128,7 +128,7 @@
 }
 
 [data-theme="thechefagency"] {
-	--accent: var(--accent-chefs);
+	--accent: var(--accent-thechefagency);
 	--background: var(--color-body-background-chefs);
 
 	.theme-header {
@@ -136,10 +136,14 @@
 	}
 }
 [data-theme="theestateagency"] {
-	--accent: var(--accent-luxury);
+	--accent: var(--accent-theestateagency);
+
+	.theme-header {
+		background-color: var(--accent);
+	}
 }
 [data-theme="thesupermarketagency"] {
-	--accent: var(--accent-supermarket);
+	--accent: var(--accent-thesupermarketagency);
 	--background: var(--color-faded);
 
 	.theme-header {
