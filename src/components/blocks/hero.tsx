@@ -11,7 +11,7 @@ function HeroTitle({
 }: React.ComponentProps<'h1'>) {
 	return (
 		<h1
-			className={`text-center font-black text-3xl/tight text-white/90 lg:max-w-2/3 lg:text-5xl/tight ${cn(className)}`}
+			className={`text-center font-bold font-heading text-3xl/tight text-white/90 lg:max-w-2/3 lg:text-6xl ${cn(className)}`}
 			{...props}
 		>
 			{children}
@@ -41,7 +41,7 @@ function HeroContent({
 }: React.ComponentProps<'div'>) {
 	return (
 		<Container
-			className={`flex max-w-[640px] flex-col items-center justify-center gap-2 lg:max-w-[800px] ${cn(className)}`}
+			className={`flex max-w-[640px] flex-col items-center justify-center gap-2 lg:max-w-[1000px] ${cn(className)}`}
 			{...props}
 		>
 			{children}
@@ -80,7 +80,7 @@ async function Hero({
 				src={`/assets/images/${theme}/hero-background.jpeg`}
 				fill
 				alt="Hero background"
-				className="abolute top-0 left-0 z-0 w-full object-cover opacity-70"
+				className="absolute top-0 left-0 z-0 w-full object-cover opacity-60"
 			/>
 			<div className="relative z-10">{children}</div>
 		</section>
