@@ -1,10 +1,10 @@
 import '@/styles/globals.css'
 
-import { fontConfig } from '@/config/local-font'
 import { metadataConfig } from '@/config/metadata'
 import { Providers } from '@/config/provides'
 import { THEMES, type ThemeType } from '@/config/theme/theme-mapping'
 import { ThemeProvider } from '@/contexts/theme-provider'
+import { getLayoutFontConfig } from '@/services/font.service'
 import { findValidTheme } from '@/utils/find-valid-theme'
 import { splitHostname } from '@/utils/split-hostname'
 import type { Metadata } from 'next'
@@ -38,11 +38,11 @@ export default async function RootLayout({
 			| undefined
 	}
 
-	const activeFontFamily = theme ? fontConfig[theme] : fontConfig.default
+	const fontConfig = getLayoutFontConfig(theme)
 
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={activeFontFamily.className}>
+			<body className={fontConfig.combinedClassName}>
 				<Providers>
 					<ThemeProvider
 						defaultTheme={theme ?? 'default'}
