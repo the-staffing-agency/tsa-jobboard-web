@@ -54,13 +54,13 @@ export function getAllFontVariables(theme?: ThemeType | null) {
  * @returns Object with heading font className and all CSS variables
  */
 export function getLayoutFontConfig(theme?: ThemeType | null) {
-	const headingFont = getHeadingFont(theme)
+	const fontDefault = getHeadingFont(theme)
 	const allVariables = getAllFontVariables(theme)
 
 	return {
-		headingClassName: headingFont.className,
+		className: fontDefault.className,
 		allVariables,
-		combinedClassName: `${headingFont.className} ${allVariables}`.trim(),
+		combinedClassName: `${fontDefault.className} ${allVariables}`.trim(),
 	}
 }
 

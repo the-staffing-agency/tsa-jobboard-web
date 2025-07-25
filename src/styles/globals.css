@@ -50,10 +50,6 @@
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-lg: var(--radius);
 	--radius-xl: calc(var(--radius) + 4px);
-
-	/* Custom Font Families */
-	--font-heading: var(--font-roc-grotesk);
-	--font-body: var(--font-roc-grotesk);
 }
 
 :root {
@@ -62,6 +58,7 @@
 	--accent-thechefagency: var(--color-charcoal);
 	--accent-theestateagency: var(--color-black);
 	--accent-thesupermarketagency: var(--color-dark-red);
+	--font-didot-display: var(--font-didot-display);
 	--background: var(--color-slate-100);
 	--foreground: var(--color-slate-800);
 	--card: oklch(1 0 0);
@@ -135,32 +132,70 @@
 	--accent: var(--accent-thechefagency);
 	--background: var(--color-body-background-chefs);
 
-	--font-heading: var(--font-roc-grotesk);
-	--font-body: var(--font-roc-grotesk);
+	body,
+	form,
+	input,
+	button {
+		font-family: var(--font-roc-grotesk);
+	}
+
+	.font-heading {
+		font-family: var(--font-roc-grotesk);
+	}
+
+	.font-body {
+		font-family: var(--font-roc-grotesk);
+	}
 
 	.theme-header {
 		background-color: var(--color-charcoal);
 	}
 }
+
 [data-theme="theestateagency"] {
 	--accent: var(--accent-theestateagency);
 
-	--font-heading: var(--font-didot-display);
-	--font-body: var(--font-didot-display);
+	body,
+	form,
+	input,
+	button {
+		font-family: var(--font-meta-pro-condensed);
+	}
+
+	.font-heading {
+		font-family: var(--font-didot-display);
+	}
+
+	.font-body {
+		font-family: var(--font-meta-pro-condensed);
+	}
 
 	.theme-header {
 		background-color: var(--accent);
 	}
 }
+
 [data-theme="thesupermarketagency"] {
 	--accent: var(--accent-thesupermarketagency);
 	--background: var(--color-faded);
 
-	--font-heading: var(--font-tt-rounds-neue);
-	--font-body: var(--font-ahkio);
+	body,
+	form,
+	input,
+	button {
+		font-family: var(--font-tt-rounds-neue);
+	}
+
+	.font-heading {
+		font-family: var(--font-ahkio);
+	}
+
+	.font-body {
+		font-family: var(--font-tt-rounds-neue);
+	}
 
 	.theme-header {
-		background-color: var(--color-faded);
+		@apply bg-background;
 	}
 }
 

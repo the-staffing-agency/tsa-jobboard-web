@@ -140,6 +140,52 @@ const didotDisplayFont = localFont({
 	variable: '--font-didot-display',
 })
 
+const metaProCondensed = localFont({
+	src: [
+		{
+			path: '../../public/fonts/MetaProCondBold.woff2',
+			weight: '700',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/MetaProCondBold.woff',
+			weight: '700',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/MetaProCondBold.ttf',
+			weight: '700',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/MetaProCondBold.eot',
+			weight: '700',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/MetaProCondNorm.woff2',
+			weight: '400',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/MetaProCondNorm.woff',
+			weight: '400',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/MetaProCondNorm.ttf',
+			weight: '400',
+			style: 'normal',
+		},
+		{
+			path: '../../public/fonts/MetaProCondNorm.eot',
+			weight: '400',
+			style: 'normal',
+		},
+	],
+	variable: '--font-meta-pro-condensed',
+})
+
 export const fontFamilies = {
 	[THEMES.CHEF]: {
 		primary: rocGroteskFont,
@@ -150,6 +196,7 @@ export const fontFamilies = {
 	},
 	[THEMES.ESTATE]: {
 		primary: didotDisplayFont,
+		secondary: metaProCondensed,
 	},
 	[THEMES.DEFAULT]: {
 		primary: rocGroteskFont,
