@@ -1,11 +1,10 @@
 import { RiMapPin2Line } from '@remixicon/react'
-import { Badge } from '../badge'
 
 export function JobLocation({ text }: { text: string }) {
 	return (
-		<Badge className="flex items-center p-0" variant={'ghost'}>
-			<RiMapPin2Line className="text-accent" />
-			<span className="pt-1 text-base/none">{text}</span>
-		</Badge>
+		<div className="flex items-center gap-1">
+			<RiMapPin2Line className="size-4 text-accent" />
+			<span className="font-body text-base/none text-foreground">{text}</span>
+		</div>
 	)
 }

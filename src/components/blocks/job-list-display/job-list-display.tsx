@@ -7,15 +7,15 @@ import {
 	JobSalary,
 	JobTitle,
 	JobWrapperLink,
-} from '../job'
+} from '../../ui/job'
 
-import { ListView } from '../list-view'
+import { ListView } from '../../ui/list-view'
 
 interface JobsProps {
 	jobs: IJob[]
 }
 
-export function Jobs({ jobs }: JobsProps) {
+export function JobListDisplay({ jobs }: JobsProps) {
 	if (!jobs) return null
 
 	return (

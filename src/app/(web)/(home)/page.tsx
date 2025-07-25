@@ -37,7 +37,7 @@ export default async function HomePage() {
 			<Container className="mt-10 flex flex-col gap-10">
 				<CategorySpheres />
 				<main className="mx-auto w-full max-w-[800px]">
-					<h2 className="mb-4 font-bold text-2xl">Recent Jobs</h2>
+					<h2 className="mb-4 font-bold font-heading text-2xl">Recent Jobs</h2>
 					<LastestJobs />
 				</main>
 			</Container>

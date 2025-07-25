@@ -15,7 +15,7 @@ export function JobWrapperLink({
 	return (
 		<div
 			className={cn(
-				`group relative z-0 rounded-sm border border-accent/5 bg-slate-50 p-4 transition-colors duration-150 ease-in-out hover:border-accent/40 hover:bg-accent/10 lg:p-6 ${className}`,
+				`group relative z-0 rounded-sm border border-accent/5 bg-white p-4 transition-colors duration-150 ease-in-out hover:border-accent/40 hover:drop-shadow lg:p-6 ${className}`,
 			)}
 			{...props}
 		>
