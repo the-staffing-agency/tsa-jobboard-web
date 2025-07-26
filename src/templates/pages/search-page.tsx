@@ -1,5 +1,5 @@
+import { CategorySpheres } from '@/components/blocks/category-spheres/category-spheres'
 import { PortalFiltersBlock } from '@/components/blocks/portal-filters-block'
-import { CategorySpheres } from '@/components/category-spheres'
 import { SearchFrom } from '@/components/forms/search'
 import {
 	PageAsideDefault,

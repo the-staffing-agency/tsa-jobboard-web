@@ -1,4 +1,4 @@
-import { CategorySpheres } from '@/components/category-spheres'
+import { CategorySpheres } from '@/components/blocks/category-spheres/category-spheres'
 import { SearchFrom } from '@/components/forms/search'
 import {
 	PageHeader,
