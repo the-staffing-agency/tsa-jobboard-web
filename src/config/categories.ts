@@ -63,9 +63,9 @@ export const categoryIcons: ICategoryIcon[] = [
 		label: 'Grocery',
 	},
 	{
-		value: 'country-club-golf-club',
+		value: 'club-golf-club',
 		icon: CountryClubIcon,
-		label: 'Country Club & Golf Club',
+		label: 'Golf & Country Club',
 	},
 	{
 		value: 'colleges-universities-education',
