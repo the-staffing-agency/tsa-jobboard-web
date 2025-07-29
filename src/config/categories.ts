@@ -1,9 +1,13 @@
 import {
+	BriefcaseIcon,
 	CasinosIcon,
 	CountryClubIcon,
+	FlightIcon,
 	GroceryIcon,
+	HomeIcon,
 	HotelsIcon,
 	RestaurantsIcon,
+	ShipWheelIcon,
 } from '@/components/icons'
 import {
 	type RemixiconComponentType,
@@ -71,5 +75,25 @@ export const categoryIcons: ICategoryIcon[] = [
 		value: 'colleges-universities-education',
 		icon: RiSchoolLine,
 		label: 'Colleges, Universities & Education',
+	},
+	{
+		value: 'corporate',
+		icon: BriefcaseIcon,
+		label: 'Corporate',
+	},
+	{
+		value: 'aviaton',
+		icon: FlightIcon,
+		label: 'Aviaton',
+	},
+	{
+		value: 'domestic',
+		icon: HomeIcon,
+		label: 'Domestic',
+	},
+	{
+		value: 'yachting',
+		icon: ShipWheelIcon,
+		label: 'Yachting',
 	},
 ]
