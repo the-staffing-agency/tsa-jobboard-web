@@ -1,15 +1,16 @@
-import {
-	type CategoryIconConfig,
-	categoryIcons,
-} from '@/components/category-sphere'
+import { getCategoryConfig } from '@/services/category.service'
 import { cn } from '@/utils/cn'
-import { type RemixiconComponentType, RiRestaurantLine } from '@remixicon/react'
 import { type VariantProps, cva } from 'class-variance-authority'
-import type { ComponentType, SVGProps } from 'react'
 
 const categorySphereVariants = cva(
 	'flex flex-col items-center gap-2 group transition-all duration-300 focus:outline-none rounded-lg px-1 cursor-pointer w-16 disabled:opacity-50 disabled:cursor-not-allowed',
 )
+
+const DEFAULT_CATEGORY_STYLES = {
+	bgColor: 'bg-accent/90',
+	isActive: 'bg-accent opacity-100',
+	textColor: 'text-white fill-white',
+} as const
 
 interface CategorySphereButtonProps
 	extends React.ComponentProps<'button'>,
@@ -19,27 +20,20 @@ interface CategorySphereButtonProps
 	isActive?: boolean
 }
 
-export function getCategoryIcon(
-	categoryValueOrLabel: string,
-): RemixiconComponentType | ComponentType<SVGProps<SVGSVGElement>> | null {
-	const category = categoryIcons.find(
-		(cat) =>
-			cat.value === categoryValueOrLabel ||
-			cat.label.toLowerCase() === categoryValueOrLabel.toLowerCase(),
-	)
-	return category?.icon || null
-}
+function normalizeCategoryName(text: string) {
+	if (!text) return ''
 
-export function getCategoryConfig(
-	categoryValueOrLabel: string,
-): CategoryIconConfig | null {
-	return (
-		categoryIcons.find(
-			(cat) =>
-				cat.value === categoryValueOrLabel ||
-				cat.label.toLowerCase() === categoryValueOrLabel.toLowerCase(),
-		) || null
-	)
+	const parts = text
+		.split('/')
+		.map((item) => item.trim())
+		.filter(Boolean)
+
+	if (parts.length === 0) return ''
+
+	if (parts.length === 1) return parts[0]
+
+	const last = parts.pop()
+	return `${parts.join(', ')} & ${last}`
 }
 
 export function CategorySphereButton({
@@ -49,13 +43,13 @@ export function CategorySphereButton({
 	className,
 	...props
 }: CategorySphereButtonProps) {
-	const categoryConfig = getCategoryConfig(label)
+	const categoryConfig = getCategoryConfig(normalizeCategoryName(label))
 
-	const IconComponent = categoryConfig?.icon || RiRestaurantLine
+	const IconComponent = categoryConfig?.icon
 
 	const innerClasses = cn(
 		'rounded-full flex justify-center items-center relative transition-all duration-300 size-14',
-		categoryConfig?.bgColor,
+		DEFAULT_CATEGORY_STYLES.bgColor,
 	)
 
 	return (
@@ -67,17 +61,22 @@ export function CategorySphereButton({
 			<div
 				className={cn(
 					'relative rounded-full p-0.5 opacity-80 transition-all duration-300 group-hover:opacity-100',
-					isActive && categoryConfig?.isActive,
+					isActive && DEFAULT_CATEGORY_STYLES.isActive,
 				)}
 			>
 				<div className={innerClasses}>
-					<IconComponent
-						className={`size-6 transition-all duration-300 ${cn(categoryConfig?.textColor)}`}
-					/>
+					{IconComponent ? (
+						<IconComponent
+							className={cn(
+								'size-6 transition-all duration-300',
+								DEFAULT_CATEGORY_STYLES.textColor,
+							)}
+						/>
+					) : null}
 				</div>
 			</div>
 			<span className="text-center font-semibold text-foreground/80 text-xs transition-all duration-300">
-				{label}
+				{normalizeCategoryName(label)}
 			</span>
 		</button>
 	)

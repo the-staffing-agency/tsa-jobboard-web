@@ -1,3 +1,4 @@
+import { CategorySpheres } from '@/components/blocks/category-spheres'
 import {
 	Hero,
 	HeroContent,
@@ -6,7 +7,6 @@ import {
 	HeroTitle,
 } from '@/components/blocks/hero'
 import { LastestJobs } from '@/components/blocks/latest-jobs'
-import { CategorySpheres } from '@/components/category-spheres'
 import { SearchFrom } from '@/components/forms/search'
 import { Container } from '@/components/ui/container'
 import { getThemeActions } from '@/config/theme/theme-actions'
@@ -34,8 +34,9 @@ export default async function HomePage() {
 				</HeroFooter>
 			</Hero>
 
+			<CategorySpheres />
+
 			<Container className="mt-10 flex flex-col gap-10">
-				<CategorySpheres />
 				<main className="mx-auto w-full max-w-[800px]">
 					<h2 className="mb-4 font-bold font-heading text-2xl">Recent Jobs</h2>
 					<LastestJobs />

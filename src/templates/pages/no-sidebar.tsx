@@ -1,4 +1,4 @@
-import { CategorySpheres } from '@/components/category-spheres'
+import { CategorySpheres } from '@/components/blocks/category-spheres'
 import { SearchFrom } from '@/components/forms/search'
 import {
 	PageHeader,
@@ -35,11 +35,10 @@ export function NoSidebarPageTemplate({
 				</PageHeaderContent>
 			</PageHeader>
 
+			<CategorySpheres />
+
 			<Container className="mt-10 flex flex-col justify-center gap-10 lg:flex-row">
-				<PageMainDefault>
-					<CategorySpheres />
-					{children}
-				</PageMainDefault>
+				<PageMainDefault>{children}</PageMainDefault>
 			</Container>
 
 			<footer className="mt-20" />
