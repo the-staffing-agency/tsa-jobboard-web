@@ -6,10 +6,11 @@ import {
 	HeroSubtitle,
 	HeroTitle,
 } from '@/components/blocks/hero'
-import { LastestJobs } from '@/components/blocks/latest-jobs'
+import { JobsLatest } from '@/components/blocks/jobs-latest'
 import { SearchFrom } from '@/components/forms/search'
 import { Container } from '@/components/ui/container'
 import { getThemeActions } from '@/config/theme/theme-actions'
+import { THEMES } from '@/config/theme/theme-mapping'
 import { heroMock } from '@/mocks/hero.mock'
 import { Suspense } from 'react'
 
@@ -34,12 +35,11 @@ export default async function HomePage() {
 				</HeroFooter>
 			</Hero>
 
-			<CategorySpheres />
+			{theme !== THEMES.SUPERMARKET && <CategorySpheres />}
 
 			<Container className="mt-10 flex flex-col gap-10">
 				<main className="mx-auto w-full max-w-[800px]">
-					<h2 className="mb-4 font-bold font-heading text-2xl">Recent Jobs</h2>
-					<LastestJobs />
+					<JobsLatest />
 				</main>
 			</Container>
 		</div>

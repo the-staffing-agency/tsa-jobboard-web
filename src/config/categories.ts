@@ -16,6 +16,7 @@ import {
 	RiSchoolLine,
 	RiSearchLine,
 	RiShipLine,
+	RiShoppingCartLine,
 } from '@remixicon/react'
 import type { ComponentType } from 'react'
 
@@ -95,5 +96,10 @@ export const categoryIcons: ICategoryIcon[] = [
 		value: 'yachting',
 		icon: ShipWheelIcon,
 		label: 'Yachting',
+	},
+	{
+		value: 'the-supermarket-agency',
+		icon: RiShoppingCartLine,
+		label: 'The Supermarket Agency',
 	},
 ]
