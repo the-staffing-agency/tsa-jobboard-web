@@ -1,4 +1,4 @@
-export function SearchNotFound() {
+export function NotFoundResult() {
 	return (
 		<div className="flex flex-col items-center justify-center space-y-4 p-8">
 			<h2 className="font-bold text-2xl leading-none">No results found</h2>
