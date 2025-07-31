@@ -1,5 +1,4 @@
 import { type ISearchJobsFilter, searchJobs } from '@/http/search-jobs'
-import { Suspense } from 'react'
 import { JobListDisplay } from '../job-list-display'
 import { JobResultsInfos } from './job-results-infos'
 import { JobResultsPagination } from './job-results-pagination'
@@ -27,9 +26,7 @@ export async function JobResults({ search }: JobResultsParams) {
 			</header>
 
 			<main>
-				<Suspense>
-					<JobListDisplay jobs={data} />
-				</Suspense>
+				<JobListDisplay jobs={data} />
 			</main>
 
 			{hasPagination ? (

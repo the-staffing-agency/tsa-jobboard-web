@@ -1,6 +1,6 @@
 'use client'
 
-import { SearchNotFound } from '@/components/search-not-found'
+import { NotFoundResult } from '@/components/blocks/not-found-result'
 
 interface JobResultsInfosProps {
 	query?: string
@@ -24,7 +24,7 @@ export function JobResultsInfos({ query, found }: JobResultsInfosProps) {
 					{query && <ResultQueryName query={query} />}
 				</span>
 			) : (
-				<SearchNotFound />
+				<NotFoundResult />
 			)}
 		</div>
 	)

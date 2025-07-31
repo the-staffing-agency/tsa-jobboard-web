@@ -8,6 +8,8 @@ import {
 	PageMainDefault,
 } from '@/components/templates'
 import { Container } from '@/components/ui/container'
+import { getThemeActions } from '@/config/theme/theme-actions'
+import { THEMES } from '@/config/theme/theme-mapping'
 import { type ComponentProps, Suspense } from 'react'
 
 interface NoSidebarPageTemplateProps extends ComponentProps<'section'> {
@@ -15,10 +17,12 @@ interface NoSidebarPageTemplateProps extends ComponentProps<'section'> {
 	resume?: string
 }
 
-export function NoSidebarPageTemplate({
+export async function NoSidebarPageTemplate({
 	title,
 	children,
 }: NoSidebarPageTemplateProps) {
+	const theme = await getThemeActions()
+
 	return (
 		<section>
 			<PageHeader>
@@ -35,7 +39,7 @@ export function NoSidebarPageTemplate({
 				</PageHeaderContent>
 			</PageHeader>
 
-			<CategorySpheres />
+			{theme !== THEMES.SUPERMARKET && <CategorySpheres />}
 
 			<Container className="mt-10 flex flex-col justify-center gap-10 lg:flex-row">
 				<PageMainDefault>{children}</PageMainDefault>
