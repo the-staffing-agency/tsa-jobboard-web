@@ -12,6 +12,7 @@ import {
 	RiSearchLine,
 	RiShipLine,
 } from '@remixicon/react'
+import { BriefcaseIcon } from 'lucide-react'
 import type { ComponentType } from 'react'
 
 export interface CategoryIconConfig {
@@ -92,6 +93,14 @@ export const categoryIcons: CategoryIconConfig[] = [
 		value: 'country-club-golf-club',
 		icon: CountryClubIcon,
 		label: 'Country Club & Golf Club',
+		bgColor: 'bg-accent/90',
+		isActive: 'bg-accent opacity-100',
+		textColor: 'text-white fill-white',
+	},
+	{
+		value: 'corporate-executive',
+		icon: BriefcaseIcon,
+		label: 'Corporate & Executive',
 		bgColor: 'bg-accent/90',
 		isActive: 'bg-accent opacity-100',
 		textColor: 'text-white fill-white',
