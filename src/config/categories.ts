@@ -83,6 +83,11 @@ export const categoryIcons: ICategoryIcon[] = [
 		label: 'Corporate',
 	},
 	{
+		value: 'corporate-executive',
+		icon: BriefcaseIcon,
+		label: 'Corporate & Executive',
+	},
+	{
 		value: 'aviaton',
 		icon: FlightIcon,
 		label: 'Aviaton',

@@ -6,7 +6,7 @@ export const heroMock = {
 		subtitle: null,
 	},
 	[THEMES.SUPERMARKET]: {
-		title: 'The Ultimate Source of Hospitality Talent',
+		title: 'A Fresh Approach to Recruitment',
 		subtitle: null,
 	},
 	[THEMES.ESTATE]: {
