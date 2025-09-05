@@ -1,4 +1,5 @@
 import { getThemeActions } from '@/config/theme/theme-actions'
+import { THEMES } from '@/config/theme/theme-mapping'
 import { cn } from '@/utils/cn'
 import Image from 'next/image'
 import type React from 'react'
@@ -80,7 +81,7 @@ async function Hero({
 				src={`/assets/images/${theme}/hero-background.jpeg`}
 				fill
 				alt="Hero background"
-				className="absolute top-0 left-0 z-0 w-full object-cover opacity-60"
+				className={`absolute top-0 left-0 z-0 w-full object-cover ${theme === THEMES.SUPERMARKET ? 'opacity-none' : 'opacity-60'}`}
 			/>
 			<div className="relative z-10">{children}</div>
 		</section>
