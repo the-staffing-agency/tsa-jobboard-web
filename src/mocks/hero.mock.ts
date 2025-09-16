@@ -10,7 +10,7 @@ export const heroMock = {
 		subtitle: null,
 	},
 	[THEMES.ESTATE]: {
-		title: 'The Ultimate Source of Hospitality Talent',
+		title: 'A Private Service Company',
 		subtitle: null,
 	},
 	default: {
