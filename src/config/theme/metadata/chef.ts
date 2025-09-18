@@ -31,4 +31,9 @@ export const chefThemeMetadata: IThemeMetadata = {
 		linkedin: 'company/the-chef-agency',
 	},
 	domain: 'https://jobs.thechefagency.com/',
+	favicon: {
+		icon: '/icons/icon-tsa.png',
+		appleTouchIcon: '/icons/icon-tsa.jpg',
+		shortcutIcon: '/icons/icon-tsa.jpg',
+	},
 }

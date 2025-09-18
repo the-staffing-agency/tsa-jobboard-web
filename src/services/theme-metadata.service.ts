@@ -34,7 +34,7 @@ export function generateThemeMetadata(
 
 	const description = pageDescription || themeConfig.description
 
-	return {
+	const metadata: Metadata = {
 		title: {
 			default: themeConfig.title.default,
 			template: themeConfig.title.template,
@@ -58,6 +58,16 @@ export function generateThemeMetadata(
 		},
 		metadataBase: themeConfig.domain ? new URL(themeConfig.domain) : undefined,
 	}
+
+	if (themeConfig.favicon) {
+		metadata.icons = {
+			icon: themeConfig.favicon.icon,
+			apple: themeConfig.favicon.appleTouchIcon || themeConfig.favicon.icon,
+			shortcut: themeConfig.favicon.shortcutIcon || themeConfig.favicon.icon,
+		}
+	}
+
+	return metadata
 }
 
 /**
@@ -171,6 +181,22 @@ export function getSocialHandles(theme: ThemeType) {
  */
 export function getDomain(theme: ThemeType): string | undefined {
 	return getThemeMetadata(theme).domain
+}
+
+/**
+ * Get theme-specific favicon configuration
+ * @param theme - The theme type
+ * @returns Favicon configuration object
+ */
+export function getThemeFavicon(theme: ThemeType) {
+	const themeConfig = getThemeMetadata(theme)
+	return (
+		themeConfig.favicon || {
+			icon: '/icons/icon.jpg',
+			appleTouchIcon: '/icons/icon.jpg',
+			shortcutIcon: '/icons/icon.jpg',
+		}
+	)
 }
 
 export const getThemePageTitle = getPageTitle

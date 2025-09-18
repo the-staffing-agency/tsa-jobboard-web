@@ -12,6 +12,11 @@ export interface IThemeMetadata {
 		linkedin?: string
 	}
 	domain?: string
+	favicon?: {
+		icon: string
+		appleTouchIcon?: string
+		shortcutIcon?: string
+	}
 }
 
 export interface ISocialConfig {

@@ -26,4 +26,9 @@ export const defaultThemeMetadata: IThemeMetadata = {
 		linkedin: '',
 	},
 	domain: 'https://jobs.thechefagency.com/',
+	favicon: {
+		icon: '/icon.png',
+		appleTouchIcon: '/icon.png',
+		shortcutIcon: '/icon.png',
+	},
 }
