@@ -31,4 +31,9 @@ export const supermarketThemeMetadata: IThemeMetadata = {
 		linkedin: '',
 	},
 	domain: 'https://jobs.thesupermarketagency.com',
+	favicon: {
+		icon: '/icons/icon-sma.jpg',
+		appleTouchIcon: '/icons/icon-sma.jpg',
+		shortcutIcon: '/icons/icon-sma.jpg',
+	},
 }

@@ -31,4 +31,9 @@ export const estateThemeMetadata: IThemeMetadata = {
 		linkedin: '',
 	},
 	domain: 'https://jobs.theestateagency.com',
+	favicon: {
+		icon: '/icons/icon-tea.jpg',
+		appleTouchIcon: '/icons/icon-tea.jpg',
+		shortcutIcon: '/icons/icon-tea.jpg',
+	},
 }
