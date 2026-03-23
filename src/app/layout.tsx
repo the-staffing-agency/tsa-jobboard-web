@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 
+import { LinkedInInsight } from '@/components/linkedin-insight'
 import { Providers } from '@/config/provides'
 import { THEMES, type ThemeType } from '@/config/theme/theme-mapping'
 import { ThemeProvider } from '@/contexts/theme-provider'
@@ -71,6 +72,16 @@ export default async function RootLayout({
 						{children}
 					</ThemeProvider>
 				</Providers>
+				<LinkedInInsight />
+				<noscript>
+					<img
+						height="1"
+						width="1"
+						style={{ display: 'none' }}
+						alt=""
+						src="https://px.ads.linkedin.com/collect/?pid=8824826&fmt=gif"
+					/>
+				</noscript>
 			</body>
 		</html>
 	)
