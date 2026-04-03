@@ -1,10 +1,12 @@
 import '@/styles/globals.css'
 
 import { LinkedInInsight } from '@/components/linkedin-insight'
+import { MetaPixel } from '@/components/meta-pixel'
 import { Providers } from '@/config/provides'
 import { THEMES, type ThemeType } from '@/config/theme/theme-mapping'
 import { ThemeProvider } from '@/contexts/theme-provider'
 import { getAllFontVariables } from '@/services/font.service'
+import { META_PIXEL_IDS } from '@/config/tracking'
 import { generateThemeMetadata } from '@/services/theme-metadata.service'
 import { findValidTheme } from '@/utils/find-valid-theme'
 import { splitHostname } from '@/utils/split-hostname'
@@ -73,6 +75,7 @@ export default async function RootLayout({
 					</ThemeProvider>
 				</Providers>
 				<LinkedInInsight />
+				<MetaPixel pixelId={META_PIXEL_IDS[theme ?? 'default']} />
 				<noscript>
 					<img
 						height="1"
